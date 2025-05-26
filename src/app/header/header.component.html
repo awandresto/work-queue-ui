@@ -1,0 +1,14 @@
+<header class="header">
+  <h1>{{ greeting }}</h1>
+
+  <div class="right-block">
+    <input
+      type="text"
+      pInputText
+      placeholder="Search"
+      [(ngModel)]="searchQuery"
+    />
+
+    <div class="avatar">{{ alias }}</div>
+  </div>
+</header>
