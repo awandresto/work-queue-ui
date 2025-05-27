@@ -1,0 +1,30 @@
+@import "primeicons/primeicons.css";
+
+$app-body-bg-color: #0D1117;
+$app-body-padding-horz: 9rem;
+
+$app-border-color: #313B54;
+$app-input-bg-color: #1E2233;
+$app-text-color: #E5E7EB;
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: $app-body-bg-color;
+}
