@@ -1,6 +1,6 @@
 @import "../../../styles.scss";
 
-nav {
+.app-navbar {
   $app-nav-main-color: #3B82F6;
   $app-nav-text-color: #C5CAD3;
   $app-nav-btn-bg-color: #0C0F17;
@@ -9,7 +9,7 @@ nav {
   align-items: center;
   flex-wrap: nowrap;
   gap: 0.5rem;
-  padding: 0.75rem $app-body-padding-horz;
+  margin: 0.75rem $app-body-gap-inline;
 
   .scroll-container {
     display: flex;
@@ -50,7 +50,7 @@ nav {
       }
     }
 
-    .pill-button:hover {
+    .pill-button:hover, .pill-button.active {
       border-color: $app-nav-main-color;
       background-color: $app-nav-main-color;
       color: white;
