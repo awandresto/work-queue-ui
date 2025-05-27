@@ -1,0 +1,23 @@
+<nav>
+  <div class="scroll-container" #scrollContainer>
+    @for (btn of buttons; track btn) {
+      <button class="pill-button">
+        <span class="icon" [innerHTML]="btn.icon"></span>
+        {{ btn.label }}
+      </button>
+    }
+  </div>
+
+  @if (isScrollButtons$ | async) {
+    <button class="scroll-button"
+            [ngClass]="{'disabled': toDisableLeftScroll}"
+            (click)="scrollLeft()">
+      <span class="pi pi-arrow-left"></span>
+    </button>
+    <button class="scroll-button"
+            [ngClass]="{'disabled': toDisableRightScroll}"
+            (click)="scrollRight()">
+      <span class="pi pi-arrow-right"></span>
+    </button>
+  }
+</nav>

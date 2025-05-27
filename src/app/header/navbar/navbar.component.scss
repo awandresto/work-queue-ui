@@ -1,0 +1,86 @@
+@import "../../../styles.scss";
+
+nav {
+  $app-nav-main-color: #3B82F6;
+  $app-nav-text-color: #C5CAD3;
+  $app-nav-btn-bg-color: #0C0F17;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  padding: 0.75rem $app-body-padding-horz;
+
+  .scroll-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 0.5rem;
+    max-width: 100%;
+    border-radius: 0.5rem;
+    scroll-behavior: smooth;
+
+    scrollbar-width: none; /* Firefox */
+
+
+    .pill-button {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 1rem;
+      height: 3rem;
+      border-radius: 9999px;
+      border: 1px solid $app-border-color;
+      background-color: $app-nav-btn-bg-color;
+      font-size: 1.125rem;
+      color: $app-nav-text-color;
+      white-space: nowrap;
+      transition: all 0.2s;
+
+      .icon {
+        display: flex;
+        width: 1.25rem;
+        height: 1.25rem;
+        color: $app-nav-main-color;
+
+        svg {
+          width: 1.25rem;
+          height: 1.25rem;
+        }
+      }
+    }
+
+    .pill-button:hover {
+      border-color: $app-nav-main-color;
+      background-color: $app-nav-main-color;
+      color: white;
+
+      .icon {
+        color: white;
+      }
+    }
+  }
+
+  .scroll-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+
+  .scroll-button {
+    cursor: pointer;
+    min-width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 1px solid $app-border-color;
+    background-color: $app-nav-btn-bg-color;
+    color: $app-border-color;
+  }
+
+  .scroll-button:hover {
+    color: $app-nav-text-color;
+  }
+
+  .scroll-button.disabled, .scroll-button.disabled:hover {
+    cursor: default;
+    color: $app-border-color;
+  }
+}
