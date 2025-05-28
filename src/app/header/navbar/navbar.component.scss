@@ -1,7 +1,6 @@
 @import "../../../styles.scss";
 
 .app-navbar {
-  $app-nav-main-color: #3B82F6;
   $app-nav-text-color: #C5CAD3;
   $app-nav-btn-bg-color: #0C0F17;
 
@@ -41,7 +40,7 @@
         display: flex;
         width: 1.25rem;
         height: 1.25rem;
-        color: $app-nav-main-color;
+        color: $app-main-blue-color;
 
         svg {
           width: 1.25rem;
@@ -51,8 +50,8 @@
     }
 
     .pill-button:hover, .pill-button.active {
-      border-color: $app-nav-main-color;
-      background-color: $app-nav-main-color;
+      border-color: $app-main-blue-color;
+      background-color: $app-main-blue-color;
       color: white;
 
       .icon {

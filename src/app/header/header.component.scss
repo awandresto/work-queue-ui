@@ -5,7 +5,6 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem $app-body-gap-inline;
-  background-color: #0D1117;
   border-bottom: $app-border-color 1px solid;
 
   h1 {
@@ -21,19 +20,10 @@
     gap: 1rem;
 
     input {
-      outline: none;
       height: 3rem;
       width: 30rem;
       padding: 0.5rem 1.25rem;
-      background-color: $app-input-bg-color;
-      border-radius: 9999px;
-      border: none;
       font-size: 1.125rem;
-      color: $app-text-color;
-    }
-
-    input::placeholder {
-      color: #9CA3AF;
     }
 
     .avatar {
@@ -42,7 +32,7 @@
       justify-content: center;
       width: 3rem;
       height: 3rem;
-      background: linear-gradient(60deg, #1E40AF4D, #1E40AFCC);
+      background: linear-gradient(60deg, rgba($app-main-deep-blue-color, 0.3), rgba($app-main-deep-blue-color, 0.8));
       border-radius: 9999px;
       font-size: 1.25rem;
       font-weight: 500;
