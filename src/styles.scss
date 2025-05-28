@@ -1,11 +1,20 @@
 @import "primeicons/primeicons.css";
 
 $app-body-bg-color: #0D1117;
+$app-border-color: #313B54;
+$app-card-bg-color: #1E2233;
+
 $app-body-gap-inline: 9rem;
 
-$app-border-color: #313B54;
-$app-input-bg-color: #1E2233;
 $app-text-color: #E5E7EB;
+$app-sub-text-color: #94A3B8;
+$app-placeholder-color: #596275;
+
+$app-main-blue-color: #3B82F6;
+$app-main-green-color: #3BB979;
+$app-main-yellow-color: #FDD261;
+$app-main-red-color: #B93B3B;
+$app-main-deep-blue-color: #1E40AF;
 
 *,
 *:before,
@@ -18,7 +27,7 @@ $app-text-color: #E5E7EB;
 }
 
 html {
-  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 html, body {
@@ -28,3 +37,81 @@ html, body {
   overflow: hidden;
   background-color: $app-body-bg-color;
 }
+
+input {
+  outline: none;
+  background-color: $app-card-bg-color;
+  border-radius: 9999px;
+  border: none;
+  color: $app-text-color;
+
+  &::placeholder {
+    color: $app-placeholder-color;
+  }
+}
+
+/* PrimeNG */
+.p-card {
+  background-color: $app-card-bg-color !important;
+  border-radius: 1.5rem !important;
+  border: 1px solid $app-border-color;
+  color: $app-text-color;
+}
+
+.p-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $app-text-color;
+}
+
+.p-card-content {
+  padding-top: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.p-datatable,
+.p-datatable-thead > tr,
+.p-datatable-tbody > tr {
+  background-color: $app-card-bg-color !important;
+}
+
+.p-datatable-thead > tr > th,
+.p-datatable-tbody > tr:nth-child(2n) {
+  background-color: #FFFFFF05 !important;
+}
+
+.p-datatable-thead > tr > th,
+.p-datatable-tbody > tr > td {
+  font-weight: 200 !important;
+  color: $app-text-color !important;
+}
+
+.p-datatable-thead > tr > th {
+  padding-block: 0.5rem !important;
+  font-size: 0.7rem;
+  color: $app-sub-text-color !important;
+  text-transform: uppercase;
+}
+
+.p-card-content {
+  padding: 0;
+}
+
+.p-tag {
+  padding: 0.25rem 0.75rem;
+  min-width: 5.5rem;
+  background-color: rgba($app-main-deep-blue-color, 0.3);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: $app-text-color;
+
+  &.outlined {
+    min-width: 2.75rem;
+    padding-inline: 0.5rem;
+    background-color: transparent;
+    border: 1px solid $app-main-blue-color;
+    color: $app-main-blue-color;
+  }
+}
+
+
