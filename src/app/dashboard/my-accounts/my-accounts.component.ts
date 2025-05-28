@@ -8,49 +8,132 @@ import { Card } from 'primeng/card';
 import { Account } from '../../types/account';
 import { AccountsService } from '../../services/accounts.service';
 import { ProgressSpinner } from 'primeng/progressspinner';
+import { debounceTime, Subject } from 'rxjs';
+import { Button } from 'primeng/button';
+import { MenuItem } from 'primeng/api';
+import { Menu } from 'primeng/menu';
+
+const ACCOUNT_FIELDS: (keyof Account)[] = [
+  'name',
+  'type',
+  'line',
+  'broker',
+  'renewalDate',
+  'premium',
+  'ratedPremium',
+  'lossRatio',
+  'appetite',
+  'status',
+  'triage',
+  'winnabilityLevel'
+];
 
 @Component({
   selector: 'app-my-accounts',
-  imports: [CommonModule, TableModule, BadgeModule, TagModule, FormsModule, Card, ProgressSpinner],
+  imports: [CommonModule, TableModule, BadgeModule, TagModule, FormsModule, Card, ProgressSpinner, Button, Menu],
   templateUrl: './my-accounts.component.html',
   styleUrls: ['./my-accounts.component.scss'],
   standalone: true
 })
 export class MyAccountsComponent implements OnInit {
-  accounts: Account[] = [];
-  columns = [
-    'Account Name/Type',
-    'Line',
-    'Broker',
-    'Renewal Date',
-    'Premium',
-    'Rated Premium',
-    'Loss Ratio',
-    'Appetite',
-    'Status',
-    'Triage',
-    'Winnability'
-  ];
-  filterValue = '';
-  isLoading = false;
+  public accounts: Account[] = [];
+  public columns: string[] = [];
+  public isLoading: boolean = false;
+  public filterValue$: Subject<string> = new Subject<string>();
+  public selectedAccount: Account | null = null;
+  public tableActions: MenuItem[] | undefined;
+
   @ViewChild('dt') table!: Table;
+  @ViewChild('menu') menu!: Menu;
+
+  protected readonly accountFields = ACCOUNT_FIELDS;
 
   constructor(private accountsService: AccountsService) {}
 
-  ngOnInit() {
+  public ngOnInit(): void {
+    this.initTable();
+
     this.isLoading = true;
     this.accountsService.getAccounts().subscribe(data => {
       this.accounts = data;
       this.isLoading = false;
     });
+
+    this.filterValue$
+      .pipe(debounceTime(500))
+      .subscribe(value => {
+        this.table.filterGlobal(value, 'contains');
+      });
   }
 
-  getDots(count: number): number[] {
+  public getDots(count: number): number[] {
     return Array(count).fill(0);
   }
 
-  onTableFilter(event: Event) {
+  public getRatioColor(ratio: string): string {
+    const ratioValue = parseFloat(ratio);
+    if (ratioValue <= 35) {
+      return 'green';
+    } else if (ratioValue <= 65) {
+      return 'yellow';
+    } else {
+      return 'red';
+    }
+  }
+
+  public onFilterTable(event: Event): void {
     const value = (event.target as HTMLInputElement).value;
-    this.table.filterGlobal(value, 'contains');
+    this.filterValue$.next(value);
+  }
+
+  public showMenu(event: MouseEvent, row: any): void {
+    event.preventDefault();
+    this.selectedAccount = row;
+    this.menu.toggle(event);
+  }
+
+  private initTable() {
+    this.tableActions = [
+      {
+        label: 'Actions',
+        items: [
+          {
+            label: 'Edit',
+            icon: 'pi pi-pencil',
+            command: () => this.editRow(this.selectedAccount)
+          },
+          {
+            label: 'Delete',
+            icon: 'pi pi-trash',
+            command: () => this.deleteRow(this.selectedAccount)
+          }
+        ]
+      }
+    ];
+
+    this.columns = [
+      'Account Name/Type',
+      'Line',
+      'Broker',
+      'Renewal Date',
+      'Premium',
+      'Rated Premium',
+      'Loss Ratio',
+      'Appetite',
+      'Status',
+      'Triage',
+      'Winnability',
+      ''
+    ];
+  }
+
+  public editRow(row: any): void {
+    // Implement the logic to edit account
+    console.log('Edit account:', row);
+  }
+
+  public deleteRow(row: any): void {
+    // Implement the logic to delete account
+    console.log('Delete account:', row);
   }
 }

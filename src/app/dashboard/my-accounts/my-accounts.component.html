@@ -7,8 +7,7 @@
         type="text"
         pInputText
         placeholder="Search"
-        [(ngModel)]="filterValue"
-        (input)="onTableFilter($event)"
+        (input)="onFilterTable($event)"
       />
     </span>
 
@@ -28,11 +27,12 @@
     } @else {
       <p-table #dt
                [value]="accounts"
+               [globalFilterFields]="accountFields"
                stripedRows
                [scrollable]="true">
         <ng-template #header>
           <tr>
-            @for (col of columns; track col) {
+            @for (col of columns; let i=$index; track i) {
               <th>{{ col }}</th>
             }
           </tr>
@@ -52,7 +52,7 @@
             </td>
             <td>{{ account.ratedPremium }}</td>
             <td>
-              <p-tag class="ratio {{account.lossColor}}"
+              <p-tag class="ratio {{getRatioColor(account.lossRatio)}}"
                      [value]="account.lossRatio"
                      rounded></p-tag>
             </td>
@@ -70,11 +70,19 @@
             </td>
             <td>
               <p-tag class="outlined" rounded>
-                @for (_ of getDots(account.winnabilityScore); track _) {
+                @for (_ of getDots(account.winnabilityScore); let i=$index; track i) {
                   <span class="dot blue"></span>
                 }
                 {{ account.winnabilityLevel }}
               </p-tag>
+            </td>
+            <td>
+              <p-button icon="pi pi-ellipsis-v"
+                        class="actions"
+                        styleClass="actions-button"
+                        [rounded]="true"
+                        [outlined]="true"
+                        (click)="showMenu($event, account)"/>
             </td>
           </tr>
         </ng-template>
@@ -82,3 +90,5 @@
     }
   </div>
 </p-card>
+
+<p-menu #menu [model]="tableActions" [popup]="true" styleClass="trigger-menu" />

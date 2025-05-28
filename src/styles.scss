@@ -113,3 +113,26 @@ input {
     color: $app-main-blue-color;
   }
 }
+
+.actions-button {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  border-color: $app-text-color !important;
+  color: $app-text-color !important;
+
+  .p-button-icon {
+    font-size: 0.7rem !important;
+  }
+}
+
+.trigger-menu {
+  background-color: $app-card-bg-color !important;
+  border-color: $app-border-color !important;
+  font-size: 0.85rem;
+  font-weight: 200 !important;
+  color: $app-text-color !important;
+
+  a:hover {
+    background-color: rgba($app-main-blue-color, 0.1) !important;
+  }
+}
