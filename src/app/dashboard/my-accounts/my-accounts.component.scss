@@ -55,57 +55,67 @@
       }
     }
   }
-}
 
-.account-type {
-  font-size: 0.85rem;
-  color: $app-sub-text-color;
-}
+  .content  {
+    padding-bottom: 1.5rem;
 
-.highlight {
-  color: $app-main-blue-color;
-  font-weight: 400;
-}
+    .account-type {
+      font-size: 0.85rem;
+      color: $app-sub-text-color;
+    }
 
-.ratio {
-  min-width: auto;
-  color: white;
+    .highlight {
+      color: $app-main-blue-color;
+      font-weight: 400;
+    }
 
-  &.red {
-    background-color: $app-main-red-color;
+    .ratio {
+      min-width: auto;
+      color: white;
+
+      &.red {
+        background-color: $app-main-red-color;
+      }
+
+      &.green {
+        background-color: $app-main-green-color;
+      }
+
+      &.yellow {
+        background-color: $app-main-yellow-color;
+        color: #041B2E;
+      }
+    }
+
+    .dot {
+      width: 0.625rem;
+      height: 0.625rem;
+      border-radius: 50%;
+
+      &.green {
+        background-color: $app-main-green-color;
+      }
+
+      &.blue {
+        background-color: $app-main-blue-color;
+      }
+
+      &.deep-blue {
+        background-color: $app-main-deep-blue-color;
+      }
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+    }
+
+    .spinner-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
-
-  &.green {
-    background-color: $app-main-green-color;
-  }
-
-  &.yellow {
-    background-color: $app-main-yellow-color;
-    color: #041B2E;
-  }
-}
-
-.dot {
-  width: 0.625rem;
-  height: 0.625rem;
-  border-radius: 50%;
-
-  &.green {
-    background-color: $app-main-green-color;
-  }
-
-  &.blue {
-    background-color: $app-main-blue-color;
-  }
-
-  &.deep-blue {
-    background-color: $app-main-deep-blue-color;
-  }
-}
-
-.status {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.85rem;
 }
