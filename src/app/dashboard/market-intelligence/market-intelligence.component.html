@@ -1,0 +1,15 @@
+<p-card class="app-market-card">
+  <div class="header">
+    <h2 class="market-title">Market intelligence</h2>
+  </div>
+  <div class="content">
+    <ul class="market-list">
+      @for (item of items; track item) {
+        <li class="market-item">
+          <span class="bullet" [ngClass]="item.color"></span>
+          <span class="text">{{ item.text }}</span>
+        </li>
+      }
+    </ul>
+  </div>
+</p-card>
