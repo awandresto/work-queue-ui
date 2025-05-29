@@ -3,6 +3,7 @@ import { MyAccountsComponent } from './my-accounts/my-accounts.component';
 import { WorkQueueComponent } from './work-queue/work-queue.component';
 import { QuickActionsComponent } from './quick-actions/quick-actions.component';
 import { MarketIntelligenceComponent } from './market-intelligence/market-intelligence.component';
+import { PortfolioGoalsComponent } from './portfolio-goals/portfolio-goals.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +11,8 @@ import { MarketIntelligenceComponent } from './market-intelligence/market-intell
     MyAccountsComponent,
     WorkQueueComponent,
     QuickActionsComponent,
-    MarketIntelligenceComponent
+    MarketIntelligenceComponent,
+    PortfolioGoalsComponent
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'

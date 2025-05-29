@@ -1,0 +1,51 @@
+<p-card class="app-portfolio-goals">
+  <h2>Portfolio goals</h2>
+  <div class="content">
+    <p-metergroup [value]="value" />
+
+    <div class="goals-container">
+      <h2 class="title">Portfolio goals</h2>
+
+      <div class="goal-section">
+        <div class="label">Portfolio Loss Ratio Target</div>
+        <div class="loss-bar">
+          <div class="bar green" style="width: 48%"></div>
+          <div class="bar red" style="width: 52%"></div>
+          <div class="indicator">48.2%</div>
+          <div class="sub-label good">-6.8% (GOOD)</div>
+        </div>
+      </div>
+
+      <div class="goal-section">
+        <div class="label">Renewal Retention</div>
+        <div class="retention-bar">
+          <div class="bar red"></div>
+          <div class="bar yellow" style="width: 88%"></div>
+          <div class="indicator yellow-text">88%</div>
+          <div class="sub-label">ON TARGET</div>
+        </div>
+      </div>
+
+      <div class="goal-section">
+        <div class="label">New Business Target</div>
+        <div class="progress-row">
+          <span class="current">$8.1M</span>
+          <p-progressBar [value]="newBusinessPercent"></p-progressBar>
+          <span class="target">$12M</span>
+        </div>
+        <div class="percent-label">{{ newBusinessPercent }}%</div>
+      </div>
+
+      <div class="goal-section">
+        <div class="label">Annual GWP Target</div>
+        <div class="progress-row">
+          <span class="current">$28.4M</span>
+          <p-progressBar [value]="annualGWPPercent"></p-progressBar>
+          <span class="target">$42M</span>
+        </div>
+        <div class="percent-label">{{ annualGWPPercent }}%</div>
+      </div>
+    </div>
+
+  </div>
+</p-card>
