@@ -5,13 +5,13 @@ import { BadgeModule } from 'primeng/badge';
 import { TagModule } from 'primeng/tag';
 import { Table, TableModule } from 'primeng/table';
 import { Card } from 'primeng/card';
-import { Account } from '../../types/account';
 import { AccountsService } from '../../services/accounts.service';
 import { ProgressSpinner } from 'primeng/progressspinner';
 import { debounceTime, Subject } from 'rxjs';
 import { Button } from 'primeng/button';
 import { MenuItem } from 'primeng/api';
 import { Menu } from 'primeng/menu';
+import { Account } from '../../types/account.types';
 
 const ACCOUNT_FIELDS: (keyof Account)[] = [
   'name',
@@ -40,10 +40,10 @@ export class MyAccountsComponent implements OnInit {
   public columns: string[] = [];
   public isLoading: boolean = false;
   public filterValue$: Subject<string> = new Subject<string>();
-  public selectedAccount: Account | null = null;
+  public selectedRow: Account | null = null;
   public tableActions: MenuItem[] | undefined;
 
-  @ViewChild('dt') table!: Table;
+  @ViewChild('table') table!: Table;
   @ViewChild('menu') menu!: Menu;
 
   protected readonly accountFields = ACCOUNT_FIELDS;
@@ -88,8 +88,18 @@ export class MyAccountsComponent implements OnInit {
 
   public showMenu(event: MouseEvent, row: any): void {
     event.preventDefault();
-    this.selectedAccount = row;
+    this.selectedRow = row;
     this.menu.toggle(event);
+  }
+
+  public editRow(row: any): void {
+    // Implement the logic to edit account
+    console.log('Edit account:', row);
+  }
+
+  public deleteRow(row: any): void {
+    // Implement the logic to delete account
+    console.log('Delete account:', row);
   }
 
   private initTable() {
@@ -100,12 +110,12 @@ export class MyAccountsComponent implements OnInit {
           {
             label: 'Edit',
             icon: 'pi pi-pencil',
-            command: () => this.editRow(this.selectedAccount)
+            command: () => this.editRow(this.selectedRow)
           },
           {
             label: 'Delete',
             icon: 'pi pi-trash',
-            command: () => this.deleteRow(this.selectedAccount)
+            command: () => this.deleteRow(this.selectedRow)
           }
         ]
       }
@@ -125,15 +135,5 @@ export class MyAccountsComponent implements OnInit {
       'Winnability',
       ''
     ];
-  }
-
-  public editRow(row: any): void {
-    // Implement the logic to edit account
-    console.log('Edit account:', row);
-  }
-
-  public deleteRow(row: any): void {
-    // Implement the logic to delete account
-    console.log('Delete account:', row);
   }
 }
