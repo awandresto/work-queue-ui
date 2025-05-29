@@ -16,6 +16,9 @@ $app-main-yellow-color: #FDD261;
 $app-main-red-color: #B93B3B;
 $app-main-deep-blue-color: #1E40AF;
 
+$app-nav-text-color: #C5CAD3;
+$app-nav-btn-bg-color: #0C0F17;
+
 *,
 *:before,
 *:after {
@@ -112,6 +115,12 @@ input {
     border: 1px solid $app-main-blue-color;
     color: $app-main-blue-color;
   }
+}
+
+.p-avatar {
+  background: linear-gradient(60deg, rgba($app-main-deep-blue-color, 0.3), rgba($app-main-deep-blue-color, 0.8));
+  font-weight: 500;
+  color: white;
 }
 
 .actions-button {

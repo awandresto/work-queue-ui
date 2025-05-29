@@ -4,11 +4,10 @@
   </div>
 
   <div class="categories">
-    @for (category of categories; let i=$index; track i) {
-      <button class="tab-button"
-              [ngClass]="{'active': selectedIndexCategory === i}"
-              (click)="onCategoryChange(i)">
-        {{ category }}
+    @for (category of categories; let i=$index; track category) {
+      <button [ngClass]="{'active': selectedCategory === category.key}"
+              (click)="onCategoryChange(category.key)">
+        {{ category.label }}
       </button>
     }
   </div>
@@ -21,7 +20,6 @@
     } @else {
       <p-table #table
                [value]="selectedWorkQueue"
-               [globalFilterFields]="workFields"
                stripedRows
                [scrollable]="true">
         <ng-template #header>
@@ -35,7 +33,10 @@
         <ng-template #body let-work>
           <tr>
             <td>
-              <div class="work-name">{{ work.fullName }}</div>
+              <div class="work-name">
+                <p-avatar [label]="work.alias" shape="circle" />
+                {{ work.fullName }}
+              </div>
             </td>
             <td>
               <div class="work-client">{{ work.client }}</div>

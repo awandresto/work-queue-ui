@@ -4,23 +4,12 @@ import { Card } from 'primeng/card';
 import { Menu } from 'primeng/menu';
 import { ProgressSpinner } from 'primeng/progressspinner';
 import { Table, TableModule } from 'primeng/table';
-import { Tag } from 'primeng/tag';
 import { MenuItem } from 'primeng/api';
 import { WorkQueueItem, WorkQueueList } from '../../types/work-queue.types';
 import { WorkQueueService } from '../../services/work-queue.service';
-import { Account } from '../../types/account.types';
 import { NgClass } from '@angular/common';
+import { Avatar } from 'primeng/avatar';
 
-const WORK_ITEM_FIELDS: (keyof WorkQueueItem)[] = [
-  'alias',
-  'fullName',
-  'client',
-  'line',
-  'type',
-  'status',
-  'statusColor',
-  'created'
-];
 
 enum WorkQueueCategories {
   me = 'Assigned to me',
@@ -36,17 +25,17 @@ enum WorkQueueCategories {
     Menu,
     ProgressSpinner,
     TableModule,
-    Tag,
-    NgClass
+    NgClass,
+    Avatar
   ],
   templateUrl: './work-queue.component.html',
   styleUrl: './work-queue.component.scss',
   standalone: true
 })
 export class WorkQueueComponent implements OnInit {
-  public categories: string[] = [];
+  public categories: { key: string, label: string }[] = [];
   public columns: string[] = [];
-  public selectedIndexCategory = 0;
+  public selectedCategory: WorkQueueCategories = WorkQueueCategories.me;
   public isLoading: boolean = false;
 
   public selectedRow: WorkQueueItem | null = null;
@@ -57,8 +46,6 @@ export class WorkQueueComponent implements OnInit {
 
   @ViewChild('table') table!: Table;
   @ViewChild('menu') menu!: Menu;
-
-  protected readonly workFields = WORK_ITEM_FIELDS;
 
   constructor(private workQueueService: WorkQueueService) {}
 
@@ -75,10 +62,14 @@ export class WorkQueueComponent implements OnInit {
           if (this.workQueueList[key]) {
             const data = this.workQueueList[key];
             const categoryLabel = WorkQueueCategories[key];
-            this.categories.push(`${categoryLabel} (${data.length})`);
+            this.categories.push({
+              key,
+              label: `${categoryLabel} (${data.length})`
+            });
 
             if (this.categories.length === 1) {
               this.selectedWorkQueue = data;
+              this.selectedCategory = key as WorkQueueCategories;
             }
           }
         });
@@ -87,8 +78,9 @@ export class WorkQueueComponent implements OnInit {
     });
   }
 
-  public onCategoryChange(index: number): void {
-    this.selectedIndexCategory = index;
+  public onCategoryChange(key: string): void {
+    this.selectedCategory = key as WorkQueueCategories;
+    this.selectedWorkQueue = this.workQueueList[key] || [];
   }
 
   public editRow(row: any): void {
