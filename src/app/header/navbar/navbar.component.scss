@@ -1,9 +1,6 @@
 @import "../../../styles.scss";
 
 .app-navbar {
-  $app-nav-text-color: #C5CAD3;
-  $app-nav-btn-bg-color: #0C0F17;
-
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
@@ -31,7 +28,7 @@
       border-radius: 9999px;
       border: 1px solid $app-border-color;
       background-color: $app-nav-btn-bg-color;
-      font-size: 1.125rem;
+      font-size: 1.15rem;
       color: $app-nav-text-color;
       white-space: nowrap;
       transition: all 0.2s;

@@ -25,18 +25,5 @@
       padding: 0.5rem 1.25rem;
       font-size: 1.125rem;
     }
-
-    .avatar {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 3rem;
-      height: 3rem;
-      background: linear-gradient(60deg, rgba($app-main-deep-blue-color, 0.3), rgba($app-main-deep-blue-color, 0.8));
-      border-radius: 9999px;
-      font-size: 1.25rem;
-      font-weight: 500;
-      color: white;
-    }
   }
 }
