@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { Card } from 'primeng/card';
-import { Button } from 'primeng/button';
 
 @Component({
   selector: 'app-quick-actions',
   imports: [
-    Card,
-    Button
+    Card
   ],
   templateUrl: './quick-actions.component.html',
-  styleUrl: './quick-actions.component.scss'
+  styleUrl: './quick-actions.component.scss',
+  standalone: true
 })
 export class QuickActionsComponent {
   quickActions: string[] = [

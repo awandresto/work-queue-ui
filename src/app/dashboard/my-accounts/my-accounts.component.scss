@@ -87,29 +87,29 @@
       }
     }
 
-    .dot {
-      width: 0.625rem;
-      height: 0.625rem;
-      border-radius: 50%;
-
-      &.green {
-        background-color: $app-main-green-color;
-      }
-
-      &.blue {
-        background-color: $app-main-blue-color;
-      }
-
-      &.deep-blue {
-        background-color: $app-main-deep-blue-color;
-      }
-    }
-
     .status {
       display: flex;
       align-items: center;
       gap: 0.4rem;
       font-size: 0.85rem;
+
+      .dot {
+        width: 0.625rem;
+        height: 0.625rem;
+        border-radius: 50%;
+
+        &.green {
+          background-color: $app-main-green-color;
+        }
+
+        &.blue {
+          background-color: $app-main-blue-color;
+        }
+
+        &.deep-blue {
+          background-color: $app-main-deep-blue-color;
+        }
+      }
     }
 
     .spinner-wrapper {

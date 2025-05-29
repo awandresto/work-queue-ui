@@ -15,7 +15,8 @@ import { PortfolioGoalsComponent } from './portfolio-goals/portfolio-goals.compo
     PortfolioGoalsComponent
   ],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+  styleUrl: './dashboard.component.scss',
+  standalone: true
 })
 export class DashboardComponent {
 
