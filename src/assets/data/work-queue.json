@@ -1,0 +1,106 @@
+{
+  "me": [
+    {
+      "alias": "SM",
+      "fullName": "Sam Masters",
+      "client": "NAMEX Tech Solutions",
+      "line": "Cyber Liability",
+      "type": "Underwriter Referral",
+      "status": "New",
+      "statusColor": "blue",
+      "created": "2025-04-16"
+    },
+    {
+      "alias": "AW",
+      "fullName": "Annalise Willis",
+      "client": "Maritime Logistics Corp",
+      "line": "Marine Cargo",
+      "type": "Underwriter Referral",
+      "status": "New",
+      "statusColor": "blue",
+      "created": "2025-04-20"
+    },
+    {
+      "alias": "PD",
+      "fullName": "Patrick Devenport",
+      "client": "GreenField Energy Ltd",
+      "line": "Environmental",
+      "type": "Loss Control Request",
+      "status": "New",
+      "statusColor": "blue",
+      "created": "2025-04-16"
+    },
+    {
+      "alias": "AK",
+      "fullName": "Ana Killian",
+      "client": "NorthStar Financial Group",
+      "line": "D&O Liability",
+      "type": "Underwriter Referral",
+      "status": "Pending Review",
+      "statusColor": "yellow",
+      "created": "2025-04-22"
+    },
+    {
+      "alias": "AK",
+      "fullName": "Ana Killian",
+      "client": "Alliance Healthcare Systems",
+      "line": "Medical Malpractice",
+      "type": "Email",
+      "status": "Completed",
+      "statusColor": "green",
+      "created": "2025-04-28"
+    },
+    {
+      "alias": "MK",
+      "fullName": "Me",
+      "client": "QuantumTech Industries",
+      "line": "Product Liability",
+      "type": "Email",
+      "status": "Completed",
+      "statusColor": "green",
+      "created": "2025-04-20"
+    }
+  ],
+  "pendingReview": [
+    {
+      "alias": "SM",
+      "fullName": "Sam Masters",
+      "client": "NAMEX Tech Solutions",
+      "line": "Cyber Liability",
+      "type": "Underwriter Referral",
+      "status": "New",
+      "statusColor": "blue",
+      "created": "2025-04-16"
+    },
+    {
+      "alias": "AW",
+      "fullName": "Annalise Willis",
+      "client": "Maritime Logistics Corp",
+      "line": "Marine Cargo",
+      "type": "Underwriter Referral",
+      "status": "New",
+      "statusColor": "blue",
+      "created": "2025-04-20"
+    },
+    {
+      "alias": "PD",
+      "fullName": "Patrick Devenport",
+      "client": "GreenField Energy Ltd",
+      "line": "Environmental",
+      "type": "Loss Control Request",
+      "status": "New",
+      "statusColor": "blue",
+      "created": "2025-04-16"
+    },
+    {
+      "alias": "AK",
+      "fullName": "Ana Killian",
+      "client": "NorthStar Financial Group",
+      "line": "D&O Liability",
+      "type": "Underwriter Referral",
+      "status": "Pending Review",
+      "statusColor": "yellow",
+      "created": "2025-04-22"
+    }
+  ]
+}

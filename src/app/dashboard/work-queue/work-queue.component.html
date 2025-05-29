@@ -1,0 +1,67 @@
+<p-card class="app-work-queue" styleClass="app-work-queue">
+  <div class="header">
+    <h2>Work Queue</h2>
+  </div>
+
+  <div class="categories">
+    @for (category of categories; let i=$index; track i) {
+      <button class="tab-button"
+              [ngClass]="{'active': selectedIndexCategory === i}"
+              (click)="onCategoryChange(i)">
+        {{ category }}
+      </button>
+    }
+  </div>
+
+  <div class="content">
+    @if (isLoading) {
+      <div class="spinner-wrapper">
+        <p-progress-spinner ariaLabel="loading" />
+      </div>
+    } @else {
+      <p-table #table
+               [value]="selectedWorkQueue"
+               [globalFilterFields]="workFields"
+               stripedRows
+               [scrollable]="true">
+        <ng-template #header>
+          <tr>
+            @for (col of columns; let i=$index; track i) {
+              <th>{{ col }}</th>
+            }
+          </tr>
+        </ng-template>
+
+        <ng-template #body let-work>
+          <tr>
+            <td>
+              <div class="work-name">{{ work.fullName }}</div>
+            </td>
+            <td>
+              <div class="work-client">{{ work.client }}</div>
+              <div class="work-line">{{ work.line }}</div>
+            </td>
+            <td>{{ work.type }}</td>
+            <td>
+              <div class="status">
+                <span class="dot" [ngClass]="work.status === 'Completed' ? 'green' : work.status === 'New' ? 'blue' : 'yellow'"></span>
+                {{ work.status }}
+              </div>
+            </td>
+            <td>{{ work.created }}</td>
+            <td>
+              <p-button icon="pi pi-ellipsis-v"
+                        class="actions"
+                        styleClass="actions-button"
+                        [rounded]="true"
+                        [outlined]="true"
+                        (click)="showMenu($event, work)"/>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    }
+  </div>
+</p-card>
+
+<p-menu #menu [model]="tableActions" [popup]="true" styleClass="trigger-menu" />
