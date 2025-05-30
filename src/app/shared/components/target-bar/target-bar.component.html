@@ -1,0 +1,19 @@
+<div class="target-bar">
+  <div class="bar-title">{{ barData.title }}</div>
+
+  <div class="bar-row">
+    <div class="bar-container">
+      <div
+        class="bar-fill"
+        [ngStyle]="{width: barData.percent + '%'}"
+      >
+        <span class="value-inside">{{ barData.value }}</span>
+      </div>
+    </div>
+    <span class="label target-label">{{ barData.target }}</span>
+  </div>
+
+  <div class="percent-label" [ngStyle]="{ left: barData.percent + '%' }">
+    {{ barData.percentLabel || (barData.percent + '%') }}
+  </div>
+</div>

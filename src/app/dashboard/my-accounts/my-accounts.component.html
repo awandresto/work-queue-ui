@@ -1,0 +1,94 @@
+<p-card class="app-my-accounts" [style]="{'width': '100%'}">
+  <div class="header">
+    <h2>My accounts</h2>
+
+    <span class="input-filter">
+      <input
+        type="text"
+        pInputText
+        placeholder="Search"
+        (input)="onFilterTable($event)"
+      />
+    </span>
+
+    <div class="toolbar">
+      <button class="btn">Filter</button>
+      <button class="btn">Sort</button>
+      <button class="btn">Group</button>
+      <button class="btn primary">+ New</button>
+    </div>
+  </div>
+
+  <div class="content">
+    @if (isLoading) {
+      <div class="spinner-wrapper">
+        <p-progress-spinner ariaLabel="loading" />
+      </div>
+    } @else {
+      <p-table #table
+               [value]="accounts"
+               [globalFilterFields]="accountFields"
+               stripedRows
+               [scrollable]="true">
+        <ng-template #header>
+          <tr>
+            @for (col of columns; let i=$index; track i) {
+              <th>{{ col }}</th>
+            }
+          </tr>
+        </ng-template>
+
+        <ng-template #body let-account>
+          <tr>
+            <td>
+              <div class="account-name">{{ account.name }}</div>
+              <div class="account-type">{{ account.type }}</div>
+            </td>
+            <td>{{ account.line }}</td>
+            <td>{{ account.broker }}</td>
+            <td>{{ account.renewalDate }}</td>
+            <td>
+              <div class="highlight">{{ account.premium }}</div>
+            </td>
+            <td>{{ account.ratedPremium }}</td>
+            <td>
+              <p-tag class="ratio {{getRatioColor(account.lossRatio)}}"
+                     [value]="account.lossRatio"
+                     rounded></p-tag>
+            </td>
+            <td>
+              <p-tag [value]="account.appetite" rounded></p-tag>
+            </td>
+            <td>
+              <div class="status">
+                <span class="dot" [ngClass]="account.status === 'Active' ? 'green' : 'deep-blue'"></span>
+                {{ account.status }}
+              </div>
+            </td>
+            <td>
+              <p-tag class="outlined" [value]="account.triage" rounded></p-tag>
+            </td>
+            <td>
+              <p-tag class="outlined" rounded>
+                @for (_ of getDots(account.winnabilityScore); let i=$index; track i) {
+                  <span class="dot blue"></span>
+                }
+                {{ account.winnabilityLevel }}
+              </p-tag>
+            </td>
+            <td>
+              <p-button icon="pi pi-ellipsis-v"
+                        class="actions"
+                        styleClass="actions-button"
+                        [rounded]="true"
+                        [outlined]="true"
+                        (click)="showMenu($event, account)"/>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    }
+  </div>
+</p-card>
+
+<p-menu #menu [model]="tableActions" [popup]="true" styleClass="trigger-menu" />

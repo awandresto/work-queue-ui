@@ -152,6 +152,7 @@ export class NavbarComponent implements AfterViewInit {
   }
 
   private toScroll(isLeft?: boolean) {
-    this.scrollContainer.nativeElement.scrollBy({ left: isLeft ? -100 : 100, behavior: 'smooth' });
+    if (!this.scrollContainer || !this.scrollContainer.nativeElement) return;
+    this.scrollContainer.nativeElement.scrollTo({ left: isLeft ? -100 : 100, behavior: 'smooth' });
   }
 }

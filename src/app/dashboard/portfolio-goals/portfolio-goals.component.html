@@ -1,0 +1,18 @@
+<p-card class="app-portfolio-goals" [style]="{'width': 'var(--top-right-column-width)', 'height': 'var(--top-row-height)'}">
+  <h2>Portfolio goals</h2>
+  <div class="content">
+    @if (isLoading) {
+      <div class="spinner-wrapper">
+        <p-progress-spinner ariaLabel="loading" />
+      </div>
+    } @else {
+      @for (barData of goalBarDataList; track barData) {
+        <app-goal-bar [barData]="barData" />
+      }
+
+      @for (barData of targetBarDataList; track barData) {
+        <app-target-bar [barData]="barData" />
+      }
+    }
+  </div>
+</p-card>

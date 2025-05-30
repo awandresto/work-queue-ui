@@ -1,0 +1,94 @@
+@import "../../../styles.scss";
+
+.app-work-queue {
+  margin-bottom: 2.625rem !important;
+
+  h2 {
+    margin-right: 0.875rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .categories {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+
+    button {
+      cursor: pointer;
+      padding-inline: 1.25rem;
+      height: 2rem;
+      background-color: #0C0F17;
+      border: none;
+      border-radius: 9999px;
+      color: $app-nav-text-color;
+      font-size: 1.15rem;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: rgb($app-main-blue-color, 0.1);
+      }
+
+      &.active {
+        background-color: $app-main-blue-color;
+        color: white;
+      }
+    }
+  }
+
+  .content {
+    .work-name {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .p-avatar {
+        font-size: 0.85rem;
+        font-weight: 200;
+      }
+    }
+
+    .work-line {
+      font-size: 0.85rem;
+      color: $app-sub-text-color;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+
+      .dot {
+        width: 0.625rem;
+        height: 0.625rem;
+        border-radius: 50%;
+
+        &.green {
+          background-color: $app-main-green-color;
+        }
+
+        &.blue {
+          background-color: $app-main-blue-color;
+        }
+
+        &.deep-blue {
+          background-color: $app-main-deep-blue-color;
+        }
+
+        &.yellow {
+          background-color: $app-main-yellow-color;
+        }
+      }
+    }
+
+    .spinner-wrapper {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

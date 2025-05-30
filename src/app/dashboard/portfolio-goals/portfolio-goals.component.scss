@@ -1,0 +1,22 @@
+@import "../../../styles.scss";
+
+.app-portfolio-goals {
+  h2 {
+    margin-right: 0.875rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .spinner-wrapper {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

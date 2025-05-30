@@ -1,4 +1,4 @@
-<header class="header">
+<header class="app-header">
   <h1>{{ greeting }}</h1>
 
   <div class="right-block">
@@ -9,7 +9,7 @@
       [(ngModel)]="searchQuery"
     />
 
-    <div class="avatar">{{ alias }}</div>
+    <p-avatar [label]="alias" size="large" shape="circle" />
   </div>
 </header>
 

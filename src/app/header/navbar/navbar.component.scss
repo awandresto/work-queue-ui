@@ -1,15 +1,12 @@
 @import "../../../styles.scss";
 
-nav {
-  $app-nav-main-color: #3B82F6;
-  $app-nav-text-color: #C5CAD3;
-  $app-nav-btn-bg-color: #0C0F17;
-
+.app-navbar {
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
   gap: 0.5rem;
-  padding: 0.75rem $app-body-padding-horz;
+  margin-inline: $app-body-gap-inline;
+  margin-block: 1rem 1.25rem;
 
   .scroll-container {
     display: flex;
@@ -32,7 +29,7 @@ nav {
       border-radius: 9999px;
       border: 1px solid $app-border-color;
       background-color: $app-nav-btn-bg-color;
-      font-size: 1.125rem;
+      font-size: 1.15rem;
       color: $app-nav-text-color;
       white-space: nowrap;
       transition: all 0.2s;
@@ -41,7 +38,7 @@ nav {
         display: flex;
         width: 1.25rem;
         height: 1.25rem;
-        color: $app-nav-main-color;
+        color: $app-main-blue-color;
 
         svg {
           width: 1.25rem;
@@ -50,9 +47,9 @@ nav {
       }
     }
 
-    .pill-button:hover {
-      border-color: $app-nav-main-color;
-      background-color: $app-nav-main-color;
+    .pill-button:hover, .pill-button.active {
+      border-color: $app-main-blue-color;
+      background-color: $app-main-blue-color;
       color: white;
 
       .icon {

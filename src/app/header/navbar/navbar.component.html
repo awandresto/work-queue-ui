@@ -1,7 +1,9 @@
-<nav>
+<nav class="app-navbar">
   <div class="scroll-container" #scrollContainer>
     @for (btn of buttons; track btn) {
-      <button class="pill-button">
+      <button class="pill-button"
+              routerLinkActive="active"
+              [routerLink]="btn.routerLink">
         <span class="icon" [innerHTML]="btn.icon"></span>
         {{ btn.label }}
       </button>
