@@ -12,6 +12,6 @@ export class WorkQueueService {
 
   getWorkQueue(): Observable<WorkQueueList> {
     return this.httpClient.get<WorkQueueList>('assets/data/work-queue.json')
-      .pipe(delay(1000)); // Simulate network delay
+      .pipe(delay(950)); // Simulate network delay
   }
 }

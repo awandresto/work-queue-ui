@@ -12,6 +12,6 @@ export class AccountsService {
 
   getAccounts(): Observable<Account[]> {
     return this.httpClient.get<Account[]>('assets/data/accounts.json')
-      .pipe(delay(1000)); // Simulate network delay
+      .pipe(delay(1200)); // Simulate network delay
   }
 }

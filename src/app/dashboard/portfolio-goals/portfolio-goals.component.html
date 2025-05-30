@@ -1,59 +1,18 @@
 <p-card class="app-portfolio-goals" [style]="{'width': 'var(--top-right-column-width)', 'height': 'var(--top-row-height)'}">
   <h2>Portfolio goals</h2>
   <div class="content">
-    <app-goal-bar [barData]="{
-          title: 'Portfolio Loss Ratio Target',
-          segments: [
-            { width: 38, color: 'green' },
-            { width: 24, color: 'yellow' },
-            { width: 38, color: 'red' }
-          ],
-          topLabel: 'TG:55%',
-          topArrowPosition: 55,
-          valueLabel: '48.2%',
-          valuePosition: 38,
-          bottomLabel: '-6.8% (GOOD)',
-          showArrowTop: true,
-          showArrowBottom: true
-        }"
-    />
+    @if (isLoading) {
+      <div class="spinner-wrapper">
+        <p-progress-spinner ariaLabel="loading" />
+      </div>
+    } @else {
+      @for (barData of goalBarDataList; track barData) {
+        <app-goal-bar [barData]="barData" />
+      }
 
-    <app-goal-bar [barData]="{
-          title: 'Renewal Retention',
-          segments: [
-            { width: 18, color: 'red' },
-            { width: 34, color: 'yellow' },
-            { width: 14, color: 'green' },
-            { width: 34, color: 'yellow' }
-          ],
-          topLabel: 'TG:85-90%',
-          topArrowPosition: 60,
-          valueLabel: '88%',
-          valuePosition: 60,
-          bottomLabel: 'ON TARGET',
-          showArrowTop: false,
-          showArrowBottom: true,
-        }"
-    />
-
-    <app-target-bar
-      [barData]="{
-        title: 'New Business Target',
-        value: '$8.1M',
-        target: '$12M',
-        percent: 37,
-        percentLabel: '67%'
-      }"
-    />
-
-    <app-target-bar
-      [barData]="{
-        title: 'Annual GWP Target',
-        value: '$28.4M',
-        target: '$42M',
-        percent: 38,
-        percentLabel: '68%'
-      }"
-    />
+      @for (barData of targetBarDataList; track barData) {
+        <app-target-bar [barData]="barData" />
+      }
+    }
   </div>
 </p-card>

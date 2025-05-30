@@ -22,3 +22,8 @@ export interface TargetBarData {
   title: string;
   value: string;
 }
+
+export interface PortfolioGoals {
+  goals: GoalBarData[];
+  target: TargetBarData[];
+}

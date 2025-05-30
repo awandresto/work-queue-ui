@@ -1,0 +1,51 @@
+{
+  "goals": [
+    {
+      "title": "Portfolio Loss Ratio Target",
+      "segments": [
+        { "width": 38, "color": "green" },
+        { "width": 24, "color": "yellow" },
+        { "width": 38, "color": "red" }
+      ],
+      "topLabel": "TG:55%",
+      "topArrowPosition": 55,
+      "valueLabel": "48.2%",
+      "valuePosition": 38,
+      "bottomLabel": "-6.8% (GOOD)",
+      "showArrowTop": true,
+      "showArrowBottom": true
+    },
+    {
+      "title": "Renewal Retention",
+      "segments": [
+        { "width": 18, "color": "red" },
+        { "width": 34, "color": "yellow" },
+        { "width": 14, "color": "green" },
+        { "width": 34, "color": "yellow" }
+      ],
+      "topLabel": "TG:85-90%",
+      "topArrowPosition": 60,
+      "valueLabel": "88%",
+      "valuePosition": 60,
+      "bottomLabel": "ON TARGET",
+      "showArrowTop": false,
+      "showArrowBottom": true
+    }
+  ],
+  "target": [
+    {
+      "title": "New Business Target",
+      "value": "$8.1M",
+      "target": "$12M",
+      "percent": 37,
+      "percentLabel": "67%"
+    },
+    {
+      "title": "Annual GWP Target",
+      "value": "$28.4M",
+      "target": "$42M",
+      "percent": 38,
+      "percentLabel": "68%"
+    }
+  ]
+}
