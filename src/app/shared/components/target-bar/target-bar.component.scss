@@ -1,0 +1,68 @@
+@import "../../../../styles.scss";
+
+.target-bar {
+  position: relative;
+  margin-top: 1.75rem;
+
+  .bar-title {
+    margin-bottom: 0.4rem;
+    font-size: 0.7rem;
+    color: $app-sub-text-color;
+    text-transform: uppercase;
+  }
+
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .bar-container {
+      flex-grow: 1;
+      height: 1.5rem;
+      background-color: $app-bar-bg;
+      border-top-right-radius: 9999px;
+      border-bottom-right-radius: 9999px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+
+      .bar-fill {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 100%;
+        padding-inline: 0.5rem;
+        transition: width 0.3s ease-in-out;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 9999px;
+        border-bottom-right-radius: 9999px;
+        background: linear-gradient(to right, $app-bar-bg, $app-main-blue-color);
+        font-size: 0.7rem;
+        font-weight: 400;
+        color: white;
+        white-space: nowrap;
+
+        .value-inside {
+          position: relative;
+          z-index: 1;
+        }
+      }
+    }
+
+    .target-label {
+      font-size: 0.8rem;
+      font-weight: 400;
+      white-space: nowrap;
+      color: $app-text-color;
+    }
+  }
+
+  .percent-label {
+    position: absolute;
+    transform: translateX(-50%);
+    margin-top: 0.3rem;
+    font-size: 0.625rem;
+    color: rgba($app-sub-text-color, 0.5);
+  }
+}
