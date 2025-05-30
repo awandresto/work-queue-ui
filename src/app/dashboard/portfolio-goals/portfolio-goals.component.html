@@ -1,51 +1,59 @@
-<p-card class="app-portfolio-goals">
+<p-card class="app-portfolio-goals" [style]="{'width': 'var(--top-right-column-width)', 'height': 'var(--top-row-height)'}">
   <h2>Portfolio goals</h2>
   <div class="content">
-    <p-metergroup [value]="value" />
+    <app-goal-bar [barData]="{
+          title: 'Portfolio Loss Ratio Target',
+          segments: [
+            { width: 38, color: 'green' },
+            { width: 24, color: 'yellow' },
+            { width: 38, color: 'red' }
+          ],
+          topLabel: 'TG:55%',
+          topArrowPosition: 55,
+          valueLabel: '48.2%',
+          valuePosition: 38,
+          bottomLabel: '-6.8% (GOOD)',
+          showArrowTop: true,
+          showArrowBottom: true
+        }"
+    />
 
-    <div class="goals-container">
-      <h2 class="title">Portfolio goals</h2>
+    <app-goal-bar [barData]="{
+          title: 'Renewal Retention',
+          segments: [
+            { width: 18, color: 'red' },
+            { width: 34, color: 'yellow' },
+            { width: 14, color: 'green' },
+            { width: 34, color: 'yellow' }
+          ],
+          topLabel: 'TG:85-90%',
+          topArrowPosition: 60,
+          valueLabel: '88%',
+          valuePosition: 60,
+          bottomLabel: 'ON TARGET',
+          showArrowTop: false,
+          showArrowBottom: true,
+        }"
+    />
 
-      <div class="goal-section">
-        <div class="label">Portfolio Loss Ratio Target</div>
-        <div class="loss-bar">
-          <div class="bar green" style="width: 48%"></div>
-          <div class="bar red" style="width: 52%"></div>
-          <div class="indicator">48.2%</div>
-          <div class="sub-label good">-6.8% (GOOD)</div>
-        </div>
-      </div>
+    <app-target-bar
+      [barData]="{
+        title: 'New Business Target',
+        value: '$8.1M',
+        target: '$12M',
+        percent: 37,
+        percentLabel: '67%'
+      }"
+    />
 
-      <div class="goal-section">
-        <div class="label">Renewal Retention</div>
-        <div class="retention-bar">
-          <div class="bar red"></div>
-          <div class="bar yellow" style="width: 88%"></div>
-          <div class="indicator yellow-text">88%</div>
-          <div class="sub-label">ON TARGET</div>
-        </div>
-      </div>
-
-      <div class="goal-section">
-        <div class="label">New Business Target</div>
-        <div class="progress-row">
-          <span class="current">$8.1M</span>
-          <p-progressBar [value]="newBusinessPercent"></p-progressBar>
-          <span class="target">$12M</span>
-        </div>
-        <div class="percent-label">{{ newBusinessPercent }}%</div>
-      </div>
-
-      <div class="goal-section">
-        <div class="label">Annual GWP Target</div>
-        <div class="progress-row">
-          <span class="current">$28.4M</span>
-          <p-progressBar [value]="annualGWPPercent"></p-progressBar>
-          <span class="target">$42M</span>
-        </div>
-        <div class="percent-label">{{ annualGWPPercent }}%</div>
-      </div>
-    </div>
-
+    <app-target-bar
+      [barData]="{
+        title: 'Annual GWP Target',
+        value: '$28.4M',
+        target: '$42M',
+        percent: 38,
+        percentLabel: '68%'
+      }"
+    />
   </div>
 </p-card>
