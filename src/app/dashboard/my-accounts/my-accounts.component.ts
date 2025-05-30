@@ -5,13 +5,13 @@ import { BadgeModule } from 'primeng/badge';
 import { TagModule } from 'primeng/tag';
 import { Table, TableModule } from 'primeng/table';
 import { Card } from 'primeng/card';
-import { AccountsService } from '../../services/accounts.service';
+import { AccountsService } from '../../shared/services/accounts.service';
 import { ProgressSpinner } from 'primeng/progressspinner';
 import { debounceTime, Subject } from 'rxjs';
 import { Button } from 'primeng/button';
 import { MenuItem } from 'primeng/api';
 import { Menu } from 'primeng/menu';
-import { Account } from '../../types/account.types';
+import { Account } from '../../shared/types/account.types';
 
 const ACCOUNT_FIELDS: (keyof Account)[] = [
   'name',

@@ -2,4 +2,41 @@
 
 .app-dashboard {
   margin-inline: $app-body-gap-inline;
+
+  .layout {
+    display: flex;
+    flex-direction: column;
+    gap: var(--layout-gap);
+
+    .top-row {
+      display: flex;
+      gap: var(--layout-gap);
+      height: var(--top-row-height);
+
+      .left-column {
+        flex: 2;
+        width: calc(100% - (var(--top-right-column-width)*2) - (var(--layout-gap)*2));
+      }
+
+      .right-column {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: var(--layout-gap);
+        flex: 1;
+
+        .tall-block {
+          min-height: 0;
+        }
+
+        .small-block {
+          min-height: 0;
+        }
+      }
+    }
+
+    .bottom-row {
+      padding-top: 1.625rem;
+    }
+  }
 }

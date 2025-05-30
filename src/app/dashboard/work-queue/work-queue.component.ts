@@ -5,8 +5,8 @@ import { Menu } from 'primeng/menu';
 import { ProgressSpinner } from 'primeng/progressspinner';
 import { Table, TableModule } from 'primeng/table';
 import { MenuItem } from 'primeng/api';
-import { WorkQueueItem, WorkQueueList } from '../../types/work-queue.types';
-import { WorkQueueService } from '../../services/work-queue.service';
+import { WorkQueueItem, WorkQueueList } from '../../shared/types/work-queue.types';
+import { WorkQueueService } from '../../shared/services/work-queue.service';
 import { NgClass } from '@angular/common';
 import { Avatar } from 'primeng/avatar';
 

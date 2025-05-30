@@ -1,7 +1,25 @@
 <section class="app-dashboard">
-  <app-work-queue></app-work-queue>
-  <app-portfolio-goals></app-portfolio-goals>
-  <app-quick-actions></app-quick-actions>
-  <app-market-intelligence></app-market-intelligence>
-  <app-my-accounts></app-my-accounts>
+  <div class="layout">
+    <div class="top-row">
+      <div class="left-column">
+        <app-work-queue></app-work-queue>
+      </div>
+
+      <div class="right-column">
+        <div class="tall-block">
+          <app-portfolio-goals></app-portfolio-goals>
+        </div>
+        <div class="small-block">
+          <app-quick-actions></app-quick-actions>
+        </div>
+        <div class="small-block">
+          <app-market-intelligence></app-market-intelligence>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-row">
+      <app-my-accounts></app-my-accounts>
+    </div>
+  </div>
 </section>
