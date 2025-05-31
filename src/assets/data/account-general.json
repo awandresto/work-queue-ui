@@ -26,16 +26,16 @@
       "title": "Exposure Distribution",
       "bars": [
         {
-          "percent": 71.4,
-          "target": "Marine Cargo: 71.4%"
+          "title": "Marine Cargo",
+          "percent": 71.4
         },
         {
-          "percent": 20,
-          "target": "General Liability: 20%"
+          "title": "General Liability",
+          "percent": 40
         },
         {
-          "percent": 8.6,
-          "target": "Workers Comp: 8.6%"
+          "title": "Workers Comp",
+          "percent": 18.6
         }
       ]
     }
