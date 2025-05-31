@@ -1,0 +1,18 @@
+<div class="app-policy-card">
+  <div class="policy-title">
+    <span class="icon {{ policyCard.color }}" [innerHTML]="policyCard.icon"></span>
+    <h3>{{ policyCard.title }}</h3>
+  </div>
+  <div class="policy-fields">
+    @if (policyCard.fields?.length) {
+      <ul>
+        @for (field of policyCard.fields; track field) {
+          <li>
+            <span class="field-label">{{ field.label }}:</span>
+            <span class="field-value">{{ field.value }}</span>
+          </li>
+        }
+      </ul>
+    }
+  </div>
+</div>

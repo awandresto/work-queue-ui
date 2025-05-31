@@ -1,4 +1,5 @@
 import { TargetBarData } from './bar.types';
+import { SafeHtml } from '@angular/platform-browser';
 
 export interface Account {
   name: string;
@@ -18,6 +19,7 @@ export interface Account {
 
 export interface AccountGeneral {
   performance: PerformanceCard[];
+  policies: PolicyCard[];
 }
 
 export interface PerformanceCard {
@@ -28,4 +30,15 @@ export interface PerformanceCard {
   rating?: number;
   title: string;
   value?: string;
+}
+
+export interface PolicyCard {
+  color: string;
+  fields: {
+    label: string;
+    value: string;
+  }[];
+  icon?: SafeHtml;
+  svgRaw: string;
+  title: string;
 }
