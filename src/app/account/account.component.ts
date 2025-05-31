@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../shared/services/account.service';
 import { PerformanceCard, PolicyCard } from '../shared/types/account.types';
 import { PerformanceMetricsComponent } from './performance-metrics/performance-metrics.component';
-import { PoliciesComponent } from './policies/policies.component';
 import { DomSanitizer } from '@angular/platform-browser';
+import { PoliciesCardsComponent } from './policies-cards/policies-cards.component';
 
 @Component({
   selector: 'app-account',
   imports: [
     PerformanceMetricsComponent,
-    PoliciesComponent
+    PoliciesCardsComponent
   ],
   templateUrl: './account.component.html',
   styleUrl: './account.component.scss',

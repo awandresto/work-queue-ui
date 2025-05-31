@@ -4,15 +4,15 @@ import { Card } from 'primeng/card';
 import { PolicyCardComponent } from '../../shared/components/policy-card/policy-card.component';
 
 @Component({
-  selector: 'app-policies',
+  selector: 'app-policies-cards',
   imports: [
     Card,
     PolicyCardComponent
   ],
-  templateUrl: './policies.component.html',
-  styleUrl: './policies.component.scss'
+  templateUrl: './policies-cards.component.html',
+  styleUrl: './policies-cards.component.scss'
 })
-export class PoliciesComponent implements OnInit {
+export class PoliciesCardsComponent implements OnInit {
   @Input() policyCards: PolicyCard[] = [];
 
   @ViewChild('scrollContainer', { static: true }) scrollBox!: ElementRef<HTMLDivElement>;
