@@ -17,10 +17,10 @@ export interface GoalBarData {
 
 export interface TargetBarData {
   percent: number;
-  percentLabel: string;
+  percentLabel?: string;
   target: string;
-  title: string;
-  value: string;
+  title?: string;
+  value?: string;
 }
 
 export interface PortfolioGoals {

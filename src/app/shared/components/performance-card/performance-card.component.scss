@@ -1,0 +1,66 @@
+@import "../../../../styles.scss";
+
+.app-performance-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: $app-text-color;
+
+  .card-title {
+    display: flex;
+    align-items: baseline;
+    margin-top: 0.75rem;
+    margin-bottom: 0.1rem;
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 200;
+    }
+
+    .card-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-left: 0.75rem;
+
+      .dot {
+        width: 0.625rem;
+        height: 0.625rem;
+        background-color: $app-main-deep-blue-color;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .card-value {
+    margin-bottom: 1.5rem;
+
+    .value {
+      margin-right: 0.5rem;
+      font-size: 3.5rem;
+      font-weight: 200;
+    }
+
+    .description {
+      font-size: 1.75rem;
+      font-weight: 200;
+      color: $app-description-color;
+    }
+  }
+
+  .link {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    color: $app-main-blue-color;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $app-main-blue-hover-color;
+      text-decoration: none;
+    }
+  }
+
+}

@@ -1,3 +1,5 @@
+import { TargetBarData } from './bar.types';
+
 export interface Account {
   name: string;
   type: string;
@@ -12,4 +14,18 @@ export interface Account {
   triage: number;
   winnabilityLevel: 'Very Strong' | 'Strong' | 'Medium';
   winnabilityScore: number;
+}
+
+export interface AccountGeneral {
+  performance: PerformanceCard[];
+}
+
+export interface PerformanceCard {
+  bars?: TargetBarData[];
+  description?: string;
+  link?: string;
+  linkTitle?: string;
+  rating?: number;
+  title: string;
+  value?: string;
 }

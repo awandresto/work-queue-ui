@@ -1,0 +1,43 @@
+{
+  "performance": [
+    {
+      "title": "Winnability",
+      "value": "Very Strong",
+      "description": "",
+      "link": "#",
+      "linkTitle": "See all factors",
+      "rating": 4
+    },
+    {
+      "title": "Loss Ratio",
+      "value": "25%",
+      "description": "vs 42% target",
+      "link": "#",
+      "linkTitle": "View history"
+    },
+    {
+      "title": "Premium Growth",
+      "value": "12.4%",
+      "description": "YoY increase $123M vs $150M Target",
+      "link": "#",
+      "linkTitle": "View trend"
+    },
+    {
+      "title": "Exposure Distribution",
+      "bars": [
+        {
+          "percent": 71.4,
+          "target": "Marine Cargo: 71.4%"
+        },
+        {
+          "percent": 20,
+          "target": "General Liability: 20%"
+        },
+        {
+          "percent": 8.6,
+          "target": "Workers Comp: 8.6%"
+        }
+      ]
+    }
+  ]
+}
