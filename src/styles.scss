@@ -16,6 +16,7 @@ $app-body-gap-inline: 9rem;
 
 $app-text-color: #E5E7EB;
 $app-sub-text-color: #94A3B8;
+$app-description-color: #8A8C98;
 $app-placeholder-color: #596275;
 
 $app-main-blue-color: #3B82F6;
@@ -26,6 +27,8 @@ $app-main-deep-blue-color: #1E40AF;
 
 $app-nav-text-color: #C5CAD3;
 $app-nav-btn-bg-color: #0C0F17;
+
+$app-main-blue-hover-color: #4b8fff;
 
 *,
 *:before,
@@ -38,7 +41,7 @@ $app-nav-btn-bg-color: #0C0F17;
 }
 
 html {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
 }
 
 html, body {
