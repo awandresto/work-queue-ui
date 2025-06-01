@@ -5,6 +5,7 @@
   --top-row-height: 550px;
   --top-right-column-width: 285px;
   --top-right-column-height: 242px;
+  --main-yellow-color: #FDD261;
 }
 
 $app-body-bg-color: #0D1117;
@@ -21,7 +22,7 @@ $app-placeholder-color: #596275;
 
 $app-main-blue-color: #3B82F6;
 $app-main-green-color: #3BB979;
-$app-main-yellow-color: #FDD261;
+$app-main-yellow-color: var(--main-yellow-color);
 $app-main-red-color: #B93B3B;
 $app-main-purple-color: #6A3BF6;
 $app-main-deep-blue-color: #1E40AF;

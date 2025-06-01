@@ -27,6 +27,14 @@ export interface AccountGeneral {
   underwriterName: string;
   performance: PerformanceCard[];
   policies: PolicyItem[];
+  attentions: AccountAttention[];
+}
+
+export interface AccountAttention {
+  label?: string;
+  sub?: string;
+  link?: string;
+  linkText?: string;
 }
 
 export interface PerformanceCard {

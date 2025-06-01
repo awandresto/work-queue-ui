@@ -128,6 +128,26 @@
       "rateChange": 6.1,
       "lossRatio": 78
     }
+  ],
+  "attentions": [
+    {
+      "label": "Marine Survey Required",
+      "sub": "Scheduled for 06/12/2025",
+      "link": "",
+      "linkText": "Review details link"
+    },
+    {
+      "label": "Loss Control Complete",
+      "sub": "Last inspection: 02/15/2025",
+      "link": "",
+      "linkText": "View report"
+    },
+    {
+      "label": "Claims Review Required",
+      "sub": "3 open claims  //  $245,000 TTL",
+      "link": "",
+      "linkText": "View claims"
+    }
   ]
 
 }

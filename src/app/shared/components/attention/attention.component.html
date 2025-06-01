@@ -1,0 +1,19 @@
+<div class="app-attention-container">
+  <p-card [style]="{'border-color': 'var(--main-yellow-color)'}">
+    <h3 class="attention-header">
+      <i class="pi pi-exclamation-circle" [style]="{'font-size': '1.25rem'}"></i>Needs Attention
+    </h3>
+
+    <div class="attention-items">
+      @for (item of attentions; track item) {
+        <div class="item">
+          <div class="label">{{ item.label }}</div>
+          <div class="sub">{{ item.sub }}</div>
+          <a class="link" [routerLink]="item.link ? item.link : '#'">
+            {{ item.linkText }} →
+          </a>
+        </div>
+      }
+    </div>
+  </p-card>
+</div>
