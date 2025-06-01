@@ -1,4 +1,11 @@
 {
+  "companyName": "Maritime Logistics Corp",
+  "logo": "assets/img/logo-maritime.svg",
+  "addressLine1": "425 Harbor Boulevard, Suite 300",
+  "addressLine2": "Seattle, WA 98104",
+  "accountNumber": "54383",
+  "brokerName": "Marsh McLennan",
+  "underwriterName": "Kate Johnson",
   "performance": [
     {
       "title": "Winnability",

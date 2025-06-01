@@ -1,16 +1,18 @@
 <main class="app-account-general">
+  <app-account-summary [accountData]="data"></app-account-summary>
+
   <section>
     <h1>Performance Metrics</h1>
-    <app-performance-metrics [performanceCards]="performanceCards"></app-performance-metrics>
+    <app-performance-metrics [performanceCards]="data.performance"></app-performance-metrics>
   </section>
 
   <section>
     <h1>Policies</h1>
-    <app-policies-cards [policyCards]="policiesList"></app-policies-cards>
+    <app-policies-cards [policyCards]="data.policies"></app-policies-cards>
   </section>
 
   <section>
     <h1>Policies</h1>
-    <app-policies-grid [policies]="policiesList"></app-policies-grid>
+    <app-policies-grid [policies]="data.policies"></app-policies-grid>
   </section>
 </main>

@@ -18,6 +18,13 @@ export interface Account {
 }
 
 export interface AccountGeneral {
+  companyName: string;
+  logo: string;
+  addressLine1: string;
+  addressLine2: string;
+  accountNumber: number | null;
+  brokerName: string;
+  underwriterName: string;
   performance: PerformanceCard[];
   policies: PolicyItem[];
 }
