@@ -7,6 +7,7 @@ import { PoliciesCardsComponent } from './policies-cards/policies-cards.componen
 import { PoliciesGridComponent } from './policies-grid/policies-grid.component';
 import { AccountSummaryComponent } from './account-summary/account-summary.component';
 import { BreadcrumbsService } from '../shared/services/breadcrumbs.service';
+import { AccountStatusComponent } from './account-status/account-status.component';
 
 @Component({
   selector: 'app-account',
@@ -14,7 +15,8 @@ import { BreadcrumbsService } from '../shared/services/breadcrumbs.service';
     PerformanceMetricsComponent,
     PoliciesCardsComponent,
     PoliciesGridComponent,
-    AccountSummaryComponent
+    AccountSummaryComponent,
+    AccountStatusComponent
   ],
   templateUrl: './account.component.html',
   styleUrl: './account.component.scss',
@@ -32,8 +34,9 @@ export class AccountComponent implements OnInit {
     brokerName: 'N/A',
     underwriterName: 'N/A',
     performance: [],
+    accountStatus: [],
+    attentions: [],
     policies: [],
-    attentions: []
   };
 
   constructor(private accountService: AccountService,

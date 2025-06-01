@@ -1,0 +1,16 @@
+<p-card>
+  <div class="app-status-steps">
+    @for (step of steps; let i=$index; track step) {
+      <div class="step" [ngClass]="{ 'completed': step.completed }">
+        <div class="circle" [ngClass]="{ 'completed': step.completed }">
+          <i class="pi pi-check"></i>
+        </div>
+        <div class="label">{{ step.label }}</div>
+
+        @if (!$last)  {
+          <div class="line" [ngClass]="{ 'completed': steps[i+1].completed }"></div>
+        }
+      </div>
+    }
+  </div>
+</p-card>

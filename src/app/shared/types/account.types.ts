@@ -26,8 +26,14 @@ export interface AccountGeneral {
   brokerName: string;
   underwriterName: string;
   performance: PerformanceCard[];
-  policies: PolicyItem[];
+  accountStatus: AccountStatus[];
   attentions: AccountAttention[];
+  policies: PolicyItem[];
+}
+
+export interface AccountStatus {
+  completed: boolean;
+  label: string;
 }
 
 export interface AccountAttention {

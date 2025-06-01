@@ -129,6 +129,14 @@
       "lossRatio": 78
     }
   ],
+  "accountStatus": [
+    { "label": "Submitted", "completed": true },
+    { "label": "Review", "completed": true },
+    { "label": "Quote", "completed": true },
+    { "label": "Bind", "completed": true },
+    { "label": "Issue", "completed": true },
+    { "label": "Renew", "completed": false }
+  ],
   "attentions": [
     {
       "label": "Marine Survey Required",

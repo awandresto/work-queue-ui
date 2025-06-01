@@ -9,7 +9,6 @@ import { NgClass } from '@angular/common';
   imports: [
     Breadcrumb,
     RouterLink,
-    PrimeTemplate,
     NgClass
   ],
   templateUrl: './breadcrumbs.component.html',
