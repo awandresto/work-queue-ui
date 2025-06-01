@@ -19,7 +19,7 @@ export interface Account {
 
 export interface AccountGeneral {
   performance: PerformanceCard[];
-  policies: PolicyCard[];
+  policies: PolicyItem[];
 }
 
 export interface PerformanceCard {
@@ -32,13 +32,21 @@ export interface PerformanceCard {
   value?: string;
 }
 
-export interface PolicyCard {
+export interface PolicyItem {
+  name: string;
   color: string;
-  fields: {
-    label: string;
-    value: string;
-  }[];
   icon?: SafeHtml;
   svgRaw: string;
-  title: string;
+  policyNumber: string;
+  effDate: string;
+  expDate: string;
+  status: 'Active' | 'Expired' | 'Pending';
+  expiringTech: number;
+  expiringPremium: number;
+  renewalToTech: number;
+  renewalTech: number;
+  renewalPremium: number;
+  rateChange: number;
+  lossRatio: number;
 }
+
