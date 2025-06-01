@@ -1,0 +1,12 @@
+<div class="app-breadcrumbs">
+  <p-breadcrumb [model]="items"
+                [home]="home"
+                [style]="{'padding': '0', 'background-color': 'transparent'}">
+    <ng-template #item let-item>
+      <a class="p-breadcrumb-item-link"
+         [ngClass]="{'active': item.active}"
+         [routerLink]="item.url">{{ item.label }}</a>
+    </ng-template>
+    <ng-template #separator> // </ng-template>
+  </p-breadcrumb>
+</div>

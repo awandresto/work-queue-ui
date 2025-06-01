@@ -6,6 +6,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { PoliciesCardsComponent } from './policies-cards/policies-cards.component';
 import { PoliciesGridComponent } from './policies-grid/policies-grid.component';
 import { AccountSummaryComponent } from './account-summary/account-summary.component';
+import { BreadcrumbsService } from '../shared/services/breadcrumbs.service';
 
 @Component({
   selector: 'app-account',
@@ -36,8 +37,10 @@ export class AccountComponent implements OnInit {
   };
 
   constructor(private accountService: AccountService,
-              private sanitizer: DomSanitizer) {
-  }
+              private sanitizer: DomSanitizer,
+              private breadcrumbsService: BreadcrumbsService) {
+  this.breadcrumbsService.toShowBreadcrumbs = true;
+}
 
   public ngOnInit(): void {
     this.isLoading = true;

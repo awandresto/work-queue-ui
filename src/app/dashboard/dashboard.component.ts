@@ -4,6 +4,7 @@ import { WorkQueueComponent } from './work-queue/work-queue.component';
 import { QuickActionsComponent } from './quick-actions/quick-actions.component';
 import { MarketIntelligenceComponent } from './market-intelligence/market-intelligence.component';
 import { PortfolioGoalsComponent } from './portfolio-goals/portfolio-goals.component';
+import { BreadcrumbsService } from '../shared/services/breadcrumbs.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,5 +20,9 @@ import { PortfolioGoalsComponent } from './portfolio-goals/portfolio-goals.compo
   standalone: true
 })
 export class DashboardComponent {
+
+  constructor(private breadcrumbsService: BreadcrumbsService) {
+    this.breadcrumbsService.toShowBreadcrumbs = false;
+  }
 
 }
