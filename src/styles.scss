@@ -84,7 +84,8 @@ input {
 
 .p-datatable,
 .p-datatable-thead > tr,
-.p-datatable-tbody > tr {
+.p-datatable-tbody > tr,
+.p-datatable-tfoot > tr {
   background-color: $app-card-bg-color !important;
 }
 
@@ -104,6 +105,10 @@ input {
   font-size: 0.7rem;
   color: $app-sub-text-color !important;
   text-transform: uppercase;
+}
+
+.p-datatable-tfoot > tr > td {
+  background-color: transparent !important;
 }
 
 .p-card-content {

@@ -1,0 +1,155 @@
+@import "../../../styles.scss";
+
+.app-policies-grid {
+  .header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.875rem;
+    margin-bottom: 1.25rem;
+
+    input {
+      width: 15.625rem;
+      height: 1.75rem;
+      padding: 0.5rem 1rem;
+      background-color: #FFFFFF05;
+      font-size: 0.9rem;
+      color: $app-sub-text-color;
+
+      &::placeholder {
+        color: rgba($app-placeholder-color, 0.5);
+      }
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .btn {
+        padding-inline: 1rem;
+        min-width: 6.25rem;
+        height: 1.75rem;
+        background-color: transparent;
+        border: 1px solid $app-main-blue-color;
+        border-radius: 9999px;
+        color: $app-main-blue-color;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover {
+          background-color: rgb($app-main-blue-color, 0.1);
+        }
+
+        &.primary {
+          background-color: $app-main-blue-color;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .content  {
+    padding-bottom: 1.5rem;
+
+    b {
+      font-weight: 500;
+    }
+
+    .policy-name {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+
+      .icon-bg {
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+
+        &.blue {
+          background-color: $app-main-blue-color;
+        }
+        &.red {
+          background-color: $app-main-red-color;
+        }
+        &.green {
+          background-color: $app-main-green-color;
+        }
+        &.yellow {
+          background-color: $app-main-yellow-color;
+        }
+        &.purple {
+          background-color: $app-main-purple-color;
+        }
+
+        .icon {
+          margin-top: 0.1875rem;
+          width: 0.875rem;
+          height: 0.875rem;
+          color: $app-text-color;
+
+          svg {
+            width: 0.875rem;
+            height: 0.875rem;
+          }
+        }
+      }
+    }
+
+    .policy-number {
+      font-size: 0.85rem;
+      color: $app-sub-text-color;
+    }
+
+    .policy-status {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+
+      .dot {
+        width: 0.625rem;
+        height: 0.625rem;
+        border-radius: 50%;
+
+        &.green {
+          background-color: $app-main-green-color;
+        }
+
+        &.yellow {
+          background-color: $app-main-yellow-color;
+        }
+      }
+    }
+
+    .warm {
+      color: $app-main-red-color;
+    }
+
+    .policy-ratio {
+      min-width: auto;
+      color: white;
+
+      &.red {
+        background-color: $app-main-red-color;
+      }
+
+      &.green {
+        background-color: $app-main-green-color;
+      }
+
+      &.yellow {
+        background-color: $app-main-yellow-color;
+        color: #041B2E;
+      }
+    }
+
+    .policies-total {
+      text-align: right;
+    }
+  }
+}

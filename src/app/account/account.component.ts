@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../shared/services/account.service';
-import { PerformanceCard, PolicyCard } from '../shared/types/account.types';
+import { PerformanceCard, PolicyItem } from '../shared/types/account.types';
 import { PerformanceMetricsComponent } from './performance-metrics/performance-metrics.component';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PoliciesCardsComponent } from './policies-cards/policies-cards.component';
+import { PoliciesGridComponent } from './policies-grid/policies-grid.component';
 
 @Component({
   selector: 'app-account',
   imports: [
     PerformanceMetricsComponent,
-    PoliciesCardsComponent
+    PoliciesCardsComponent,
+    PoliciesGridComponent
   ],
   templateUrl: './account.component.html',
   styleUrl: './account.component.scss',
@@ -19,7 +21,7 @@ export class AccountComponent implements OnInit {
   public isLoading = false;
 
   public performanceCards: PerformanceCard[] = [];
-  public policyCards: PolicyCard[] = [];
+  public policiesList: PolicyItem[] = [];
 
   constructor(private accountService: AccountService,
               private sanitizer: DomSanitizer) {
@@ -29,9 +31,9 @@ export class AccountComponent implements OnInit {
     this.isLoading = true;
     this.accountService.getAccountGeneral().subscribe(result => {
       this.performanceCards = result.performance || [];
-      this.policyCards = result.policies || [];
+      this.policiesList = result.policies || [];
 
-      this.policyCards.forEach(card => card.icon = this.sanitizer.bypassSecurityTrustHtml(card.svgRaw));
+      this.policiesList.forEach(card => card.icon = this.sanitizer.bypassSecurityTrustHtml(card.svgRaw));
 
       this.isLoading = false;
     });
