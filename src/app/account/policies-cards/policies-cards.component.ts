@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { PolicyCard } from '../../shared/types/account.types';
+import { PolicyItem } from '../../shared/types/account.types';
 import { Card } from 'primeng/card';
 import { PolicyCardComponent } from '../../shared/components/policy-card/policy-card.component';
 
@@ -13,7 +13,7 @@ import { PolicyCardComponent } from '../../shared/components/policy-card/policy-
   styleUrl: './policies-cards.component.scss'
 })
 export class PoliciesCardsComponent implements OnInit {
-  @Input() policyCards: PolicyCard[] = [];
+  @Input() policyCards: PolicyItem[] = [];
 
   @ViewChild('scrollContainer', { static: true }) scrollBox!: ElementRef<HTMLDivElement>;
 

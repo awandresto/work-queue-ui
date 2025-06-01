@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { PolicyCard } from '../../types/account.types';
+import { PolicyItem } from '../../types/account.types';
 
 @Component({
   selector: 'app-policy-card',
@@ -8,5 +8,5 @@ import { PolicyCard } from '../../types/account.types';
   styleUrl: './policy-card.component.scss'
 })
 export class PolicyCardComponent {
-  @Input() policyCard!: PolicyCard;
+  @Input() policyCard!: PolicyItem;
 }
