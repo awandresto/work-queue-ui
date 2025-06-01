@@ -31,7 +31,8 @@ export class AccountComponent implements OnInit {
     brokerName: 'N/A',
     underwriterName: 'N/A',
     performance: [],
-    policies: []
+    policies: [],
+    attentions: []
   };
 
   constructor(private accountService: AccountService,

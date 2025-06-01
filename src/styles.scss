@@ -5,6 +5,7 @@
   --top-row-height: 550px;
   --top-right-column-width: 285px;
   --top-right-column-height: 242px;
+  --text-color: #E5E7EB;
   --main-yellow-color: #FDD261;
 }
 
@@ -15,7 +16,7 @@ $app-bar-bg: #313853;
 
 $app-body-gap-inline: 9rem;
 
-$app-text-color: #E5E7EB;
+$app-text-color: var(--text-color);
 $app-sub-text-color: #94A3B8;
 $app-description-color: #8A8C98;
 $app-placeholder-color: #596275;
