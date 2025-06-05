@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 4rem 3rem 2rem;
+  min-height: $app-status-compliance-min-height;
 
   .step {
     position: relative;

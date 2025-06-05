@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { AccountStatus } from '../../shared/types/account.types';
 import { NgClass } from '@angular/common';
 import { Card } from 'primeng/card';
-import { Timeline } from 'primeng/timeline';
 import { Button } from 'primeng/button';
 
 @Component({
@@ -10,7 +9,6 @@ import { Button } from 'primeng/button';
   imports: [
     NgClass,
     Card,
-    Timeline,
     Button
   ],
   templateUrl: './account-status.component.html',
