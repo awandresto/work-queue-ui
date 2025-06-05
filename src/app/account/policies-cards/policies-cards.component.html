@@ -1,0 +1,9 @@
+<p-card>
+  <div class="app-policies" #scrollContainer>
+    @for (card of policyCards; track card) {
+      <div class="policy-card">
+        <app-policy-card [policyCard]="card"></app-policy-card>
+      </div>
+    }
+  </div>
+</p-card>

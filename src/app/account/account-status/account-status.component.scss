@@ -1,0 +1,65 @@
+@import "../../../styles.scss";
+
+.app-status-steps {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 4rem 3rem 2rem;
+  min-height: $app-status-compliance-min-height;
+
+  .step {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+
+    &:last-child {
+      flex: 0;
+    }
+
+    .circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border: 2px dashed $app-description-color;
+      border-radius: 50%;
+      font-size: 0.825rem;
+      color: $app-description-color;
+
+      &.completed {
+        border-color: $app-main-green-color;
+        border-style: solid;
+        color: $app-main-green-color;
+      }
+    }
+
+    .label {
+      position: absolute;
+      left: 0;
+      top: 2rem;
+      transform: translateX(-20%);
+      margin-top: 0.5rem;
+      font-size: 1.25rem;
+      color: white;
+      white-space: nowrap;
+    }
+
+    .line {
+      height: 2px;
+      width: calc(100% - 3rem);
+      flex-grow: 1;
+      margin: 0 0.5rem;
+      border-top: 2px dashed $app-description-color;
+      position: absolute;
+      top: 1rem;
+      transform: translateX(2rem);
+
+      &.completed {
+        border-color: $app-main-green-color;
+      }
+    }
+  }
+}

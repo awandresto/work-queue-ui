@@ -1,0 +1,18 @@
+@import "../../../styles.scss";
+
+.app-breadcrumbs {
+  margin-inline: $app-body-gap-inline;
+
+  a {
+    cursor: pointer;
+    color: $app-text-color;
+    font-weight: 500;
+    text-decoration: none;
+
+    &:hover,
+    &.active {
+      color: $app-main-blue-color;
+      text-decoration: none;
+    }
+  }
+}

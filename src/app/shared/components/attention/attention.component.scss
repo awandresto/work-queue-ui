@@ -1,0 +1,53 @@
+@import "../../../../styles.scss";
+
+.app-attention-container {
+  .attention-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 200;
+    color: $app-main-yellow-color;
+  }
+
+  .attention-items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+
+    .item {
+      flex: 1;
+      min-width: 200px;
+      font-weight: 200;
+
+      .label {
+        margin-bottom: 0.25rem;
+        font-size: 1.15rem;
+        color: $app-text-color;
+      }
+
+      .sub {
+        margin-bottom: 0.5rem;
+        font-size: 0.85rem;
+        color: $app-description-color;
+      }
+
+      .link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: $app-main-blue-color;
+        font-size: 1rem;
+        text-decoration: none;
+
+        &:hover {
+          color: $app-main-blue-hover-color;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

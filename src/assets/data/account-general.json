@@ -1,0 +1,178 @@
+{
+  "companyName": "Maritime Logistics Corp",
+  "logo": "assets/img/logo-maritime.svg",
+  "addressLine1": "425 Harbor Boulevard, Suite 300",
+  "addressLine2": "Seattle, WA 98104",
+  "accountNumber": "54383",
+  "brokerName": "Marsh McLennan",
+  "underwriterName": "Kate Johnson",
+  "performance": [
+    {
+      "title": "Winnability",
+      "value": "Very Strong",
+      "description": "",
+      "link": "#",
+      "linkTitle": "See all factors",
+      "rating": 4
+    },
+    {
+      "title": "Loss Ratio",
+      "value": "25%",
+      "description": "vs 42% target",
+      "link": "#",
+      "linkTitle": "View history"
+    },
+    {
+      "title": "Premium Growth",
+      "value": "12.4%",
+      "description": "YoY increase $123M vs $150M Target",
+      "link": "#",
+      "linkTitle": "View trend"
+    },
+    {
+      "title": "Exposure Distribution",
+      "bars": [
+        {
+          "title": "Marine Cargo",
+          "percent": 71.4
+        },
+        {
+          "title": "General Liability",
+          "percent": 40
+        },
+        {
+          "title": "Workers Comp",
+          "percent": 18.6
+        }
+      ]
+    }
+  ],
+  "policies": [
+    {
+      "name": "Marine Cargo",
+      "color": "blue",
+      "svgRaw": "<svg viewBox=\"0 0 30 29\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M14.999 12.419V17.5M14.999 1.5V5.5M24.333 16.167V8.16699C24.333 7.45899 24.052 6.78101 23.552 6.28101C23.052 5.78101 22.373 5.5 21.666 5.5H8.33301C7.62501 5.5 6.94702 5.78101 6.44702 6.28101C5.94702 6.78101 5.66602 7.45899 5.66602 8.16699V16.167\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path d=\"M24.8389 25.4999C26.2729 23.0799 27.0199 20.3139 26.9989 17.4999L16.0819 12.6479C15.7409 12.4969 15.3719 12.418 14.9989 12.418C14.6259 12.418 14.2569 12.4969 13.9159 12.6479L2.99889 17.4999C2.93689 21.2919 4.2709 24.9739 6.7459 27.8469\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path d=\"M1.66602 26.833C2.46602 27.5 3.26601 28.167 4.99901 28.167C8.33301 28.167 8.33302 25.5 11.666 25.5C13.399 25.5 14.199 26.167 14.999 26.833C15.799 27.5 16.599 28.167 18.333 28.167C21.666 28.167 21.666 25.5 24.999 25.5C26.733 25.5 27.533 26.167 28.333 26.833\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n</svg>",
+      "policyNumber": "17030212",
+      "effDate": "6/30/2026",
+      "expDate": "6/30/2027",
+      "status": "Active",
+      "expiringTech": 587500,
+      "expiringPremium": 605000,
+      "renewalToTech": 610000,
+      "renewalTech": 620000,
+      "renewalPremium": 625000,
+      "rateChange": 3.3,
+      "lossRatio": 22
+    },
+    {
+      "name": "General Liability",
+      "color": "green",
+      "svgRaw": "<svg viewBox=\"0 0 24 29\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M22.666 15.833C22.666 22.5 18 25.833 12.453 27.767C12.163 27.865 11.847 27.86 11.56 27.753C6 25.833 1.33301 22.5 1.33301 15.833V6.5C1.33301 6.146 1.473 5.80701 1.724 5.55701C1.974 5.30701 2.31302 5.16699 2.66602 5.16699C5.33302 5.16699 8.66602 3.56698 10.986 1.53998C11.269 1.29898 11.628 1.16602 12 1.16602C12.371 1.16602 12.731 1.29898 13.013 1.53998C15.346 3.57998 18.666 5.16699 21.333 5.16699C21.687 5.16699 22.026 5.30701 22.276 5.55701C22.526 5.80701 22.666 6.146 22.666 6.5V15.833Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path d=\"M8 14.5L10.667 17.167L16 11.833\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n</svg>",
+      "policyNumber": "4631092",
+      "effDate": "6/30/2026",
+      "expDate": "6/30/2027",
+      "status": "Active",
+      "expiringTech": 160000,
+      "expiringPremium": 165000,
+      "renewalToTech": 170000,
+      "renewalTech": 172500,
+      "renewalPremium": 175000,
+      "rateChange": 6.1,
+      "lossRatio": 55
+    },
+    {
+      "name": "Workers Comp",
+      "color": "purple",
+      "svgRaw": "<svg viewBox=\"0 0 24 29\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M22.666 15.833C22.666 22.5 18 25.833 12.453 27.767C12.163 27.865 11.847 27.86 11.56 27.753C6 25.833 1.33301 22.5 1.33301 15.833V6.5C1.33301 6.146 1.473 5.80701 1.724 5.55701C1.974 5.30701 2.31302 5.16699 2.66602 5.16699C5.33302 5.16699 8.66602 3.56698 10.986 1.53998C11.269 1.29898 11.628 1.16602 12 1.16602C12.371 1.16602 12.731 1.29898 13.013 1.53998C15.346 3.57998 18.666 5.16699 21.333 5.16699C21.687 5.16699 22.026 5.30701 22.276 5.55701C22.526 5.80701 22.666 6.146 22.666 6.5V15.833Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path d=\"M4.50098 23.713C5.06998 22.183 6.09402 20.863 7.43402 19.931C8.77502 19 10.369 18.501 12.002 18.501C13.634 18.501 15.228 19.001 16.568 19.934C17.909 20.866 18.932 22.187 19.5 23.717\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path d=\"M11.999 18.5C14.945 18.5 17.333 16.112 17.333 13.167C17.333 10.221 14.945 7.83301 11.999 7.83301C9.05402 7.83301 6.66602 10.221 6.66602 13.167C6.66602 16.112 9.05402 18.5 11.999 18.5Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n</svg>",
+      "policyNumber": "9182371",
+      "effDate": "Pending",
+      "expDate": "Pending",
+      "status": "Pending",
+      "expiringTech": 0,
+      "expiringPremium": 0,
+      "renewalToTech": 73500,
+      "renewalTech": 75000,
+      "renewalPremium": 75000,
+      "rateChange": null,
+      "lossRatio": null
+    },
+    {
+      "name": "Property",
+      "color": "yellow",
+      "svgRaw": "<svg viewBox=\"0 0 30 29\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M6.99988 27.833V3.83301C6.99988 3.12601 7.27991 2.448 7.77991 1.948C8.27991 1.447 8.95992 1.16699 9.66992 1.16699H20.3298C21.0398 1.16699 21.7198 1.447 22.2198 1.948C22.7198 2.448 22.9999 3.12601 22.9999 3.83301V27.833M6.99988 27.833H22.9999M6.99988 27.833H4.32983C3.62983 27.833 2.94983 27.552 2.44983 27.052C1.94983 26.552 1.66992 25.874 1.66992 25.167V17.167C1.66992 16.459 1.94983 15.781 2.44983 15.281C2.94983 14.781 3.62983 14.5 4.32983 14.5H6.99988M22.9999 27.833H25.6699C26.3699 27.833 27.0499 27.552 27.5499 27.052C28.0499 26.552 28.3298 25.874 28.3298 25.167V13.167C28.3298 12.459 28.0499 11.781 27.5499 11.281C27.0499 10.781 26.3699 10.5 25.6699 10.5H22.9999M12.3298 6.5H17.6699M12.3298 11.833H17.6699M12.3298 17.167H17.6699M12.3298 22.5H17.6699\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n</svg>",
+      "policyNumber": "5294503",
+      "effDate": "03/04/2026",
+      "expDate": "28/07/2027",
+      "status": "Active",
+      "expiringTech": 140000,
+      "expiringPremium": 280000,
+      "renewalToTech": 320000,
+      "renewalTech": 360000,
+      "renewalPremium": 335000,
+      "rateChange": 8.0,
+      "lossRatio": 50
+    },
+    {
+      "name": "Umbrella",
+      "policyNumber": "4631092",
+      "color": "red",
+      "svgRaw": "<svg viewBox=\"0 0 22 23\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M11 11.5V19.5C11 20.03 11.21 20.539 11.59 20.914C11.96 21.289 12.47 21.5 13 21.5C13.53 21.5 14.04 21.289 14.41 20.914C14.79 20.539 15 20.03 15 19.5M11 1.5V2.5M21 11.5C20.73 9.037 19.56 6.76002 17.71 5.10602C15.87 3.45202 13.48 2.53699 11 2.53699C8.52 2.53699 6.13004 3.45202 4.29004 5.10602C2.44004 6.76002 1.27 9.037 1 11.5H21Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n</svg>",
+      "effDate": "6/30/2026",
+      "expDate": "6/30/2027",
+      "status": "Active",
+      "expiringTech": 160000,
+      "expiringPremium": 165000,
+      "renewalToTech": 170000,
+      "renewalTech": 172500,
+      "renewalPremium": 175000,
+      "rateChange": 6.1,
+      "lossRatio": 78
+    }
+  ],
+  "accountStatus": [
+    { "label": "Submitted", "completed": true },
+    { "label": "Review", "completed": true },
+    { "label": "Quote", "completed": true },
+    { "label": "Bind", "completed": true },
+    { "label": "Issue", "completed": true },
+    { "label": "Renew", "completed": false }
+  ],
+  "attentions": [
+    {
+      "label": "Marine Survey Required",
+      "sub": "Scheduled for 06/12/2025",
+      "link": "",
+      "linkText": "Review details link"
+    },
+    {
+      "label": "Loss Control Complete",
+      "sub": "Last inspection: 02/15/2025",
+      "link": "",
+      "linkText": "View report"
+    },
+    {
+      "label": "Claims Review Required",
+      "sub": "3 open claims  //  $245,000 TTL",
+      "link": "",
+      "linkText": "View claims"
+    }
+  ],
+  "compliance": [
+    {
+      "label": "KYC verification",
+      "svgRaw":  "<svg viewBox=\"0 0 22 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\\n' +\n'<path d=\"M11 21C16.52 21 21 16.52 21 11C21 5.48 16.52 1 11 1C5.48 1 1 5.48 1 11C1 16.52 5.48 21 11 21Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\\n' +\n'<path d=\"M8 11L10 13L14 9\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\\n' +\n'</svg>"
+    },
+    {
+      "label": "Required Documentation",
+      "svgRaw":  "<svg viewBox=\"0 0 22 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\\n' +\n'<path d=\"M11 21C16.52 21 21 16.52 21 11C21 5.48 16.52 1 11 1C5.48 1 1 5.48 1 11C1 16.52 5.48 21 11 21Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\\n' +\n'<path d=\"M8 11L10 13L14 9\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\\n' +\n'</svg>"
+    },
+    {
+      "label": "Regulatory approval",
+      "svgRaw":  "<svg viewBox=\"0 0 22 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\\n' +\n'<path d=\"M11 21C16.52 21 21 16.52 21 11C21 5.48 16.52 1 11 1C5.48 1 1 5.48 1 11C1 16.52 5.48 21 11 21Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\\n' +\n'<path d=\"M8 11L10 13L14 9\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\\n' +\n'</svg>"
+    },
+    {
+      "label": "Financial Verification",
+      "svgRaw":  "<svg viewBox=\"0 0 22 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\\n' +\n'<path d=\"M11 21C16.52 21 21 16.52 21 11C21 5.48 16.52 1 11 1C5.48 1 1 5.48 1 11C1 16.52 5.48 21 11 21Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\\n' +\n'<path d=\"M8 11L10 13L14 9\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\\n' +\n'</svg>"
+    }
+  ]
+}

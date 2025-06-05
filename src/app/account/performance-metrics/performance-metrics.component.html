@@ -1,0 +1,7 @@
+<div class="performance-card">
+  @for (cardData of performanceCards; let i = $index; track i) {
+    <div [ngStyle]="{'flex': cardData.bars?.length ? '0 0 30%' : '1'}">
+      <app-performance-card [performanceData]="cardData"></app-performance-card>
+    </div>
+  }
+</div>

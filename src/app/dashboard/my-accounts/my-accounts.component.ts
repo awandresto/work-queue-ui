@@ -5,7 +5,7 @@ import { BadgeModule } from 'primeng/badge';
 import { TagModule } from 'primeng/tag';
 import { Table, TableModule } from 'primeng/table';
 import { Card } from 'primeng/card';
-import { AccountsService } from '../../shared/services/accounts.service';
+import { AccountService } from '../../shared/services/account.service';
 import { ProgressSpinner } from 'primeng/progressspinner';
 import { debounceTime, Subject } from 'rxjs';
 import { Button } from 'primeng/button';
@@ -48,13 +48,13 @@ export class MyAccountsComponent implements OnInit {
 
   protected readonly accountFields = ACCOUNT_FIELDS;
 
-  constructor(private accountsService: AccountsService) {}
+  constructor(private accountsService: AccountService) {}
 
   public ngOnInit(): void {
     this.initTable();
 
     this.isLoading = true;
-    this.accountsService.getAccounts().subscribe(data => {
+    this.accountsService.getMyAccounts().subscribe(data => {
       this.accounts = data;
       this.isLoading = false;
     });

@@ -1,0 +1,44 @@
+@import "../../../../styles.scss";
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  .bar-container {
+    position: relative;
+    display: flex;
+    flex-shrink: 0;
+    width: 55%;
+    height: 1.5rem;
+    background-color: $app-bar-bg;
+    border-top-right-radius: 9999px;
+    border-bottom-right-radius: 9999px;
+    overflow: hidden;
+
+    .bar-fill {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      height: 100%;
+      padding-inline: 0.5rem;
+      transition: width 0.3s ease-in-out;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 9999px;
+      border-bottom-right-radius: 9999px;
+      background: linear-gradient(to right, $app-bar-bg, $app-main-blue-color);
+    }
+  }
+
+  .bar-title {
+    font-size: 1.125rem;
+    font-weight: 400;
+    white-space: nowrap;
+    color: $app-text-color;
+
+    strong {
+      font-weight: 500;
+    }
+  }
+}

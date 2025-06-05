@@ -1,0 +1,28 @@
+<div class="app-account-summary">
+  <img class="account-logo" [src]="accountData.logo" alt="Company Logo" />
+
+  <div class="account-info">
+    <div class="title">{{ accountData.companyName }}</div>
+
+    <div class="info">
+      <div class="address">
+        {{ accountData.addressLine1 }}<br />
+        {{ accountData.addressLine2 }}
+      </div>
+      <div class="field">
+        <div class="label">Existing Account</div>
+        <div class="value">{{ accountData.accountNumber }}</div>
+      </div>
+      <div class="field">
+        <div class="label">Broker</div>
+        <div class="value">{{ accountData.brokerName }}</div>
+      </div>
+      <div class="field">
+        <div class="label">Underwriter</div>
+        <div class="value">{{ accountData.underwriterName }}</div>
+      </div>
+    </div>
+  </div>
+
+  <app-attention [attentions]="accountData.attentions"></app-attention>
+</div>

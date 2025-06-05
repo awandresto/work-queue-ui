@@ -20,8 +20,8 @@ interface NavButton {
   standalone: true
 })
 export class NavbarComponent implements AfterViewInit {
-  buttons: NavButton[] = [];
-  isScrollButtons$ = new BehaviorSubject(false);
+  public buttons: NavButton[] = [];
+  public isScrollButtons$ = new BehaviorSubject(false);
 
   constructor(private sanitizer: DomSanitizer) {
     this.buttons = [

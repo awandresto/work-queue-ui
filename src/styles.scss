@@ -5,6 +5,8 @@
   --top-row-height: 550px;
   --top-right-column-width: 285px;
   --top-right-column-height: 242px;
+  --text-color: #E5E7EB;
+  --main-yellow-color: #FDD261;
 }
 
 $app-body-bg-color: #0D1117;
@@ -14,18 +16,24 @@ $app-bar-bg: #313853;
 
 $app-body-gap-inline: 9rem;
 
-$app-text-color: #E5E7EB;
+$app-text-color: var(--text-color);
 $app-sub-text-color: #94A3B8;
+$app-description-color: #8A8C98;
 $app-placeholder-color: #596275;
 
 $app-main-blue-color: #3B82F6;
 $app-main-green-color: #3BB979;
-$app-main-yellow-color: #FDD261;
+$app-main-yellow-color: var(--main-yellow-color);
 $app-main-red-color: #B93B3B;
+$app-main-purple-color: #6A3BF6;
 $app-main-deep-blue-color: #1E40AF;
 
 $app-nav-text-color: #C5CAD3;
 $app-nav-btn-bg-color: #0C0F17;
+
+$app-main-blue-hover-color: #4b8fff;
+
+$app-status-compliance-min-height: 112px;
 
 *,
 *:before,
@@ -38,7 +46,7 @@ $app-nav-btn-bg-color: #0C0F17;
 }
 
 html {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
 }
 
 html, body {
@@ -80,7 +88,8 @@ input {
 
 .p-datatable,
 .p-datatable-thead > tr,
-.p-datatable-tbody > tr {
+.p-datatable-tbody > tr,
+.p-datatable-tfoot > tr {
   background-color: $app-card-bg-color !important;
 }
 
@@ -100,6 +109,10 @@ input {
   font-size: 0.7rem;
   color: $app-sub-text-color !important;
   text-transform: uppercase;
+}
+
+.p-datatable-tfoot > tr > td {
+  background-color: transparent !important;
 }
 
 .p-card-content {
