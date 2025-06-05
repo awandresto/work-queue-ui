@@ -1,0 +1,10 @@
+<p-card>
+  <div class="app-compliance-list">
+    @for (item of fields; let i=$index; track i) {
+      <div class="field">
+        <span class="icon" [innerHTML]="item.icon"></span>
+        {{ item.label }}
+      </div>
+    }
+  </div>
+</p-card>

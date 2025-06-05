@@ -8,10 +8,53 @@
     margin-bottom: 3rem;
 
     h1 {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-right: 1.5rem;
       margin-bottom: 1rem;
       font-size: 2rem;
       font-weight: 500;
       color: $app-text-color;
+
+      span {
+        overflow: hidden;
+        display: inline-block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .link {
+        font-size: 1rem;
+        color: $app-main-blue-color;
+        text-decoration: none;
+        white-space: nowrap;
+
+        &:hover {
+          color: $app-main-blue-hover-color;
+          text-decoration: none;
+        }
+      }
+    }
+
+    &.status-compliance {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      height: auto;
+
+      .status,
+      .compliance {
+        min-width: 600px;
+      }
+
+      .status {
+        flex: 2;
+      }
+
+      .compliance {
+        flex: 1;
+      }
     }
   }
 }

@@ -29,6 +29,7 @@ export interface AccountGeneral {
   accountStatus: AccountStatus[];
   attentions: AccountAttention[];
   policies: PolicyItem[];
+  compliance: ComplianceItem[];
 }
 
 export interface AccountStatus {
@@ -51,6 +52,12 @@ export interface PerformanceCard {
   rating?: number;
   title: string;
   value?: string;
+}
+
+export interface ComplianceItem {
+  label: string;
+  svgRaw: string;
+  icon?: SafeHtml;
 }
 
 export interface PolicyItem {

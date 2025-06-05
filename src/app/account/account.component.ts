@@ -8,6 +8,7 @@ import { PoliciesGridComponent } from './policies-grid/policies-grid.component';
 import { AccountSummaryComponent } from './account-summary/account-summary.component';
 import { BreadcrumbsService } from '../shared/services/breadcrumbs.service';
 import { AccountStatusComponent } from './account-status/account-status.component';
+import { ComplianceComponent } from './compliance/compliance.component';
 
 @Component({
   selector: 'app-account',
@@ -16,7 +17,8 @@ import { AccountStatusComponent } from './account-status/account-status.componen
     PoliciesCardsComponent,
     PoliciesGridComponent,
     AccountSummaryComponent,
-    AccountStatusComponent
+    AccountStatusComponent,
+    ComplianceComponent
   ],
   templateUrl: './account.component.html',
   styleUrl: './account.component.scss',
@@ -37,6 +39,7 @@ export class AccountComponent implements OnInit {
     accountStatus: [],
     attentions: [],
     policies: [],
+    compliance: []
   };
 
   constructor(private accountService: AccountService,
@@ -51,6 +54,11 @@ export class AccountComponent implements OnInit {
       this.data = result || {};
       if (this.data.performance?.length) {
         this.data.policies.forEach(card => card.icon = this.sanitizer.bypassSecurityTrustHtml(card.svgRaw));
+      }
+      if (this.data.compliance?.length) {
+        this.data.compliance.forEach(item => {
+          item.icon = this.sanitizer.bypassSecurityTrustHtml(item.svgRaw);
+        });
       }
       this.isLoading = false;
     });

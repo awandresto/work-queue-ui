@@ -1,0 +1,32 @@
+@import "../../../styles.scss";
+
+.app-compliance-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 3rem;
+  padding-block: 0.5rem 1rem;
+  min-height: $app-status-compliance-min-height;
+
+  .field {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: calc(45% - 1rem);
+    min-width: 160px;
+    font-size: 1rem;
+    color: white;
+
+    .icon {
+      display: flex;
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      color: $app-main-green-color;
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+}
