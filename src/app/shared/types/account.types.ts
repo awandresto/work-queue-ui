@@ -78,3 +78,15 @@ export interface PolicyItem {
   lossRatio: number;
 }
 
+export interface MessageCard {
+  attachments?: string[];
+  author: string;
+  canReply?: boolean;
+  content: string;
+  date: string;
+  id: string;
+  status?: 'new' | 'responded';
+  title: string;
+}
+
+

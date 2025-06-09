@@ -9,17 +9,19 @@ import { AccountSummaryComponent } from './account-summary/account-summary.compo
 import { BreadcrumbsService } from '../shared/services/breadcrumbs.service';
 import { AccountStatusComponent } from './account-status/account-status.component';
 import { ComplianceComponent } from './compliance/compliance.component';
+import { CommunicationComponent } from './communication/communication.component';
 
 @Component({
   selector: 'app-account',
-  imports: [
-    PerformanceMetricsComponent,
-    PoliciesCardsComponent,
-    PoliciesGridComponent,
-    AccountSummaryComponent,
-    AccountStatusComponent,
-    ComplianceComponent
-  ],
+    imports: [
+        PerformanceMetricsComponent,
+        PoliciesCardsComponent,
+        PoliciesGridComponent,
+        AccountSummaryComponent,
+        AccountStatusComponent,
+        ComplianceComponent,
+        CommunicationComponent
+    ],
   templateUrl: './account.component.html',
   styleUrl: './account.component.scss',
   standalone: true

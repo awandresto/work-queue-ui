@@ -1,0 +1,58 @@
+<p-card class="app-communication" [style]="{'width': '100%', 'padding-bottom': '1.5rem'}">
+  <div class="header">
+    <span class="input-filter">
+      <input
+        type="text"
+        pInputText
+        placeholder="Search"
+        (input)="onFilterMessages($event)"
+      />
+    </span>
+
+    <div class="toolbar">
+      <button class="btn">Filter</button>
+      <button class="btn">Group</button>
+    </div>
+  </div>
+
+  <div class="message-container" #messageContainer>
+    @if (isLoading) {
+      <div class="spinner-wrapper">
+        <p-progress-spinner ariaLabel="loading" />
+      </div>
+    } @else {
+      @for (message of fields; track message.id) {
+        <div class="message-card"
+             [class.new]="message.status === 'new'"
+             [class.responded]="message.status === 'responded'">
+          <div class="header">
+            @if (message.status) {
+              <span class="status-badge">
+                {{ message.status === 'new' ? ( message.status | uppercase) : (message.status | titlecase) }}
+              </span>
+            }
+            <h3>{{ message.title }}</h3>
+          </div>
+
+          <div class="meta">
+            <span class="author">{{ message.author }}</span>
+            <span class="date"> // {{ message.date }}</span>
+          </div>
+
+          <p class="content">{{ message.content }}</p>
+
+          <div class="actions">
+            @if (message.attachments?.length) {
+              <button class="btn attach-btn">
+                📎 {{ message.attachments?.length }} attachments
+              </button>
+            }
+            @if (message.canReply) {
+              <button class="btn reply-btn">Reply</button>
+            }
+          </div>
+        </div>
+      }
+    }
+  </div>
+</p-card>
