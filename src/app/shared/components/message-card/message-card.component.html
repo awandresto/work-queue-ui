@@ -1,0 +1,29 @@
+<div class="message-card"
+     [class.new]="message.status === 'new'"
+     [class.responded]="message.status === 'responded'">
+  <div class="header">
+    @if (message.status) {
+      <span class="status-badge">
+        {{ message.status === 'new' ? ( message.status | uppercase) : (message.status | titlecase) }}
+      </span>
+    }
+    <h3>{{ message.title }}</h3>
+  </div>
+
+  <div class="meta">
+    <span>{{ message.author }} // {{ message.date }}</span>
+  </div>
+
+  <p class="content">{{ message.content }}</p>
+
+  <div class="actions">
+    @if (message.attachments?.length) {
+      <button class="btn btn-attach" [pTooltip]="attachmentName" tooltipPosition="right">
+        <i class="pi pi-paperclip" [style]="{'font-size': '0.85rem'}"></i>  {{ message.attachments?.length }} attachments
+      </button>
+    }
+    @if (message.canReply) {
+      <button class="btn btn-reply">Reply</button>
+    }
+  </div>
+</div>

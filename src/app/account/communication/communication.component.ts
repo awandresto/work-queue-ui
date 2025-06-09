@@ -2,14 +2,13 @@ import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@
 import { MessageCard } from '../../shared/types/account.types';
 import { Card } from 'primeng/card';
 import { BehaviorSubject, debounceTime, Subject } from 'rxjs';
-import { TitleCasePipe, UpperCasePipe } from '@angular/common';
+import { MessageCardComponent } from '../../shared/components/message-card/message-card.component';
 
 @Component({
   selector: 'app-communication',
   imports: [
     Card,
-    TitleCasePipe,
-    UpperCasePipe
+    MessageCardComponent
   ],
   templateUrl: './communication.component.html',
   styleUrl: './communication.component.scss'

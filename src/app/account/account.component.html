@@ -23,10 +23,12 @@
     </div>
   </section>
 
-  <section>
-    <h1>Communication</h1>
-    <app-communication [messages$]="accountMessages$"></app-communication>
-  </section>
+  @if(accountMessages$.getValue().length) {
+    <section>
+      <h1>Communication</h1>
+      <app-communication [messages$]="accountMessages$"></app-communication>
+    </section>
+  }
 
   <section>
     <h1>Policies</h1>
