@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <div class="message-container" #messageContainer>
+  <div class="message-container" [appAutoHeight]="filteredMessages">
     @for (message of filteredMessages; track message.id) {
       <div class="message-card-wrapper">
         <app-message-card [message]="message"></app-message-card>
