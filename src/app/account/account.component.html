@@ -1,35 +1,35 @@
 <main class="app-account-general">
-  <app-account-summary [accountData]="data"></app-account-summary>
+  <app-account-summary [accountData]="accountData"></app-account-summary>
 
   <section>
     <h1>Performance Metrics</h1>
-    <app-performance-metrics [performanceCards]="data.performance"></app-performance-metrics>
+    <app-performance-metrics [performanceCards]="accountData.performance"></app-performance-metrics>
   </section>
 
   <section>
     <h1>Policies</h1>
-    <app-policies-cards [policyCards]="data.policies"></app-policies-cards>
+    <app-policies-cards [policyCards]="accountData.policies"></app-policies-cards>
   </section>
 
   <section class="status-compliance">
     <div class="status">
       <h1>Account Status</h1>
-      <app-account-status [steps]="data.accountStatus"></app-account-status>
+      <app-account-status [steps]="accountData.accountStatus"></app-account-status>
     </div>
 
     <div class="compliance">
       <h1><span>Compliance & Documentation</span> <a class="link" href="#">See history →</a></h1>
-      <app-compliance [fields]="data.compliance"></app-compliance>
+      <app-compliance [fields]="accountData.compliance"></app-compliance>
     </div>
   </section>
 
   <section>
     <h1>Communication</h1>
-    <app-communication [messages]="[]"></app-communication>
+    <app-communication [messages$]="accountMessages$"></app-communication>
   </section>
 
   <section>
     <h1>Policies</h1>
-    <app-policies-grid [policies]="data.policies"></app-policies-grid>
+    <app-policies-grid [policies]="accountData.policies"></app-policies-grid>
   </section>
 </main>
