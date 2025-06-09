@@ -21,7 +21,7 @@
         <p-progress-spinner ariaLabel="loading" />
       </div>
     } @else {
-      @for (message of fields; track message.id) {
+      @for (message of filteredMessages; track message.id) {
         <div class="message-card"
              [class.new]="message.status === 'new'"
              [class.responded]="message.status === 'responded'">

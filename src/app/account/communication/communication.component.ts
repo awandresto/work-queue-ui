@@ -18,20 +18,35 @@ import { TitleCasePipe, UpperCasePipe } from '@angular/common';
 })
 export class CommunicationComponent implements OnInit, AfterViewInit {
   @Input() messages: MessageCard[] = [];
-  fields = [];
+
+  public filteredMessages: MessageCard[];
+  public filterValue$: Subject<string> = new Subject<string>();
+  public isLoading: boolean = false;
 
   @ViewChild('messageContainer', { static: true }) messageContainer!: ElementRef<HTMLDivElement>;
 
-  public filterValue$: Subject<string> = new Subject<string>();
-  public isLoading: boolean = false;
+  constructor() {
+    this.filteredMessages = [...this.messages];
+  }
 
 
 
   public ngOnInit(): void {
     this.filterValue$
-      .pipe(debounceTime(500))
+      .pipe(debounceTime(300))
       .subscribe(value => {
-        // Filter logic
+        value = value?.toLowerCase() || '';
+
+        if (value) {
+          this.filteredMessages = [...this.messages.filter(message =>
+            message.title.toLowerCase().includes(value) ||
+            message.content.toLowerCase().includes(value) ||
+            message.author.toLowerCase().includes(value) ||
+            message.date.toLowerCase().includes(value)
+          )];
+        } else {
+          this.filteredMessages = [...this.messages];
+        }
       });
   }
 
@@ -41,6 +56,11 @@ export class CommunicationComponent implements OnInit, AfterViewInit {
 
   public ngAfterViewInit(): void {
     setTimeout(() => this.updateContainerHeight());
+  }
+
+  public onFilterMessages(event: Event): void {
+    const value = (event.target as HTMLInputElement).value?.toLowerCase() as string;
+    this.filterValue$.next(value);
   }
 
   private updateContainerHeight () {
@@ -57,6 +77,10 @@ export class CommunicationComponent implements OnInit, AfterViewInit {
 
     const children = Array.from(messageContainer.children) as HTMLElement[];
     const messageCount = children.length;
+
+    if (messageCount === 0) {
+      return;
+    }
 
     const totalHeight = children.reduce(
       (accumulator, currentValue) =>
@@ -95,11 +119,4 @@ export class CommunicationComponent implements OnInit, AfterViewInit {
       }
     }
   }
-
-  public onFilterMessages(event: Event): void {
-    const value = (event.target as HTMLInputElement).value;
-    this.filterValue$.next(value);
-  }
-
-
 }
