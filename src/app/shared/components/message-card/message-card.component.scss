@@ -1,0 +1,102 @@
+@import "../../../../styles.scss";
+
+.message-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.5rem;
+  width: 100%;
+  background: $app-sub-card-bg-color;
+  border-radius: 1.5rem;
+  border: 1px solid transparent;
+
+  &.new {
+    border-color: $app-main-deep-blue-color;
+  }
+
+  &:hover {
+    border-color: $app-main-blue-color;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: $app-text-color;
+
+    h3 {
+      margin: 0;
+      font-size: 1.375rem;
+      font-weight: 400;
+    }
+
+    .status-badge {
+      padding: 0.25rem 1rem;
+      background: $app-main-deep-blue-color;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      line-height: 0.9rem;
+    }
+  }
+
+  .meta {
+    margin-block: 0.5rem;
+
+    > span {
+      font-size: 1rem;
+      font-weight: 200;
+      color: $app-description-color;
+    }
+  }
+
+  .content {
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+    font-weight: 300;
+    color: $app-text-color;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 0.3rem;
+
+    .btn {
+      cursor: pointer;
+      border: none;
+      border-radius: 999px;
+      align-self: flex-start;
+      color: $app-text-color;
+
+      &.btn-attach {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba($app-main-green-color, 0.4);
+        padding-block: 0.3rem 0.4rem;
+        padding-inline: 1.15rem;
+        font-size: 0.9rem;
+        font-weight: 300;
+        line-height: 0.9rem;
+
+        &:hover {
+          background: rgba($app-main-green-color, 0.35);
+        }
+      }
+
+      &.btn-reply {
+        background: $app-main-blue-color;
+        padding: 0.75rem 1.5rem;
+        min-width: 120px;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1rem;
+
+        &:hover {
+          background: rgba($app-main-blue-color, 0.9);
+        }
+      }
+    }
+  }
+}

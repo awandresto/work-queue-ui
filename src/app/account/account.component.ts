@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../shared/services/account.service';
-import { AccountGeneral, PerformanceCard, PolicyItem } from '../shared/types/account.types';
+import { AccountGeneral, MessageCard, PerformanceCard, PolicyItem } from '../shared/types/account.types';
 import { PerformanceMetricsComponent } from './performance-metrics/performance-metrics.component';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PoliciesCardsComponent } from './policies-cards/policies-cards.component';
@@ -9,17 +9,21 @@ import { AccountSummaryComponent } from './account-summary/account-summary.compo
 import { BreadcrumbsService } from '../shared/services/breadcrumbs.service';
 import { AccountStatusComponent } from './account-status/account-status.component';
 import { ComplianceComponent } from './compliance/compliance.component';
+import { CommunicationComponent } from './communication/communication.component';
+import { BehaviorSubject, forkJoin, Subject } from 'rxjs';
+import { MessagesService } from '../shared/services/messages.service';
 
 @Component({
   selector: 'app-account',
-  imports: [
-    PerformanceMetricsComponent,
-    PoliciesCardsComponent,
-    PoliciesGridComponent,
-    AccountSummaryComponent,
-    AccountStatusComponent,
-    ComplianceComponent
-  ],
+    imports: [
+        PerformanceMetricsComponent,
+        PoliciesCardsComponent,
+        PoliciesGridComponent,
+        AccountSummaryComponent,
+        AccountStatusComponent,
+        ComplianceComponent,
+        CommunicationComponent
+    ],
   templateUrl: './account.component.html',
   styleUrl: './account.component.scss',
   standalone: true
@@ -27,7 +31,7 @@ import { ComplianceComponent } from './compliance/compliance.component';
 export class AccountComponent implements OnInit {
   public isLoading = false;
 
-  public data: AccountGeneral = {
+  public accountData: AccountGeneral = {
     companyName: '',
     logo: 'N/A',
     addressLine1: 'N/A',
@@ -41,25 +45,31 @@ export class AccountComponent implements OnInit {
     policies: [],
     compliance: []
   };
+  public accountMessages$: BehaviorSubject<MessageCard[]> = new BehaviorSubject<MessageCard[]>([]);
 
   constructor(private accountService: AccountService,
-              private sanitizer: DomSanitizer,
-              private breadcrumbsService: BreadcrumbsService) {
+              private breadcrumbsService: BreadcrumbsService,
+              private messagesService: MessagesService,
+              private sanitizer: DomSanitizer) {
   this.breadcrumbsService.toShowBreadcrumbs = true;
 }
 
   public ngOnInit(): void {
     this.isLoading = true;
-    this.accountService.getAccountGeneral().subscribe(result => {
-      this.data = result || {};
-      if (this.data.performance?.length) {
-        this.data.policies.forEach(card => card.icon = this.sanitizer.bypassSecurityTrustHtml(card.svgRaw));
+    forkJoin([
+      this.accountService.getAccountGeneral(),
+      this.messagesService.getMessages()
+    ]).subscribe(([accountData, accountMessages]) => {
+      this.accountData = accountData || {};
+      if (this.accountData.performance?.length) {
+        this.accountData.policies.forEach(card => card.icon = this.sanitizer.bypassSecurityTrustHtml(card.svgRaw));
       }
-      if (this.data.compliance?.length) {
-        this.data.compliance.forEach(item => {
+      if (this.accountData.compliance?.length) {
+        this.accountData.compliance.forEach(item => {
           item.icon = this.sanitizer.bypassSecurityTrustHtml(item.svgRaw);
         });
       }
+      this.accountMessages$.next(accountMessages || []);
       this.isLoading = false;
     });
   }
