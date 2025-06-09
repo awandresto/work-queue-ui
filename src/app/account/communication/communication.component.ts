@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { MessageCard } from '../../shared/types/account.types';
 import { Card } from 'primeng/card';
 import { BehaviorSubject, debounceTime, Subject } from 'rxjs';
@@ -14,7 +14,7 @@ import { TitleCasePipe, UpperCasePipe } from '@angular/common';
   templateUrl: './communication.component.html',
   styleUrl: './communication.component.scss'
 })
-export class CommunicationComponent implements OnInit, AfterViewInit {
+export class CommunicationComponent implements OnInit {
   @Input() messages$: BehaviorSubject<MessageCard[]> = new BehaviorSubject<MessageCard []>([]);
 
   public filteredMessages: MessageCard[] = [];
@@ -25,7 +25,7 @@ export class CommunicationComponent implements OnInit, AfterViewInit {
   public ngOnInit(): void {
     this.messages$.subscribe(messages => {
       this.filteredMessages = [...messages];
-      this.updateContainerHeight();
+      setTimeout(() => this.updateContainerHeight());
     });
 
     this.filterValue$
@@ -47,10 +47,6 @@ export class CommunicationComponent implements OnInit, AfterViewInit {
   }
 
   @HostListener('window:resize', []) onResize() {
-    setTimeout(() => this.updateContainerHeight());
-  }
-
-  public ngAfterViewInit(): void {
     setTimeout(() => this.updateContainerHeight());
   }
 
