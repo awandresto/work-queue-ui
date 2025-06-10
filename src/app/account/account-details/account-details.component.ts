@@ -2,45 +2,26 @@ import { Component, Input } from '@angular/core';
 import { Card } from 'primeng/card';
 import { NgClass } from '@angular/common';
 import { SimpleTargetBarComponent } from '../../shared/components/simple-target-bar/simple-target-bar.component';
-import { TargetBarData } from '../../shared/types/bar.types';
+import { AccountOverallData } from '../../shared/types/account.types';
+import { Tag } from 'primeng/tag';
 
-export interface ScoreOverall {
-  value: number;
-  title: string;
-  rating: string;
-  ratingLevel: number;
-}
-
-export interface HistoricalTrend {
-  title: string;
-  labels: string[];
-  values: number[];
-}
-
-export interface PositionData {
-  title: string;
-  bars: TargetBarData[];
-}
-
-export interface OverallMockData {
-  overall: ScoreOverall;
-  trend: HistoricalTrend;
-  position: PositionData;
-}
-
-export const OVERALL_MOCK_DATA: OverallMockData = {
-  overall: {
-    value: 82,
+export const OVERALL_MOCK_DATA: AccountOverallData[] = [
+  {
     title: 'Overall Score',
-    rating: 'Very Strong',
-    ratingLevel: 4,
+    overall: {
+      value: 82,
+      rating: 'Very Strong',
+      ratingLevel: 4,
+    }
   },
-  trend: {
+  {
     title: 'Historical Trend',
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Now'],
-    values: [62, 68, 75, 70, 78, 78, 82],
+    graph: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Now'],
+      values: [62, 68, 75, 70, 78, 78, 82],
+    },
   },
-  position: {
+  {
     title: 'Position',
     bars: [
       {
@@ -55,9 +36,9 @@ export const OVERALL_MOCK_DATA: OverallMockData = {
         title: 'Top competitor',
         percent: 88,
       },
-    ],
-  },
-};
+    ]
+  }
+];
 
 
 @Component({
@@ -65,7 +46,8 @@ export const OVERALL_MOCK_DATA: OverallMockData = {
   imports: [
     Card,
     NgClass,
-    SimpleTargetBarComponent
+    SimpleTargetBarComponent,
+    Tag
   ],
   templateUrl: './account-details.component.html',
   styleUrl: './account-details.component.scss',
@@ -102,7 +84,7 @@ export class AccountDetailsComponent {
     {
       title: 'Propose risk control services for cargo handling procedures',
       description:
-        'Can potentially reduce loss ratio by 15–20% based on similar maritime accounts in your portfolio. Specific focus on loading/unloading operations would address the most frequent claim scenarios.'
+        'Can potentially reduce loss ratio by 15вЂ“20% based on similar maritime accounts in your portfolio. Specific focus on loading/unloading operations would address the most frequent claim scenarios.'
     }
   ];
   @Input() winnabilityQuotes = [
@@ -169,4 +151,8 @@ export class AccountDetailsComponent {
   ];
 
   protected summaryData = OVERALL_MOCK_DATA;
+
+  public getDots(count: number): number[] {
+    return Array(count).fill(0);
+  }
 }

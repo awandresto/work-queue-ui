@@ -23,35 +23,39 @@
       <h1 class="details-title">Winnability</h1>
 
       <div class="summary-container">
-        @let overall = summaryData.overall;
-        <div class="overall">
-          <h3>{{ overall.title }}</h3>
-          <div>
-            <span>{{ overall.value }}</span>
-            @for (dot of overall.rating; track dot) {
-              <span class="dot"></span>
-            }
-            <span>{{ overall.ratingLevel }}</span>
-          </div>
-        </div>
+        @for (data of summaryData; track data) {
+          <div class="summary-item">
+            <h3>{{ data.title }}</h3>
 
-        @let trend = summaryData.trend;
-        <div class="trend">
-          <h3>{{ trend.title }}</h3>
-          <div>
-            Graphical representation of trend
-          </div>
-        </div>
-
-        @let position = summaryData.position;
-        <div class="position">
-          <h3>{{ position.title }}</h3>
-          <div>
-            @for (bar of position.bars; track bar) {
-              <app-simple-target-bar [barData]="bar"></app-simple-target-bar>
+            @if (data.overall) {
+              @let overall = data.overall;
+              <div class="overall-score">
+                <div class="title">{{ overall.value }}%</div>
+                <div>
+                  <p-tag class="outlined" rounded
+                         [style]="{'font-size': '0.9rem', 'padding': '0.5rem 0.75rem', 'border-radius': '999px'}">
+                    @for (_ of getDots(overall.ratingLevel); let i=$index; track i) {
+                      <span class="dot blue"></span>
+                    }
+                    &nbsp;{{ overall.rating }}
+                  </p-tag>
+                </div>
+              </div>
+            } @else if (data.graph) {
+              @let trend = data.graph;
+              <div>
+                Graphical representation of trend
+              </div>
+            } @else if (data.bars?.length) {
+              @let bars = data.bars;
+              <div>
+                @for (bar of bars; track bar) {
+                  <app-simple-target-bar [barData]="bar" [size]="'small'"></app-simple-target-bar>
+                }
+              </div>
             }
           </div>
-        </div>
+        }
       </div>
 
       <div class="winnability-container">

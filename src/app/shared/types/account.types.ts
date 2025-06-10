@@ -89,4 +89,20 @@ export interface MessageCard {
   title: string;
 }
 
+export interface ScoreOverall {
+  rating: string;
+  ratingLevel: number;
+  value: number;
+}
 
+export interface HistoricalGraph {
+  labels: string[];
+  values: number[];
+}
+
+export interface AccountOverallData {
+  title: string;
+  overall?: ScoreOverall;
+  graph?: HistoricalGraph;
+  bars?: TargetBarData[];
+}
