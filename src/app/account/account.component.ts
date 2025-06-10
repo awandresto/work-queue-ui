@@ -12,18 +12,20 @@ import { ComplianceComponent } from './compliance/compliance.component';
 import { CommunicationComponent } from './communication/communication.component';
 import { BehaviorSubject, forkJoin, Subject } from 'rxjs';
 import { MessagesService } from '../shared/services/messages.service';
+import { AccountDetailsComponent } from './account-details/account-details.component';
 
 @Component({
   selector: 'app-account',
-    imports: [
-        PerformanceMetricsComponent,
-        PoliciesCardsComponent,
-        PoliciesGridComponent,
-        AccountSummaryComponent,
-        AccountStatusComponent,
-        ComplianceComponent,
-        CommunicationComponent
-    ],
+  imports: [
+    PerformanceMetricsComponent,
+    PoliciesCardsComponent,
+    PoliciesGridComponent,
+    AccountSummaryComponent,
+    AccountStatusComponent,
+    ComplianceComponent,
+    CommunicationComponent,
+    AccountDetailsComponent
+  ],
   templateUrl: './account.component.html',
   styleUrl: './account.component.scss',
   standalone: true
