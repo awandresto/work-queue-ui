@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
 import { Card } from 'primeng/card';
-import { NgClass } from '@angular/common';
+import { isPlatformBrowser, NgClass } from '@angular/common';
 import { SimpleTargetBarComponent } from '../../shared/components/simple-target-bar/simple-target-bar.component';
 import { AccountOverallData } from '../../shared/types/account.types';
 import { Tag } from 'primeng/tag';
+import { ChartModule } from 'primeng/chart';
 
 export const OVERALL_MOCK_DATA: AccountOverallData[] = [
   {
@@ -16,9 +17,9 @@ export const OVERALL_MOCK_DATA: AccountOverallData[] = [
   },
   {
     title: 'Historical Trend',
-    graph: {
+    chart: {
       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Now'],
-      values: [62, 68, 75, 70, 78, 78, 82],
+      values: [62, 72, 68, 74, 80],
     },
   },
   {
@@ -47,13 +48,14 @@ export const OVERALL_MOCK_DATA: AccountOverallData[] = [
     Card,
     NgClass,
     SimpleTargetBarComponent,
-    Tag
+    Tag,
+    ChartModule
   ],
   templateUrl: './account-details.component.html',
   styleUrl: './account-details.component.scss',
   standalone: true
 })
-export class AccountDetailsComponent {
+export class AccountDetailsComponent implements OnInit {
   @Input() accountDetails: any;
   @Input() menuGroups = [
     {
@@ -150,9 +152,79 @@ export class AccountDetailsComponent {
     }
   ];
 
+  chartData: any;
+  chartOptions: any;
+  platformId = inject(PLATFORM_ID);
+
   protected summaryData = OVERALL_MOCK_DATA;
+
+  constructor(private cd: ChangeDetectorRef) {}
+
+  ngOnInit() {
+    const trend = this.summaryData.find(dt => dt.chart);
+    if (trend) {
+      this.initChart(trend);
+    }
+  }
 
   public getDots(count: number): number[] {
     return Array(count).fill(0);
+  }
+
+  private initChart(data: AccountOverallData) {
+    if (isPlatformBrowser(this.platformId)) {
+      const documentStyle = getComputedStyle(document.documentElement);
+      const textColorSecondary = documentStyle.getPropertyValue('--text-muted-color');
+
+      this.chartData = {
+        labels: data.chart?.labels,
+        datasets: [
+          {
+            label: '',
+            data: data.chart?.values,
+            fill: false,
+            borderColor: documentStyle.getPropertyValue('--main-blue-color'),
+            tension: 0.1
+          }
+        ]
+      };
+
+      this.chartOptions = {
+        maintainAspectRatio: false,
+        aspectRatio: 0.6,
+        plugins: {
+          legend: false,
+          tooltip: false,
+        },
+        elements: {
+          line: {
+            borderWidth: 3,
+          },
+          point: {
+            radius: 3
+          }
+        },
+        scales: {
+          x: {
+            display: true,
+            grid: {
+              display: false,
+            },
+            ticks: {
+              color: textColorSecondary,
+              font: {
+                family: 'Manrope',
+                size: 15,
+                weight: 500
+              }
+            }
+          },
+          y: {
+            display: false,
+          }
+        }
+      };
+      this.cd.markForCheck()
+    }
   }
 }

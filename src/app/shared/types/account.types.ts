@@ -95,7 +95,7 @@ export interface ScoreOverall {
   value: number;
 }
 
-export interface HistoricalGraph {
+export interface ChartData {
   labels: string[];
   values: number[];
 }
@@ -103,6 +103,6 @@ export interface HistoricalGraph {
 export interface AccountOverallData {
   title: string;
   overall?: ScoreOverall;
-  graph?: HistoricalGraph;
+  chart?: ChartData;
   bars?: TargetBarData[];
 }

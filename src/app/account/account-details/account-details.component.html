@@ -41,10 +41,9 @@
                   </p-tag>
                 </div>
               </div>
-            } @else if (data.graph) {
-              @let trend = data.graph;
-              <div>
-                Graphical representation of trend
+            } @else if (data.chart) {
+              <div class="card">
+                <p-chart type="line" [data]="chartData" [options]="chartOptions" [height]="'80'" class="h-[5rem]" />
               </div>
             } @else if (data.bars?.length) {
               @let bars = data.bars;
@@ -102,7 +101,6 @@
           </div>
         }
       </div>
-
     </div>
   </div>
 </p-card>
