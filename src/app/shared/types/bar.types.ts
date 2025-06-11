@@ -27,3 +27,10 @@ export interface PortfolioGoals {
   goals: GoalBarData[];
   target: TargetBarData[];
 }
+
+export interface ProgressBar {
+  label: string;
+  value: number;
+  suffix?: string;
+  order: number;
+}

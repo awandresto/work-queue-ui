@@ -1,16 +1,16 @@
 <p-card class="app-account-details" [style]="{'width': '100%'}">
   <div class="details-wrapper">
     <div class="panel-menu">
-      @for (group of menuGroups; track group.title) {
-        <div class="group" [ngClass]="{'expanded': group.items?.length}">
-          <h3 class="group-header">
+      @for (group of menuGroups$ | async; track group.title) {
+        <div class="group" [ngClass]="{'expanded': group.active}">
+          <h3 class="group-header" (click)="selectMenuGroup(group)">
             {{ group.title }} <span class="counter">{{ group.count }}</span>
           </h3>
 
-          @if (group.items?.length) {
+          @if (group.active && group.items?.length) {
             <ul class="group-items">
               @for (item of group.items; track item.label) {
-                <li [class.active]="item.active">
+                <li [class.active]="item.active" (click)="selectItemMenu(item)">
                   {{ item.label }}
                 </li>
               }
@@ -20,93 +20,111 @@
       }
     </div>
     <div class="details-content">
-      <h1 class="details-title">Winnability</h1>
+      @if (isLoading) {
+        <div class="spinner-wrapper">
+          <p-progress-spinner ariaLabel="loading" />
+        </div>
+      } @else {
+        <h1 class="details-title">{{ activeItemMenu?.label }}</h1>
 
-      <div class="summary-container">
-        @for (data of summaryData; track data) {
-          <div class="summary-item">
-            <h3>{{ data.title }}</h3>
+        @if (overallData?.length) {
+          <div class="summary-container">
+            @for (data of overallData; track data) {
+              <div class="summary-item">
+                <h3>{{ data.title }}</h3>
 
-            @if (data.overall) {
-              @let overall = data.overall;
-              <div class="overall-score">
-                <div class="title">{{ overall.value }}%</div>
-                <div>
-                  <p-tag class="outlined" rounded
-                         [style]="{'font-size': '0.9rem', 'padding': '0.5rem 0.75rem', 'border-radius': '999px'}">
-                    @for (_ of getDots(overall.ratingLevel); let i=$index; track i) {
-                      <span class="dot blue"></span>
+                @if (data.overall) {
+                  @let overall = data.overall;
+                  <div class="overall-score">
+                    <div class="title">{{ overall.value }}%</div>
+                    <div>
+                      <p-tag class="outlined" rounded
+                             [style]="{'font-size': '0.9rem', 'padding': '0.5rem 0.75rem', 'border-radius': '999px'}">
+                        @for (_ of getDots(overall.ratingLevel); let i=$index; track i) {
+                          <span class="dot blue"></span>
+                        }
+                        &nbsp;{{ overall.rating }}
+                      </p-tag>
+                    </div>
+                  </div>
+                } @else if (data.chart) {
+                  <div class="card">
+                    <p-chart type="line" [data]="chartData" [options]="chartOptions" [height]="'80'" class="h-[5rem]" />
+                  </div>
+                } @else if (data.bars?.length) {
+                  @let bars = data.bars;
+                  <div>
+                    @for (bar of bars; let i=$index; track bar) {
+                      <app-simple-target-bar [data]="bar" [highlight]="i === 0" [size]="'small'"></app-simple-target-bar>
                     }
-                    &nbsp;{{ overall.rating }}
-                  </p-tag>
-                </div>
-              </div>
-            } @else if (data.chart) {
-              <div class="card">
-                <p-chart type="line" [data]="chartData" [options]="chartOptions" [height]="'80'" class="h-[5rem]" />
-              </div>
-            } @else if (data.bars?.length) {
-              @let bars = data.bars;
-              <div>
-                @for (bar of bars; let i=$index; track bar) {
-                  <app-simple-target-bar [data]="bar" [highlight]="i === 0" [size]="'small'"></app-simple-target-bar>
+                  </div>
                 }
               </div>
             }
           </div>
         }
-      </div>
 
-      <div class="winnability-container">
-        @for (winnability of winnabilityQuotes; track winnability.title) {
-          <div class="winnability-block {{ winnability.type }}">
-            <h3>
-              <i class="pi"
-                 [ngClass]="winnability.type === 'decrease' ? 'pi-arrow-circle-down' : 'pi-arrow-circle-up'"
-                 [style]="{'font-size': '1.5rem'}"></i>
-              <span>{{ winnability.title }}</span>
-            </h3>
+        @if (winnability?.length) {
+          <div class="winnability-container">
+            @for (winnability of winnability; track winnability.title) {
+              <div class="winnability-block {{ winnability.type }}">
+                <h3>
+                  <i class="pi"
+                     [ngClass]="winnability.type === 'decrease' ? 'pi-arrow-circle-down' : 'pi-arrow-circle-up'"
+                     [style]="{'font-size': '1.5rem'}"></i>
+                  <span>{{ winnability.title }}</span>
+                </h3>
 
-            @for (target of winnability.targets; track target) {
-              <div class="progress">
-                <div class="order">{{ target.order }}</div>
-                <div class="bar">
-                  <div class="bar-title">{{ target.label }}</div>
-                  <div class="bar-row">
+                @for (item of winnability.progress; track item) {
+                  <div class="progress">
+                    <div class="order">{{ item.order }}</div>
+                    <div class="bar">
+                      <div class="bar-title">{{ item.label }}</div>
+                      <div class="bar-row">
                     <span class="bar-fill"
-                          [style]="{'width': Math.abs(target.value) + '%'}"></span>
-                    <span class="bar-value">{{ target.value >= 0 ? '+' : '' }}{{ target.value }}%</span>
+                          [style]="{'width': Math.abs(item.value) + '%'}"></span>
+                        <span class="bar-value">{{ item.value >= 0 ? '+' : '' }}{{ item.value }}%</span>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                }
               </div>
             }
           </div>
         }
-      </div>
 
-      <div class="ai-recommendations">
-        <h3 class="recommend-header">
-          <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M4 20.9999C2 22.6799 1.33301 27.6698 1.33301 27.6698C1.33301 27.6698 6.32 26.9999 8 24.9999C8.946 23.8799 8.933 22.16 7.88 21.12C7.361 20.63 6.67901 20.34 5.96301 20.32C5.24701 20.3 4.548 20.5399 4 20.9999ZM14 18.9999L10 14.9999C10.709 13.1599 11.603 11.3899 12.666 9.72989C14.22 7.24989 16.383 5.19995 18.95 3.78995C21.518 2.37995 24.403 1.64983 27.333 1.66983C27.333 5.28983 26.293 11.67 19.333 16.33C17.649 17.4 15.862 18.2899 14 18.9999Z"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path
-              d="M10 15.0001H3.33301C3.33301 15.0001 4.066 10.96 6 9.67003C8.16 8.23003 12.666 9.67003 12.666 9.67003M14 19.0001V25.67C14 25.67 18.04 24.9301 19.333 23.0001C20.773 20.8401 19.333 16.3302 19.333 16.3302"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          AI-Powered Recommendations
-        </h3>
+        @if (recommendations?.length) {
+          <div class="ai-recommendations">
+            <h3 class="recommend-header">
+              <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M4 20.9999C2 22.6799 1.33301 27.6698 1.33301 27.6698C1.33301 27.6698 6.32 26.9999 8 24.9999C8.946 23.8799 8.933 22.16 7.88 21.12C7.361 20.63 6.67901 20.34 5.96301 20.32C5.24701 20.3 4.548 20.5399 4 20.9999ZM14 18.9999L10 14.9999C10.709 13.1599 11.603 11.3899 12.666 9.72989C14.22 7.24989 16.383 5.19995 18.95 3.78995C21.518 2.37995 24.403 1.64983 27.333 1.66983C27.333 5.28983 26.293 11.67 19.333 16.33C17.649 17.4 15.862 18.2899 14 18.9999Z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path
+                  d="M10 15.0001H3.33301C3.33301 15.0001 4.066 10.96 6 9.67003C8.16 8.23003 12.666 9.67003 12.666 9.67003M14 19.0001V25.67C14 25.67 18.04 24.9301 19.333 23.0001C20.773 20.8401 19.333 16.3302 19.333 16.3302"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              AI-Powered Recommendations
+            </h3>
 
-        @for (rec of recommendations; track rec.title) {
-          <div class="recommendation">
-            <div>
-              <p class="sub-title">{{ rec.title }}</p>
-              <p class="description">{{ rec.description }}</p>
-            </div>
-            <button class="btn-apply">Apply</button>
+            @for (rec of recommendations; track rec.title) {
+              <div class="recommendation">
+                <div>
+                  <p class="sub-title">{{ rec.title }}</p>
+                  <p class="description">{{ rec.description }}</p>
+                </div>
+                <button class="btn-apply">Apply</button>
+              </div>
+            }
           </div>
         }
-      </div>
+
+        @if (noData) {
+          <div class="no-data">
+            <p><i class="pi pi-exclamation-triangle"></i> &nbsp;No data available for this section.</p>
+          </div>
+        }
+      }
     </div>
   </div>
 </p-card>

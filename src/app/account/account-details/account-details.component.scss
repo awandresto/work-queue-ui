@@ -28,6 +28,7 @@
         padding-block: 0.75rem 1.25rem;
         padding-inline: 1.25rem 1.5rem;
         border-radius: 0.75rem;
+        transition: background-color 0.6s, height 0.3s;
 
         &.expanded {
           background-color: $app-sub-card-bg-color;
@@ -320,6 +321,25 @@
               background-color: rgba($app-main-green-color, 0.9);
             }
           }
+        }
+      }
+
+      .spinner-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+
+      .no-data {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        > p {
+          margin-bottom: 2rem;
+          color: $app-description-color;
         }
       }
     }

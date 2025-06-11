@@ -48,7 +48,7 @@
 
     <section>
       <h1>Account Details</h1>
-      <app-account-details [menuGroups]="accountData.menuGroups"></app-account-details>
+      <app-account-details [menuGroups$]="menuGroups$"></app-account-details>
     </section>
 
     @if(accountMessages$.getValue().length) {

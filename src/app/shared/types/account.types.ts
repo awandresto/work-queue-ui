@@ -1,4 +1,4 @@
-import { TargetBarData } from './bar.types';
+import { ProgressBar, TargetBarData } from './bar.types';
 import { SafeHtml } from '@angular/platform-browser';
 
 export interface Account {
@@ -109,13 +109,31 @@ export interface AccountOverallData {
 }
 
 export interface MenuGroup {
-  title: string;
+  active?: boolean;
   count: number;
   items: MenuItem[];
+  title: string;
 }
 
 export interface MenuItem {
-  label: string;
-  route: string;
   active?: boolean;
+  label: string;
+  url: string;
+}
+
+export interface AIRecommendation {
+  title: string;
+  description: string;
+}
+
+export interface WinnabilityProgress {
+  type: 'increase' | 'decrease';
+  title: string;
+  progress: ProgressBar[];
+}
+
+export interface AccountDetailsData {
+  overall: AccountOverallData[];
+  recommendations: AIRecommendation[];
+  winnability: WinnabilityProgress[];
 }

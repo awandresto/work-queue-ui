@@ -180,21 +180,26 @@
       "title": "Decision Support",
       "count": 4,
       "items": [
-        { "label": "Winnability", "active": true, "route": "/account-details/winnability" },
-        { "label": "Exposure Review & Suggested Coverage", "route": "/account-details/exposure-review" },
-        { "label": "Portfolio Strategy Alignment", "route": "/account-details/portfolio" },
-        { "label": "Broker Analytics", "route": "/account-details/broker-analytics" }
+        { "label": "Winnability", "url": "account-details/winnability" },
+        { "label": "Exposure Review & Suggested Coverage", "url": "account-details/exposure-review" },
+        { "label": "Portfolio Strategy Alignment", "url": "account-details/portfolio" },
+        { "label": "Broker Analytics", "url": "account-details/broker-analytics" }
       ]
     },
     {
       "title": "Risk Assessment",
-      "count": 6,
-      "items": []
+      "count": 1,
+      "items": [
+        { "label": "Exposure Review & Suggested Coverage", "url": "account-details/exposure-review" }
+      ]
     },
     {
       "title": "Documents and Compliance",
       "count": 2,
-      "items": []
+      "items": [
+        { "label": "Portfolio Strategy Alignment", "url": "account-details/portfolio" },
+        { "label": "Broker Analytics", "url": "account-details/broker-analytics" }
+      ]
     }
   ]
 }

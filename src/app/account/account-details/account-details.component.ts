@@ -1,45 +1,19 @@
 import { ChangeDetectorRef, Component, inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
 import { Card } from 'primeng/card';
-import { isPlatformBrowser, NgClass } from '@angular/common';
+import { AsyncPipe, isPlatformBrowser, NgClass } from '@angular/common';
 import { SimpleTargetBarComponent } from '../../shared/components/simple-target-bar/simple-target-bar.component';
-import { AccountOverallData, MenuGroup } from '../../shared/types/account.types';
+import {
+  AccountDetailsData,
+  AccountOverallData,
+  AIRecommendation,
+  MenuGroup, MenuItem,
+  WinnabilityProgress
+} from '../../shared/types/account.types';
 import { Tag } from 'primeng/tag';
 import { ChartModule } from 'primeng/chart';
-
-export const OVERALL_MOCK_DATA: AccountOverallData[] = [
-  {
-    title: 'Overall Score',
-    overall: {
-      value: 82,
-      rating: 'Very Strong',
-      ratingLevel: 4,
-    }
-  },
-  {
-    title: 'Historical Trend',
-    chart: {
-      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Now'],
-      values: [62, 72, 68, 74, 80],
-    },
-  },
-  {
-    title: 'Position',
-    bars: [
-      {
-        title: 'Your score',
-        percent: 82,
-      },
-      {
-        title: 'Market Avg',
-        percent: 68,
-      },
-      {
-        title: 'Top competitor',
-        percent: 88,
-      },
-    ]
-  }
-];
+import { AccountDetailsService } from '../../shared/services/account-details.service';
+import { ProgressSpinner } from 'primeng/progressspinner';
+import { BehaviorSubject, catchError, of } from 'rxjs';
 
 
 @Component({
@@ -49,113 +23,94 @@ export const OVERALL_MOCK_DATA: AccountOverallData[] = [
     NgClass,
     SimpleTargetBarComponent,
     Tag,
-    ChartModule
+    ChartModule,
+    ProgressSpinner,
+    AsyncPipe
   ],
   templateUrl: './account-details.component.html',
   styleUrl: './account-details.component.scss',
   standalone: true
 })
 export class AccountDetailsComponent implements OnInit {
-  @Input() accountDetails: any;
-  @Input() menuGroups: MenuGroup[] = [];
-  @Input() recommendations = [
-    {
-      title: 'Offer 5% premium discount in exchange for 3-year commitment',
-      description:
-        'Historical win rate increases 24% with multi-year commitments. Current pricing is 12% above market average. This approach would strengthen retention while maintaining adequate profitability.'
-    },
-    {
-      title: 'Propose risk control services for cargo handling procedures',
-      description:
-        'Can potentially reduce loss ratio by 15вЂ“20% based on similar maritime accounts in your portfolio. Specific focus on loading/unloading operations would address the most frequent claim scenarios.'
-    }
-  ];
-  @Input() winnabilityQuotes = [
-    {
-      type: "increase",
-      title: "Increasing Winnability",
-      targets: [
-        {
-          label: "Brokers relationship",
-          value: 58,
-          suffix: "%",
-          order: 1
-        },
-        {
-          label: "Loss history",
-          value: 42,
-          suffix: "%",
-          order: 2
-        },
-        {
-          label: "Industry growth",
-          value: 36,
-          suffix: "%",
-          order: 3
-        },
-        {
-          label: "Multiline opportunity",
-          value: 21,
-          suffix: "%",
-          order: 4
-        }
-      ]
-    },
-    {
-      type: "decrease",
-      title: "Decreasing Winnability",
-      targets: [
-        {
-          label: "Premium pricing",
-          value: -54,
-          suffix: "%",
-          order: 1
-        },
-        {
-          label: "Total exposure",
-          value: -48,
-          suffix: "%",
-          order: 2
-        },
-        {
-          label: "Loss ratio trend",
-          value: -33,
-          suffix: "%",
-          order: 3
-        },
-        {
-          label: "Market competition",
-          value: -25,
-          suffix: "%",
-          order: 4
-        }
-      ]
-    }
-  ];
+  @Input() menuGroups$: BehaviorSubject<MenuGroup[]> = new BehaviorSubject<MenuGroup[]>([]);
 
-  chartData: any;
-  chartOptions: any;
-  platformId = inject(PLATFORM_ID);
+  public activeMenuGroup: MenuGroup = {
+    count: 0,
+    items: [],
+    title: ''
+  };
+  public activeItemMenu: MenuItem = {
+    label: '',
+    url: ''
+  };
+  public chartData: any;
+  public chartOptions: any;
+  public isLoading = false;
+  public noData = false;
+  public overallData: AccountOverallData[] = [];
+  public recommendations: AIRecommendation[] = [];
+  public winnability: WinnabilityProgress[] = [];
 
-  protected summaryData = OVERALL_MOCK_DATA;
+  private platformId = inject(PLATFORM_ID);
 
-  constructor(private cd: ChangeDetectorRef) {}
+  constructor(private cd: ChangeDetectorRef,
+              private accountDetailsService: AccountDetailsService) {
+  }
 
   ngOnInit() {
-    const trend = this.summaryData.find(dt => dt.chart);
-    if (trend) {
-      this.initChart(trend);
-    }
-
-    this.winnabilityQuotes.forEach(quote => {
-      quote.targets.forEach(target => {
-        //
-      });
+    this.menuGroups$.subscribe(menuGroups => {
+      this.activeMenuGroup = menuGroups[0];
+      this.activeMenuGroup.active = true;
+      const menuItem = menuGroups[0]?.items[0];
+      this.selectItemMenu(menuItem);
     });
   }
 
   public getDots(count: number): number[] {
     return Array(count).fill(0);
+  }
+
+  public selectMenuGroup(menuGroup: MenuGroup) {
+    this.activeMenuGroup.active = false;
+    menuGroup.active = true;
+    this.activeMenuGroup = menuGroup;
+
+    const item = menuGroup?.items[0];
+    if (item) {
+      this.selectItemMenu(item);
+    }
+  }
+
+  public selectItemMenu(item: MenuItem) {
+    this.activeItemMenu.active = false;
+
+    const url = item?.url || '';
+    if (url) {
+      item.active = true;
+      this.activeItemMenu = item;
+      this.loadData(url)
+    }
+  }
+
+  private loadData(url: string) {
+    this.isLoading = true;
+    this.accountDetailsService.getMyAccountDetails(url)
+      .pipe(catchError(() => {
+          return of({} as AccountDetailsData);
+        })
+      ).subscribe((result: AccountDetailsData) => {
+        this.overallData = result?.overall || [];
+        this.recommendations = result?.recommendations || [];
+        this.winnability = result?.winnability || [];
+
+        this.noData = !Object.keys(result)?.length;
+        this.isLoading = false;
+
+        const trend = this.overallData.find(dt => dt.chart);
+        if (trend) {
+          this.initChart(trend);
+        }
+    });
   }
 
   private initChart(data: AccountOverallData) {

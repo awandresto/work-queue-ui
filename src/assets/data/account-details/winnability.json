@@ -1,0 +1,108 @@
+{
+  "overall": [
+    {
+      "title": "Overall Score",
+      "overall": {
+        "value": 82,
+        "rating": "Very Strong",
+        "ratingLevel": 4
+      }
+    },
+    {
+      "title": "Historical Trend",
+      "chart": {
+        "labels": ["Jan", "Feb", "Mar", "Apr", "Now"],
+        "values": [62, 72, 68, 74, 80]
+      }
+    },
+    {
+      "title": "Position",
+      "bars": [
+        {
+          "title": "Your score",
+          "percent": 82
+        },
+        {
+          "title": "Market Avg",
+          "percent": 68
+        },
+        {
+          "title": "Top competitor",
+          "percent": 88
+        }
+      ]
+    }
+  ],
+  "recommendations": [
+    {
+      "title": "Offer 5% premium discount in exchange for 3-year commitment",
+      "description": "Historical win rate increases 24% with multi-year commitments. Current pricing is 12% above market average. This approach would strengthen retention while maintaining adequate profitability."
+    },
+    {
+      "title": "Propose risk control services for cargo handling procedures",
+      "description": "Can potentially reduce loss ratio by 15–20% based on similar maritime accounts in your portfolio. Specific focus on loading/unloading operations would address the most frequent claim scenarios."
+    }
+  ],
+  "winnability": [
+    {
+      "type": "increase",
+      "title": "Increasing Winnability",
+      "progress": [
+        {
+          "label": "Brokers relationship",
+          "value": 58,
+          "suffix": "%",
+          "order": 1
+        },
+        {
+          "label": "Loss history",
+          "value": 42,
+          "suffix": "%",
+          "order": 2
+        },
+        {
+          "label": "Industry growth",
+          "value": 36,
+          "suffix": "%",
+          "order": 3
+        },
+        {
+          "label": "Multiline opportunity",
+          "value": 21,
+          "suffix": "%",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "type": "decrease",
+      "title": "Decreasing Winnability",
+      "progress": [
+        {
+          "label": "Premium pricing",
+          "value": -54,
+          "suffix": "%",
+          "order": 1
+        },
+        {
+          "label": "Total exposure",
+          "value": -48,
+          "suffix": "%",
+          "order": 2
+        },
+        {
+          "label": "Loss ratio trend",
+          "value": -33,
+          "suffix": "%",
+          "order": 3
+        },
+        {
+          "label": "Market competition",
+          "value": -25,
+          "suffix": "%",
+          "order": 4
+        }
+      ]
+    }
+  ]
+}
