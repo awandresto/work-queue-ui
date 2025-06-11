@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { Card } from 'primeng/card';
+import { NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-quick-actions',
   imports: [
-    Card
+    Card,
+    NgStyle
   ],
   templateUrl: './quick-actions.component.html',
   styleUrl: './quick-actions.component.scss',

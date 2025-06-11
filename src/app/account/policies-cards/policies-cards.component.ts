@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { PolicyItem } from '../../shared/types/account.types';
 import { Card } from 'primeng/card';
-import { PolicyCardComponent } from '../../shared/components/policy-card/policy-card.component';
+import { PolicyCardComponent } from './components/policy-card/policy-card.component';
 
 @Component({
   selector: 'app-policies-cards',

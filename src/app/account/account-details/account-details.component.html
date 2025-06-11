@@ -1,4 +1,4 @@
-<p-card class="app-account-details" [style]="{'width': '100%'}">
+<p-card class="app-account-details" [style]="{ width: '100%' }">
   <div class="details-wrapper">
     <div class="panel-menu">
       @for (group of menuGroups$ | async; track group.title) {
@@ -39,7 +39,7 @@
                     <div class="title">{{ overall.value }}%</div>
                     <div>
                       <p-tag class="outlined" rounded
-                             [style]="{'font-size': '0.9rem', 'padding': '0.5rem 0.75rem', 'border-radius': '999px'}">
+                             [style]="{ fontSize: '0.9rem', padding: '0.5rem 0.75rem', borderRadius: '999px'}">
                         @for (_ of getDots(overall.ratingLevel); let i=$index; track i) {
                           <span class="dot blue"></span>
                         }
@@ -71,7 +71,7 @@
                 <h3>
                   <i class="pi"
                      [ngClass]="winnability.type === 'decrease' ? 'pi-arrow-circle-down' : 'pi-arrow-circle-up'"
-                     [style]="{'font-size': '1.5rem'}"></i>
+                     [style]="{ fontSize: '1.5rem'}"></i>
                   <span>{{ winnability.title }}</span>
                 </h3>
 
@@ -82,7 +82,7 @@
                       <div class="bar-title">{{ item.label }}</div>
                       <div class="bar-row">
                     <span class="bar-fill"
-                          [style]="{'width': Math.abs(item.value) + '%'}"></span>
+                          [style]="{ width: Math.abs(item.value) + '%'}"></span>
                         <span class="bar-value">{{ item.value >= 0 ? '+' : '' }}{{ item.value }}%</span>
                       </div>
                     </div>

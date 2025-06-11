@@ -1,7 +1,7 @@
 <div class="app-attention-container">
-  <p-card [style]="{'border-color': 'var(--main-yellow-color)'}">
+  <p-card [style]="{ borderColor: 'var(--main-yellow-color)' }">
     <h3 class="attention-header">
-      <i class="pi pi-exclamation-circle" [style]="{'font-size': '1.25rem'}"></i>Needs Attention
+      <i class="pi pi-exclamation-circle" [style]="{ fontSize: '1.25rem' }"></i>Needs Attention
     </h3>
 
     <div class="attention-items">
@@ -10,7 +10,7 @@
           <div class="label">{{ item.label }}</div>
           <div class="sub">{{ item.sub }}</div>
           <a class="link" [routerLink]="item.link ? item.link : '#'">
-            {{ item.linkText }} <i class="pi pi-icon pi-arrow-right" [style]="{'font-size': '0.6rem'}"></i>
+            {{ item.linkText }} <i class="pi pi-icon pi-arrow-right" [style]="{ fontSize: '0.6rem' }"></i>
           </a>
         </div>
       }

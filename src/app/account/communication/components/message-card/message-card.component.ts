@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TitleCasePipe, UpperCasePipe } from '@angular/common';
-import { MessageCard } from '../../types/account.types';
+import { MessageCard } from '../../../../shared/types/account.types';
 import { Tooltip } from 'primeng/tooltip';
 
 @Component({

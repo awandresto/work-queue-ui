@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { PolicyItem } from '../../types/account.types';
+import { PolicyItem } from '../../../../shared/types/account.types';
 
 @Component({
   selector: 'app-policy-card',

@@ -1,11 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { TargetBarData } from '../../types/bar.types';
-import { NgClass, NgStyle } from '@angular/common';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-simple-target-bar',
   imports: [
-    NgStyle,
     NgClass
   ],
   templateUrl: './simple-target-bar.component.html',

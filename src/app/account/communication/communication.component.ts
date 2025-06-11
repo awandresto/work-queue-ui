@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MessageCard } from '../../shared/types/account.types';
 import { Card } from 'primeng/card';
 import { BehaviorSubject, debounceTime, Subject } from 'rxjs';
-import { MessageCardComponent } from '../../shared/components/message-card/message-card.component';
+import { MessageCardComponent } from './components/message-card/message-card.component';
 import { AutoHeightDirective } from '../../shared/directives/auto-height.directive';
 
 @Component({
