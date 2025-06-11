@@ -1,6 +1,6 @@
 <p-card>
   <div class="app-performance-card"
-       [ngStyle]="{'min-height': performanceData.bars?.length ? 'auto' : '220px'}">
+       [style]="{ minHeight: performanceData.bars?.length ? 'auto' : '220px' }">
     <div>
       <div class="card-title">
         <h3>{{ performanceData.title }}</h3>
@@ -25,12 +25,12 @@
     @if (performanceData.bars?.length) {
       <div class="card-bars">
         @for (bar of performanceData.bars; track bar) {
-          <app-simple-target-bar [barData]="bar"></app-simple-target-bar>
+          <app-simple-target-bar [data]="bar" [highlight]="true"></app-simple-target-bar>
         }
       </div>
     } @else {
       <a class="link" [href]="performanceData.link">
-        {{ performanceData.linkTitle }}<i class="pi pi-icon pi-arrow-right" [style]="{'font-size': '0.75rem'}"></i>
+        {{ performanceData.linkTitle }} <i class="pi pi-icon pi-arrow-right" [style]="{ fontSize: '0.75rem' }"></i>
       </a>
     }
   </div>

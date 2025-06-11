@@ -4,14 +4,14 @@
   <div class="bar-row">
     <div class="bar-container">
       <div class="bar-fill"
-          [ngStyle]="{width: barData.percent + '%'}">
+          [style]="{ width: barData.percent + '%' }">
         <span class="value-inside">{{ barData.value }}</span>
       </div>
     </div>
     <span class="label target-label">{{ barData.target }}</span>
   </div>
 
-  <div class="percent-label" [ngStyle]="{ left: barData.percent + '%' }">
+  <div class="percent-label" [style]="{ left: barData.percent + '%' }">
     {{ barData.percentLabel || (barData.percent + '%') }}
   </div>
 </div>

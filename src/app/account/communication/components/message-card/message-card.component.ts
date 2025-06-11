@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TitleCasePipe, UpperCasePipe } from '@angular/common';
-import { MessageCard } from '../../types/account.types';
+import { MessageCard } from '../../../../shared/types/account.types';
 import { Tooltip } from 'primeng/tooltip';
 
 @Component({
@@ -11,7 +11,8 @@ import { Tooltip } from 'primeng/tooltip';
     Tooltip
   ],
   templateUrl: './message-card.component.html',
-  styleUrl: './message-card.component.scss'
+  styleUrl: './message-card.component.scss',
+  standalone: true
 })
 export class MessageCardComponent {
   @Input() message!: MessageCard;

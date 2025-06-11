@@ -3,20 +3,24 @@
 .app-account-summary {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-top: 0.5rem;
-
-  .account-logo {
-    width: 6.375rem;
-    height: 6.375rem;
-    border-radius: 50%;
-    background-color: $app-card-bg-color;
-    object-fit: contain;
-  }
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  gap: calc(var(--layout-gap) * 2);
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
 
   .account-info {
-    flex: 1;
+    display: flex;
+    gap: var(--layout-gap);
     color: $app-text-color;
+
+    .logo {
+      width: 6.375rem;
+      height: 6.375rem;
+      border-radius: 50%;
+      background-color: $app-card-bg-color;
+      object-fit: contain;
+    }
 
     .title {
       margin-bottom: 0.25rem;
@@ -28,27 +32,33 @@
       font-size: 0.95rem;
       line-height: 1.4;
     }
-  }
 
-  .info {
-    display: flex;
-    gap: 2rem;
+    .info {
+      display: flex;
+      gap: 2rem;
 
-    .field {
-      border-left: 1px solid $app-border-color;
-      padding-left: 1rem;
+      .field {
+        border-left: 1px solid $app-border-color;
+        padding-left: 1rem;
 
-      .label {
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        color: #7c8ba1;
-        margin-bottom: 0.25rem;
-      }
+        .label {
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          color: #7c8ba1;
+          margin-bottom: 0.25rem;
+        }
 
-      .value {
-        font-size: 0.95rem;
-        color: #ffffff;
+        .value {
+          font-size: 0.95rem;
+          color: white;
+        }
       }
     }
+  }
+}
+
+@media (max-width: 1900px) {
+  .app-account-summary {
+    justify-content: left;
   }
 }

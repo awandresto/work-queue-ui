@@ -1,7 +1,7 @@
 <div class="goal-bar">
   <div class="bar-title">{{ barData.title }}</div>
   @if (barData.topLabel) {
-    <div class="marker-top" [ngStyle]="{ left: barData.topArrowPosition + '%' }">
+    <div class="marker-top" [style]="{ left: barData.topArrowPosition + '%' }">
       <span class="marker-label">{{ barData.topLabel }}</span>
       @if (barData.showArrowTop) {
         <div class="marker-arrow"></div>
@@ -12,15 +12,15 @@
   <div class="bar-container">
     @for (segment of barData.segments; track segment) {
       <div class="bar-segment {{ segment.color }}"
-           [ngStyle]="{ width: segment.width + '%' }"></div>
+           [style]="{ width: segment.width + '%' }"></div>
     }
-    <div class="value-label" [ngStyle]="{ left: barData.valuePosition + '%' }">
+    <div class="value-label" [style]="{ left: barData.valuePosition + '%' }">
       {{ barData.valueLabel }}
     </div>
   </div>
 
   @if (barData.bottomLabel) {
-    <div class="marker-bottom" [ngStyle]="{ left: barData.valuePosition + '%' }">
+    <div class="marker-bottom" [style]="{ left: barData.valuePosition + '%' }">
       @if (barData.showArrowBottom) {
         <div class="marker-arrow-bottom"></div>
       }

@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
-import { PerformanceCardComponent } from '../../shared/components/performance-card/performance-card.component';
-import { NgStyle } from '@angular/common';
+import { PerformanceCardComponent } from './components/performance-card/performance-card.component';
 import { PerformanceCard } from '../../shared/types/account.types';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-performance-metrics',
   imports: [
     PerformanceCardComponent,
-    NgStyle
+    NgClass
   ],
   templateUrl: './performance-metrics.component.html',
   styleUrl: './performance-metrics.component.scss',

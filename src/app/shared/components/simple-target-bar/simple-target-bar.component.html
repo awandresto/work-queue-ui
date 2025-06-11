@@ -1,8 +1,13 @@
 <div class="bar-row">
   <div class="bar-container">
     <div class="bar-fill"
-         [ngStyle]="{width: barData.percent + '%'}">
+         [style]="{ width: data.percent + '%',
+                    height: size === 'small' ? '1.25rem' : '1.5rem' }">
     </div>
   </div>
-  <span class="bar-title">{{ barData.title }}: <strong>{{ barData.percent }}%</strong></span>
+  <div class="bar-title"
+        [ngClass]="{'highlight': highlight}"
+        [style]="{ fontSize: size === 'small' ? '1rem' : '1.125rem' }">
+    {{ data.title }}: <span [ngClass]="{'bold': size !== 'small'}">{{ data.percent }}%</span>
+  </div>
 </div>

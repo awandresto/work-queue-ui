@@ -2,7 +2,7 @@
   padding-left: 0.875rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: var(--layout-gap);
 
   overflow: hidden;
   cursor: grab;

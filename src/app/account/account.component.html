@@ -1,37 +1,73 @@
 <main class="app-account-general">
-  <app-account-summary [accountData]="accountData"></app-account-summary>
-
-  <section>
-    <h1>Performance Metrics</h1>
-    <app-performance-metrics [performanceCards]="accountData.performance"></app-performance-metrics>
-  </section>
-
-  <section>
-    <h1>Policies</h1>
-    <app-policies-cards [policyCards]="accountData.policies"></app-policies-cards>
-  </section>
-
-  <section class="status-compliance">
-    <div class="status">
-      <h1>Account Status</h1>
-      <app-account-status [steps]="accountData.accountStatus"></app-account-status>
+  @if (isLoading) {
+    <div class="skeleton">
+      <div class="flex">
+        <p-skeleton shape="circle" size="6.5rem" />
+        <div class="flex flex-column gap-small">
+          <p-skeleton width="25rem" height="1.5rem" borderRadius="var(--border-radius)" />
+          <p-skeleton width="15rem" borderRadius="var(--border-radius)" />
+          <p-skeleton width="5rem" />
+        </div>
+      </div>
+      <div class="flex" [style.width.%]="100">
+        <p-skeleton [style.flex]="1" height="13rem" borderRadius="var(--border-radius)" />
+        <p-skeleton [style.flex]="1" height="13rem" borderRadius="var(--border-radius)" />
+        <p-skeleton [style.flex]="1" height="13rem" borderRadius="var(--border-radius)" />
+        <p-skeleton [style.flex]="1" height="11rem" borderRadius="var(--border-radius)" />
+      </div>
+      <p-skeleton height="11rem" borderRadius="var(--border-radius)" />
+      <div class="flex">
+        <p-skeleton [style.flex]="2" height="11rem" borderRadius="var(--border-radius)" />
+        <p-skeleton [style.flex]="1" height="11rem" borderRadius="var(--border-radius)" />
+      </div>
     </div>
+  } @else {
+    <app-account-summary [accountData]="accountData"></app-account-summary>
 
-    <div class="compliance">
-      <h1><span>Compliance & Documentation</span> <a class="link" href="#">See history →</a></h1>
-      <app-compliance [fields]="accountData.compliance"></app-compliance>
-    </div>
-  </section>
-
-  @if(accountMessages$.getValue().length) {
     <section>
-      <h1>Communication</h1>
-      <app-communication [messages$]="accountMessages$"></app-communication>
+      <h1>Performance Metrics</h1>
+      <app-performance-metrics [performanceCards]="accountData.performance"></app-performance-metrics>
+    </section>
+
+    <section>
+      <h1>Policies</h1>
+      <app-policies-cards [policyCards]="accountData.policies"></app-policies-cards>
+    </section>
+
+    <section class="status-compliance">
+      <div class="status">
+        <h1>Account Status</h1>
+        <app-account-status [steps]="accountData.accountStatus"></app-account-status>
+      </div>
+
+      <div class="compliance">
+        <h1>
+          <span>Compliance & Documentation</span>
+          <a class="link" href="#">
+            <span>See history</span>
+            <i class="pi pi-icon pi-arrow-right"
+               [style.font-size.rem]="0.75"></i>
+          </a>
+        </h1>
+        <app-compliance [fields]="accountData.compliance"></app-compliance>
+      </div>
+    </section>
+
+    <section>
+      <h1>Account Details</h1>
+      <app-account-details [menuGroups$]="menuGroups$"></app-account-details>
+    </section>
+
+    @if(accountMessages$.getValue().length) {
+      <section>
+        <h1>Communication</h1>
+        <app-communication [messages$]="accountMessages$"></app-communication>
+      </section>
+    }
+
+    <section>
+      <h1>Policies</h1>
+      <app-policies-grid [policies]="accountData.policies"></app-policies-grid>
     </section>
   }
-
-  <section>
-    <h1>Policies</h1>
-    <app-policies-grid [policies]="accountData.policies"></app-policies-grid>
-  </section>
 </main>

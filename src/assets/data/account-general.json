@@ -174,5 +174,32 @@
       "label": "Financial Verification",
       "svgRaw":  "<svg viewBox=\"0 0 22 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\\n' +\n'<path d=\"M11 21C16.52 21 21 16.52 21 11C21 5.48 16.52 1 11 1C5.48 1 1 5.48 1 11C1 16.52 5.48 21 11 21Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\\n' +\n'<path d=\"M8 11L10 13L14 9\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\\n' +\n'</svg>"
     }
+  ],
+  "menuGroups": [
+    {
+      "title": "Decision Support",
+      "count": 4,
+      "items": [
+        { "label": "Winnability", "url": "account-details/winnability" },
+        { "label": "Exposure Review & Suggested Coverage", "url": "account-details/exposure-review" },
+        { "label": "Portfolio Strategy Alignment", "url": "account-details/portfolio" },
+        { "label": "Broker Analytics", "url": "account-details/broker-analytics" }
+      ]
+    },
+    {
+      "title": "Risk Assessment",
+      "count": 1,
+      "items": [
+        { "label": "Exposure Review & Suggested Coverage", "url": "account-details/exposure-review" }
+      ]
+    },
+    {
+      "title": "Documents and Compliance",
+      "count": 2,
+      "items": [
+        { "label": "Portfolio Strategy Alignment", "url": "account-details/portfolio" },
+        { "label": "Broker Analytics", "url": "account-details/broker-analytics" }
+      ]
+    }
   ]
 }

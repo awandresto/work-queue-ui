@@ -18,7 +18,7 @@
       width: 15.625rem;
       height: 1.75rem;
       padding: 0.5rem 1rem;
-      background-color: #FFFFFF05;
+      background-color: $app-sub-card-bg-color;
       font-size: 0.9rem;
       color: $app-sub-text-color;
 
@@ -45,10 +45,6 @@
         transition: background-color 0.2s;
 
         &:hover {
-          background-color: rgb($app-main-blue-color, 0.1);
-        }
-
-        &.primary {
           background-color: $app-main-blue-color;
           color: white;
         }
@@ -92,23 +88,23 @@
       align-items: center;
       gap: 0.4rem;
       font-size: 0.85rem;
+    }
 
-      .dot {
-        width: 0.625rem;
-        height: 0.625rem;
-        border-radius: 50%;
+    .dot {
+      width: 0.625rem;
+      height: 0.625rem;
+      border-radius: 50%;
 
-        &.green {
-          background-color: $app-main-green-color;
-        }
+      &.green {
+        background-color: $app-main-green-color;
+      }
 
-        &.blue {
-          background-color: $app-main-blue-color;
-        }
+      &.blue {
+        background-color: $app-main-blue-color;
+      }
 
-        &.deep-blue {
-          background-color: $app-main-deep-blue-color;
-        }
+      &.deep-blue {
+        background-color: $app-main-deep-blue-color;
       }
     }
 

@@ -12,7 +12,7 @@
       width: 15.625rem;
       height: 1.75rem;
       padding: 0.5rem 1rem;
-      background-color: #FFFFFF05;
+      background-color: $app-sub-card-bg-color;
       font-size: 0.9rem;
       color: $app-sub-text-color;
 
@@ -39,10 +39,6 @@
         transition: background-color 0.2s;
 
         &:hover {
-          background-color: rgb($app-main-blue-color, 0.1);
-        }
-
-        &.primary {
           background-color: $app-main-blue-color;
           color: white;
         }

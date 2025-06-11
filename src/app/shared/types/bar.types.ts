@@ -18,7 +18,7 @@ export interface GoalBarData {
 export interface TargetBarData {
   percent: number;
   percentLabel?: string;
-  target: string;
+  target?: string;
   title?: string;
   value?: string;
 }
@@ -26,4 +26,11 @@ export interface TargetBarData {
 export interface PortfolioGoals {
   goals: GoalBarData[];
   target: TargetBarData[];
+}
+
+export interface ProgressBar {
+  label: string;
+  value: number;
+  suffix?: string;
+  order: number;
 }

@@ -10,7 +10,8 @@ import { RouterLink } from '@angular/router';
     RouterLink
   ],
   templateUrl: './attention.component.html',
-  styleUrl: './attention.component.scss'
+  styleUrl: './attention.component.scss',
+  standalone: true
 })
 export class AttentionComponent {
   @Input() attentions!: AccountAttention[];

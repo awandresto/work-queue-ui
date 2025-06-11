@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { PerformanceCard } from '../../types/account.types';
+import { PerformanceCard } from '../../../../shared/types/account.types';
 import { Card } from 'primeng/card';
-import { TargetBarComponent } from '../target-bar/target-bar.component';
+import { TargetBarComponent } from '../../../../shared/components/target-bar/target-bar.component';
 import { NgStyle } from '@angular/common';
-import { SimpleTargetBarComponent } from '../simple-target-bar/simple-target-bar.component';
+import { SimpleTargetBarComponent } from '../../../../shared/components/simple-target-bar/simple-target-bar.component';
 
 @Component({
   selector: 'app-performance-card',

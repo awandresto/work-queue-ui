@@ -39,7 +39,8 @@ const POLICY_FIELDS: (keyof PolicyItem)[] = [
     SumColumnPipe
   ],
   templateUrl: './policies-grid.component.html',
-  styleUrl: './policies-grid.component.scss'
+  styleUrl: './policies-grid.component.scss',
+  standalone: true
 })
 export class PoliciesGridComponent implements OnInit {
   @Input() public policies: PolicyItem[] = [];
@@ -52,6 +53,16 @@ export class PoliciesGridComponent implements OnInit {
   @ViewChild('table') table!: Table;
 
   protected readonly policyFields = POLICY_FIELDS;
+
+  public get averageLossRatio(): number {
+    if (!this.policies?.length) {
+      return 0;
+    }
+    const total = this.policies.reduce((sum, policy) => {
+      return sum + policy.lossRatio;
+    }, 0);
+    return total / this.policies.length;
+  }
 
   public ngOnInit(): void {
     this.tableActions = [

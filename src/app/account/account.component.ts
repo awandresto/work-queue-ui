@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../shared/services/account.service';
-import { AccountGeneral, MessageCard, PerformanceCard, PolicyItem } from '../shared/types/account.types';
+import { AccountGeneral, MenuGroup, MessageCard } from '../shared/types/account.types';
 import { PerformanceMetricsComponent } from './performance-metrics/performance-metrics.component';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PoliciesCardsComponent } from './policies-cards/policies-cards.component';
@@ -10,20 +10,24 @@ import { BreadcrumbsService } from '../shared/services/breadcrumbs.service';
 import { AccountStatusComponent } from './account-status/account-status.component';
 import { ComplianceComponent } from './compliance/compliance.component';
 import { CommunicationComponent } from './communication/communication.component';
-import { BehaviorSubject, forkJoin, Subject } from 'rxjs';
+import { BehaviorSubject, forkJoin } from 'rxjs';
 import { MessagesService } from '../shared/services/messages.service';
+import { AccountDetailsComponent } from './account-details/account-details.component';
+import { Skeleton } from 'primeng/skeleton';
 
 @Component({
   selector: 'app-account',
-    imports: [
-        PerformanceMetricsComponent,
-        PoliciesCardsComponent,
-        PoliciesGridComponent,
-        AccountSummaryComponent,
-        AccountStatusComponent,
-        ComplianceComponent,
-        CommunicationComponent
-    ],
+  imports: [
+    PerformanceMetricsComponent,
+    PoliciesCardsComponent,
+    PoliciesGridComponent,
+    AccountSummaryComponent,
+    AccountStatusComponent,
+    ComplianceComponent,
+    CommunicationComponent,
+    AccountDetailsComponent,
+    Skeleton
+  ],
   templateUrl: './account.component.html',
   styleUrl: './account.component.scss',
   standalone: true
@@ -43,9 +47,11 @@ export class AccountComponent implements OnInit {
     accountStatus: [],
     attentions: [],
     policies: [],
-    compliance: []
+    compliance: [],
+    menuGroups: []
   };
   public accountMessages$: BehaviorSubject<MessageCard[]> = new BehaviorSubject<MessageCard[]>([]);
+  public menuGroups$: BehaviorSubject<MenuGroup[]> = new BehaviorSubject<MenuGroup[]>([]);
 
   constructor(private accountService: AccountService,
               private breadcrumbsService: BreadcrumbsService,
@@ -59,17 +65,21 @@ export class AccountComponent implements OnInit {
     forkJoin([
       this.accountService.getAccountGeneral(),
       this.messagesService.getMessages()
-    ]).subscribe(([accountData, accountMessages]) => {
-      this.accountData = accountData || {};
-      if (this.accountData.performance?.length) {
-        this.accountData.policies.forEach(card => card.icon = this.sanitizer.bypassSecurityTrustHtml(card.svgRaw));
+    ]).subscribe(([data, messages]) => {
+      if (data.performance?.length) {
+        data.policies.forEach(card => card.icon = this.sanitizer.bypassSecurityTrustHtml(card.svgRaw));
       }
-      if (this.accountData.compliance?.length) {
-        this.accountData.compliance.forEach(item => {
+      if (data.compliance?.length) {
+        data.compliance.forEach(item => {
           item.icon = this.sanitizer.bypassSecurityTrustHtml(item.svgRaw);
         });
       }
-      this.accountMessages$.next(accountMessages || []);
+      if(data.menuGroups?.length) {
+        this.menuGroups$.next(data.menuGroups);
+      }
+
+      this.accountData = data || {};
+      this.accountMessages$.next(messages || []);
       this.isLoading = false;
     });
   }

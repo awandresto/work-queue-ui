@@ -1,6 +1,25 @@
-.performance-card {
+.app-performance-cards {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: var(--layout-gap);
+
+  > div {
+    flex: 1;
+
+    &.bars {
+      flex: 0 0 30%;
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  .app-performance-cards {
+    > div {
+      &.bars {
+        flex: 0 0 100%;
+      }
+    }
+  }
 }

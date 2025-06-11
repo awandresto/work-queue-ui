@@ -3,14 +3,14 @@
 .bar-row {
   display: flex;
   align-items: center;
+  // justify-content: space-between;
   gap: 1rem;
 
   .bar-container {
     position: relative;
+    flex: 1 1 0;
+    min-width: 0;
     display: flex;
-    flex-shrink: 0;
-    width: 55%;
-    height: 1.5rem;
     background-color: $app-bar-bg;
     border-top-right-radius: 9999px;
     border-bottom-right-radius: 9999px;
@@ -32,12 +32,15 @@
   }
 
   .bar-title {
-    font-size: 1.125rem;
     font-weight: 400;
     white-space: nowrap;
-    color: $app-text-color;
+    color: $app-description-color;
 
-    strong {
+    &.highlight {
+      color: $app-text-color;
+    }
+
+    .bold {
       font-weight: 500;
     }
   }
