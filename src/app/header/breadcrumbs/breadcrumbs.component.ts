@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Breadcrumb } from 'primeng/breadcrumb';
 import { RouterLink } from '@angular/router';
-import { MenuItem, PrimeTemplate } from 'primeng/api';
+import { MenuItem } from 'primeng/api';
 import { NgClass } from '@angular/common';
 
 @Component({
@@ -12,7 +12,8 @@ import { NgClass } from '@angular/common';
     NgClass
   ],
   templateUrl: './breadcrumbs.component.html',
-  styleUrl: './breadcrumbs.component.scss'
+  styleUrl: './breadcrumbs.component.scss',
+  standalone: true
 })
 export class BreadcrumbsComponent implements OnInit {
   items: MenuItem[] | undefined;

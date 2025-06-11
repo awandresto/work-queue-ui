@@ -9,7 +9,8 @@ import { NgClass, NgStyle } from '@angular/common';
     NgClass
   ],
   templateUrl: './simple-target-bar.component.html',
-  styleUrl: './simple-target-bar.component.scss'
+  styleUrl: './simple-target-bar.component.scss',
+  standalone: true
 })
 export class SimpleTargetBarComponent {
   @Input() data!: TargetBarData;

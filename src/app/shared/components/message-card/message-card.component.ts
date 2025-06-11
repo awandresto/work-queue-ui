@@ -11,7 +11,8 @@ import { Tooltip } from 'primeng/tooltip';
     Tooltip
   ],
   templateUrl: './message-card.component.html',
-  styleUrl: './message-card.component.scss'
+  styleUrl: './message-card.component.scss',
+  standalone: true
 })
 export class MessageCardComponent {
   @Input() message!: MessageCard;

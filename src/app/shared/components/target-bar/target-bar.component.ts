@@ -8,7 +8,8 @@ import { NgStyle } from '@angular/common';
     NgStyle
   ],
   templateUrl: './target-bar.component.html',
-  styleUrl: './target-bar.component.scss'
+  styleUrl: './target-bar.component.scss',
+  standalone: true
 })
 export class TargetBarComponent {
   @Input() barData!: TargetBarData;

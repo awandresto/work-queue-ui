@@ -19,6 +19,7 @@ $app-sub-card-bg-color: #FFFFFF05;
 $app-bar-bg: #313853;
 
 $app-body-gap-inline: 9rem;
+$app-border-radius-block: var(--border-radius);
 
 $app-text-color: var(--text-color);
 $app-sub-text-color: #94A3B8;
@@ -99,12 +100,12 @@ input {
 
 .p-datatable-thead > tr > th,
 .p-datatable-tbody > tr:nth-child(2n) {
-  background-color: #FFFFFF05 !important;
+  background-color: $app-sub-card-bg-color !important;
 }
 
 .p-datatable-thead > tr > th,
 .p-datatable-tbody > tr > td {
-  font-weight: 200 !important;
+  font-weight: 300 !important;
   color: $app-text-color !important;
 }
 
@@ -168,4 +169,26 @@ input {
   a:hover {
     background-color: rgba($app-main-blue-color, 0.1) !important;
   }
+}
+
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 2rem;
+
+  .flex {
+    display: flex;
+    gap: 1.5rem;
+
+    &.flex-column {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &.gap-small {
+      gap: 1rem;
+    }
+  }
+
 }

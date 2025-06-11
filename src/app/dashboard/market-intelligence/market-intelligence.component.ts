@@ -13,7 +13,7 @@ import { NgClass } from '@angular/common';
   standalone: true
 })
 export class MarketIntelligenceComponent {
-  items = [
+  public items = [
     { color: 'red', text: 'Rate hardening in Cyber market – +15% YoY' },
     { color: 'yellow', text: 'New capacity entering Marine market' },
     { color: 'blue', text: 'Environmental regulatory changes in CA' }

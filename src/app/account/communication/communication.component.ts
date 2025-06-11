@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MessageCard } from '../../shared/types/account.types';
 import { Card } from 'primeng/card';
 import { BehaviorSubject, debounceTime, Subject } from 'rxjs';
@@ -13,7 +13,8 @@ import { AutoHeightDirective } from '../../shared/directives/auto-height.directi
     AutoHeightDirective
   ],
   templateUrl: './communication.component.html',
-  styleUrl: './communication.component.scss'
+  styleUrl: './communication.component.scss',
+  standalone: true
 })
 export class CommunicationComponent implements OnInit {
   @Input() messages$: BehaviorSubject<MessageCard[]> = new BehaviorSubject<MessageCard []>([]);

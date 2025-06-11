@@ -20,15 +20,17 @@
       cursor: pointer;
       padding-inline: 1.25rem;
       height: 2rem;
-      background-color: #0C0F17;
+      background-color: $app-nav-btn-bg-color;
       border: none;
       border-radius: 9999px;
       color: $app-nav-text-color;
-      font-size: 1.15rem;
+      font-size: 1rem;
+      font-weight: 500;
       transition: background-color 0.2s;
 
       &:hover {
-        background-color: rgb($app-main-blue-color, 0.1);
+        background-color: $app-main-blue-hover-color;
+        color: white;
       }
 
       &.active {

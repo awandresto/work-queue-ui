@@ -1,12 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { NgClass, NgStyle } from '@angular/common';
+import { NgStyle } from '@angular/common';
 import { GoalBarData } from '../../types/bar.types';
 
 @Component({
   selector: 'app-goal-bar',
   imports: [
-    NgStyle,
-    NgClass
+    NgStyle
   ],
   templateUrl: './goal-bar.component.html',
   styleUrl: './goal-bar.component.scss',

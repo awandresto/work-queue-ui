@@ -11,7 +11,7 @@ import { Card } from 'primeng/card';
   standalone: true
 })
 export class QuickActionsComponent {
-  quickActions: string[] = [
+  public quickActions: string[] = [
     "New Submission",
     "Quote Builder",
     "Risks Models",

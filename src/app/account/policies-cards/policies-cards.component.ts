@@ -10,7 +10,8 @@ import { PolicyCardComponent } from '../../shared/components/policy-card/policy-
     PolicyCardComponent
   ],
   templateUrl: './policies-cards.component.html',
-  styleUrl: './policies-cards.component.scss'
+  styleUrl: './policies-cards.component.scss',
+  standalone: true
 })
 export class PoliciesCardsComponent implements OnInit {
   @Input() policyCards: PolicyItem[] = [];

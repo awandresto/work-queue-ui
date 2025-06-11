@@ -117,7 +117,7 @@
           padding-block: 1rem;
           padding-inline: 1.25rem;
           background-color: $app-sub-card-bg-color;
-          border-radius: 1.875rem;
+          border-radius: $app-border-radius-block;
           color: $app-text-color;
 
           h3 {
@@ -167,7 +167,7 @@
           padding-block: 1.25rem 1.75rem;
           padding-inline: 1.25rem;
           background-color: $app-sub-card-bg-color;
-          border-radius: 1.875rem;
+          border-radius: $app-border-radius-block;
 
           &.increase {
             color: $app-main-green-color;
@@ -266,7 +266,7 @@
       .ai-recommendations {
         padding: 1.5rem 2rem 2rem 1.5rem;
         background-color: $app-sub-card-bg-color;
-        border-radius: 1.875rem;
+        border-radius: $app-border-radius-block;
         display: flex;
         flex-direction: column;
         gap: 1.25rem;

@@ -8,7 +8,8 @@ import { ComplianceItem } from '../../shared/types/account.types';
     Card
   ],
   templateUrl: './compliance.component.html',
-  styleUrl: './compliance.component.scss'
+  styleUrl: './compliance.component.scss',
+  standalone: true
 })
 export class ComplianceComponent {
   @Input() public fields: ComplianceItem[] = [];

@@ -10,7 +10,7 @@
           <div class="label">{{ item.label }}</div>
           <div class="sub">{{ item.sub }}</div>
           <a class="link" [routerLink]="item.link ? item.link : '#'">
-            {{ item.linkText }} →
+            {{ item.linkText }} <i class="pi pi-icon pi-arrow-right" [style]="{'font-size': '0.6rem'}"></i>
           </a>
         </div>
       }

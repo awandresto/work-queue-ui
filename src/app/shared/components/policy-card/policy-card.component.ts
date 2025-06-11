@@ -5,7 +5,8 @@ import { PolicyItem } from '../../types/account.types';
   selector: 'app-policy-card',
   imports: [],
   templateUrl: './policy-card.component.html',
-  styleUrl: './policy-card.component.scss'
+  styleUrl: './policy-card.component.scss',
+  standalone: true
 })
 export class PolicyCardComponent {
   @Input() policyCard!: PolicyItem;

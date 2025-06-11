@@ -10,7 +10,7 @@ import { BreadcrumbsService } from '../shared/services/breadcrumbs.service';
 import { AccountStatusComponent } from './account-status/account-status.component';
 import { ComplianceComponent } from './compliance/compliance.component';
 import { CommunicationComponent } from './communication/communication.component';
-import { BehaviorSubject, forkJoin, Subject } from 'rxjs';
+import { BehaviorSubject, forkJoin } from 'rxjs';
 import { MessagesService } from '../shared/services/messages.service';
 import { AccountDetailsComponent } from './account-details/account-details.component';
 import { Skeleton } from 'primeng/skeleton';

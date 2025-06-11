@@ -63,7 +63,7 @@
           <td>
             @if (policy.lossRatio != null) {
               <p-tag class="policy-ratio {{getRatioColor(policy.lossRatio)}}"
-                     [value]="policy.lossRatio"
+                     [value]="`${policy.lossRatio}%`"
                      rounded></p-tag>
             } @else {
               N/A
@@ -82,7 +82,7 @@
       <ng-template #footer>
         <tr>
           <td colspan="4">
-            <div class="policies-total"><b>Total ({{ policies?.length }})</b></div>
+            <div class="policies-total"><b>TOTAL ({{ policies?.length }})</b></div>
           </td>
           <td>
             <b>{{ policies | sumColumn: 'expiringTech' | currencyFormat }}</b>
@@ -103,8 +103,8 @@
             <b>6.9%</b>
           </td>
           <td>
-            <p-tag class="policy-ratio {{getRatioColor(58.3)}}"
-                   [value]="'58.3'"
+            <p-tag class="policy-ratio {{getRatioColor(averageLossRatio)}}"
+                   [value]="`${averageLossRatio}%`"
                    rounded></p-tag>
           </td>
           <td></td>
