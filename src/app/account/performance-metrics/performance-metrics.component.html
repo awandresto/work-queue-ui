@@ -1,6 +1,6 @@
 <div class="app-performance-cards">
   @for (cardData of performanceCards; let i = $index; track i) {
-    <div [ngClass]="{ 'bars': cardData.bars?.length }">
+    <div [ngClass]="{ 'bars': !!cardData.bars?.length }">
       <app-performance-card [performanceData]="cardData"></app-performance-card>
     </div>
   }

@@ -82,7 +82,7 @@
       <ng-template #footer>
         <tr>
           <td colspan="4">
-            <div class="policies-total"><b>TOTAL ({{ policies?.length }})</b></div>
+            <div class="policies-total"><b>TOTAL ({{ policiesLength }})</b></div>
           </td>
           <td>
             <b>{{ policies | sumColumn: 'expiringTech' | currencyFormat }}</b>

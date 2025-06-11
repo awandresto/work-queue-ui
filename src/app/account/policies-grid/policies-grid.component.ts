@@ -54,14 +54,18 @@ export class PoliciesGridComponent implements OnInit {
 
   protected readonly policyFields = POLICY_FIELDS;
 
+  public get policiesLength(): number {
+    return this.policies?.length || 0;
+  }
+
   public get averageLossRatio(): number {
-    if (!this.policies?.length) {
+    if (!this.policiesLength) {
       return 0;
     }
     const total = this.policies.reduce((sum, policy) => {
       return sum + policy.lossRatio;
     }, 0);
-    return total / this.policies.length;
+    return total / this.policiesLength;
   }
 
   public ngOnInit(): void {

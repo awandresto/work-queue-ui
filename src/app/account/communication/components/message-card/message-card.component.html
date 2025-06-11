@@ -17,9 +17,9 @@
   <p class="content">{{ message.content }}</p>
 
   <div class="actions">
-    @if (message.attachments?.length) {
+    @if (!!message.attachments?.length) {
       <button class="btn btn-attach" [pTooltip]="attachmentName" tooltipPosition="right">
-        <i class="pi pi-paperclip" [style]="{ fontSize: '0.85rem' }"></i>  {{ message.attachments?.length }} attachments
+        <i class="pi pi-paperclip" [style]="{ fontSize: '0.85rem' }"></i>  {{ !!message.attachments?.length }} attachments
       </button>
     }
     @if (message.canReply) {

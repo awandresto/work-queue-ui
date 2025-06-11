@@ -1,6 +1,6 @@
 <p-card>
   <div class="app-performance-card"
-       [style]="{ minHeight: performanceData.bars?.length ? 'auto' : '220px' }">
+       [style]="{ minHeight: !!barLength ? 'auto' : '220px' }">
     <div>
       <div class="card-title">
         <h3>{{ performanceData.title }}</h3>
@@ -13,7 +13,7 @@
         }
       </div>
 
-      @if (!performanceData.bars?.length) {
+      @if (!barLength) {
         <div class="card-value">
           <span class="value">{{ performanceData.value }}</span>
           <span class="description">{{ performanceData.description }}</span>
@@ -22,7 +22,7 @@
     </div>
 
 
-    @if (performanceData.bars?.length) {
+    @if (!!barLength) {
       <div class="card-bars">
         @for (bar of performanceData.bars; track bar) {
           <app-simple-target-bar [data]="bar" [highlight]="true"></app-simple-target-bar>

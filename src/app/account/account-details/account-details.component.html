@@ -7,7 +7,7 @@
             {{ group.title }} <span class="counter">{{ group.count }}</span>
           </h3>
 
-          @if (group.active && group.items?.length) {
+          @if (group.active && group.items.length) {
             <ul class="group-items">
               @for (item of group.items; track item.label) {
                 <li [class.active]="item.active" (click)="selectItemMenu(item)">
@@ -25,9 +25,9 @@
           <p-progress-spinner ariaLabel="loading" />
         </div>
       } @else {
-        <h1 class="details-title">{{ activeItemMenu?.label }}</h1>
+        <h1 class="details-title">{{ activeItemMenu.label }}</h1>
 
-        @if (overallData?.length) {
+        @if (overallData.length) {
           <div class="summary-container">
             @for (data of overallData; track data) {
               <div class="summary-item">
@@ -51,7 +51,7 @@
                   <div class="card">
                     <p-chart type="line" [data]="chartData" [options]="chartOptions" [height]="'80'" class="h-[5rem]" />
                   </div>
-                } @else if (data.bars?.length) {
+                } @else if (!!data.bars?.length) {
                   @let bars = data.bars;
                   <div>
                     @for (bar of bars; let i=$index; track bar) {
@@ -64,7 +64,7 @@
           </div>
         }
 
-        @if (winnability?.length) {
+        @if (winnability.length) {
           <div class="winnability-container">
             @for (winnability of winnability; track winnability.title) {
               <div class="winnability-block {{ winnability.type }}">
@@ -93,7 +93,7 @@
           </div>
         }
 
-        @if (recommendations?.length) {
+        @if (recommendations.length) {
           <div class="ai-recommendations">
             <h3 class="recommend-header">
               <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
