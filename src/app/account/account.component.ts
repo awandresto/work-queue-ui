@@ -13,6 +13,7 @@ import { CommunicationComponent } from './communication/communication.component'
 import { BehaviorSubject, forkJoin, Subject } from 'rxjs';
 import { MessagesService } from '../shared/services/messages.service';
 import { AccountDetailsComponent } from './account-details/account-details.component';
+import { Skeleton } from 'primeng/skeleton';
 
 @Component({
   selector: 'app-account',
@@ -24,7 +25,8 @@ import { AccountDetailsComponent } from './account-details/account-details.compo
     AccountStatusComponent,
     ComplianceComponent,
     CommunicationComponent,
-    AccountDetailsComponent
+    AccountDetailsComponent,
+    Skeleton
   ],
   templateUrl: './account.component.html',
   styleUrl: './account.component.scss',
@@ -45,7 +47,8 @@ export class AccountComponent implements OnInit {
     accountStatus: [],
     attentions: [],
     policies: [],
-    compliance: []
+    compliance: [],
+    menuGroups: []
   };
   public accountMessages$: BehaviorSubject<MessageCard[]> = new BehaviorSubject<MessageCard[]>([]);
 

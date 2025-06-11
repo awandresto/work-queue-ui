@@ -30,6 +30,7 @@ export interface AccountGeneral {
   attentions: AccountAttention[];
   policies: PolicyItem[];
   compliance: ComplianceItem[];
+  menuGroups: MenuGroup[]
 }
 
 export interface AccountStatus {
@@ -105,4 +106,16 @@ export interface AccountOverallData {
   overall?: ScoreOverall;
   chart?: ChartData;
   bars?: TargetBarData[];
+}
+
+export interface MenuGroup {
+  title: string;
+  count: number;
+  items: MenuItem[];
+}
+
+export interface MenuItem {
+  label: string;
+  route: string;
+  active?: boolean;
 }

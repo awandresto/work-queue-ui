@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, inject, Input, OnInit, PLATFORM_ID } from
 import { Card } from 'primeng/card';
 import { isPlatformBrowser, NgClass } from '@angular/common';
 import { SimpleTargetBarComponent } from '../../shared/components/simple-target-bar/simple-target-bar.component';
-import { AccountOverallData } from '../../shared/types/account.types';
+import { AccountOverallData, MenuGroup } from '../../shared/types/account.types';
 import { Tag } from 'primeng/tag';
 import { ChartModule } from 'primeng/chart';
 
@@ -57,26 +57,7 @@ export const OVERALL_MOCK_DATA: AccountOverallData[] = [
 })
 export class AccountDetailsComponent implements OnInit {
   @Input() accountDetails: any;
-  @Input() menuGroups = [
-    {
-      title: 'Desicion Support',
-      count: 4,
-      items: [
-        { label: 'Winnability', active: true },
-        { label: 'Exposure Review & Suggested Coverage' },
-        { label: 'Portfolio Strategy Alignment' },
-        { label: 'Broker Analytics' }
-      ]
-    },
-    {
-      title: 'Risk Assessment',
-      count: 6
-    },
-    {
-      title: 'Documents and Compliance',
-      count: 2
-    }
-  ];
+  @Input() menuGroups: MenuGroup[] = [];
   @Input() recommendations = [
     {
       title: 'Offer 5% premium discount in exchange for 3-year commitment',
