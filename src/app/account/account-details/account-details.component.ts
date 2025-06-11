@@ -91,62 +91,62 @@ export class AccountDetailsComponent implements OnInit {
   ];
   @Input() winnabilityQuotes = [
     {
-      "type": "increase",
-      "title": "Increasing Winnability",
-      "targets": [
+      type: "increase",
+      title: "Increasing Winnability",
+      targets: [
         {
-          "label": "Brokers relationship",
-          "value": 28,
-          "suffix": "%",
-          "order": 1
+          label: "Brokers relationship",
+          value: 58,
+          suffix: "%",
+          order: 1
         },
         {
-          "label": "Loss history",
-          "value": 22,
-          "suffix": "%",
-          "order": 2
+          label: "Loss history",
+          value: 42,
+          suffix: "%",
+          order: 2
         },
         {
-          "label": "Industry growth",
-          "value": 16,
-          "suffix": "%",
-          "order": 3
+          label: "Industry growth",
+          value: 36,
+          suffix: "%",
+          order: 3
         },
         {
-          "label": "Multiline opportunity",
-          "value": 11,
-          "suffix": "%",
-          "order": 4
+          label: "Multiline opportunity",
+          value: 21,
+          suffix: "%",
+          order: 4
         }
       ]
     },
     {
-      "type": "decrease",
-      "title": "Decreasing Winnability",
-      "targets": [
+      type: "decrease",
+      title: "Decreasing Winnability",
+      targets: [
         {
-          "label": "Premium pricing",
-          "value": -24,
-          "suffix": "%",
-          "order": 1
+          label: "Premium pricing",
+          value: -54,
+          suffix: "%",
+          order: 1
         },
         {
-          "label": "Total exposure",
-          "value": -18,
-          "suffix": "%",
-          "order": 2
+          label: "Total exposure",
+          value: -48,
+          suffix: "%",
+          order: 2
         },
         {
-          "label": "Loss ratio trend",
-          "value": -13,
-          "suffix": "%",
-          "order": 3
+          label: "Loss ratio trend",
+          value: -33,
+          suffix: "%",
+          order: 3
         },
         {
-          "label": "Market competition",
-          "value": -5,
-          "suffix": "%",
-          "order": 4
+          label: "Market competition",
+          value: -25,
+          suffix: "%",
+          order: 4
         }
       ]
     }
@@ -165,6 +165,12 @@ export class AccountDetailsComponent implements OnInit {
     if (trend) {
       this.initChart(trend);
     }
+
+    this.winnabilityQuotes.forEach(quote => {
+      quote.targets.forEach(target => {
+        //
+      });
+    });
   }
 
   public getDots(count: number): number[] {
@@ -180,7 +186,6 @@ export class AccountDetailsComponent implements OnInit {
         labels: data.chart?.labels,
         datasets: [
           {
-            label: '',
             data: data.chart?.values,
             fill: false,
             borderColor: documentStyle.getPropertyValue('--main-blue-color'),
@@ -227,4 +232,6 @@ export class AccountDetailsComponent implements OnInit {
       this.cd.markForCheck()
     }
   }
+
+  protected readonly Math = Math;
 }

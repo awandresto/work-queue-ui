@@ -48,8 +48,8 @@
             } @else if (data.bars?.length) {
               @let bars = data.bars;
               <div>
-                @for (bar of bars; track bar) {
-                  <app-simple-target-bar [barData]="bar" [size]="'small'"></app-simple-target-bar>
+                @for (bar of bars; let i=$index; track bar) {
+                  <app-simple-target-bar [data]="bar" [highlight]="i === 0" [size]="'small'"></app-simple-target-bar>
                 }
               </div>
             }
@@ -59,19 +59,25 @@
 
       <div class="winnability-container">
         @for (winnability of winnabilityQuotes; track winnability.title) {
-          <div class="winnability-block"
-               [ngClass]="{'decrease': winnability.type === 'decrease',
-                           'increase': winnability.type === 'increase'}">
+          <div class="winnability-block {{ winnability.type }}">
             <h3>
-              <i class="pi" [ngClass]="winnability.type === 'decrease' ? 'pi-arrow-circle-down' : 'pi-arrow-circle-up'"></i>
-              {{ winnability.title }}
+              <i class="pi"
+                 [ngClass]="winnability.type === 'decrease' ? 'pi-arrow-circle-down' : 'pi-arrow-circle-up'"
+                 [style]="{'font-size': '1.5rem'}"></i>
+              <span>{{ winnability.title }}</span>
             </h3>
 
             @for (target of winnability.targets; track target) {
-              <div>
-                <span>{{ target.order }}</span>
-                <span>{{ target.label }}</span>
-                <span>{{ target.value }}%</span>
+              <div class="progress">
+                <div class="order">{{ target.order }}</div>
+                <div class="bar">
+                  <div class="bar-title">{{ target.label }}</div>
+                  <div class="bar-row">
+                    <span class="bar-fill"
+                          [style]="{'width': Math.abs(target.value) + '%'}"></span>
+                    <span class="bar-value">{{ target.value >= 0 ? '+' : '' }}{{ target.value }}%</span>
+                  </div>
+                </div>
               </div>
             }
           </div>
