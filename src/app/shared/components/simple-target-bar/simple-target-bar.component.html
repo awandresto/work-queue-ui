@@ -5,9 +5,9 @@
                     height: size === 'small' ? '1.25rem' : '1.5rem' }">
     </div>
   </div>
-  <span class="bar-title"
+  <div class="bar-title"
         [ngClass]="{'highlight': highlight}"
         [style]="{ fontSize: size === 'small' ? '1rem' : '1.125rem' }">
     {{ data.title }}: <span [ngClass]="{'bold': size !== 'small'}">{{ data.percent }}%</span>
-  </span>
+  </div>
 </div>

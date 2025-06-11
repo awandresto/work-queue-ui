@@ -1,7 +1,7 @@
 @import "../../styles.scss";
 
 .app-account-general {
-  margin-inline: $app-body-gap-inline;
+  margin-inline: $app-body-padding-inline;
 
   section {
     margin-top: 2rem;
@@ -10,7 +10,7 @@
     h1 {
       display: flex;
       align-items: baseline;
-      gap: 1rem;
+      gap: var(--layout-gap);
       margin-right: 1.5rem;
       margin-bottom: 1rem;
       font-size: 2rem;
@@ -43,11 +43,14 @@
     &.status-compliance {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: var(--layout-gap);
+      margin: 0;
       height: auto;
 
       .status,
       .compliance {
+        margin-top: 2rem;
+        margin-bottom: 3rem;
         min-width: 600px;
       }
 
@@ -57,6 +60,17 @@
 
       .compliance {
         flex: 1;
+      }
+    }
+  }
+}
+
+@media (max-width: 1365px) {
+  .app-account-general {
+    section.status-compliance {
+      .status,
+      .compliance {
+        min-width: 480px;
       }
     }
   }

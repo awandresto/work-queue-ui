@@ -69,7 +69,7 @@
               <p-tag class="outlined" [value]="account.triage" rounded></p-tag>
             </td>
             <td>
-              <p-tag class="outlined" rounded>
+              <p-tag class="outlined" rounded [style]="{ whiteSpace: 'nowrap' }">
                 @for (_ of getDots(account.winnabilityScore); let i=$index; track i) {
                   <span class="dot blue"></span>
                 }

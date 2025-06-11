@@ -24,7 +24,7 @@
       border: none;
       border-radius: 9999px;
       color: $app-nav-text-color;
-      font-size: 1rem;
+      font-size: 0.9rem;
       font-weight: 500;
       transition: background-color 0.2s;
 
@@ -41,6 +41,9 @@
   }
 
   .content {
+    overflow-y: auto;
+    height: calc(var(--top-row-height) - 9rem);
+
     .work-name {
       display: flex;
       align-items: center;

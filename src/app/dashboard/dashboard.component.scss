@@ -1,7 +1,7 @@
 @import "../../styles.scss";
 
 .app-dashboard {
-  margin-inline: $app-body-gap-inline;
+  margin-inline: $app-body-padding-inline;
 
   .layout {
     display: flex;
@@ -14,7 +14,6 @@
       height: var(--top-row-height);
 
       .left-column {
-        flex: 2;
         width: calc(100% - (var(--top-right-column-width)*2) - (var(--layout-gap)*2));
       }
 
@@ -23,7 +22,7 @@
         flex-direction: column;
         flex-wrap: wrap;
         gap: var(--layout-gap);
-        flex: 1;
+        width: var(--top-right-column-width);
 
         .tall-block {
           min-height: 0;

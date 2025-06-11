@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { Avatar } from 'primeng/avatar';
@@ -18,14 +18,14 @@ import { BreadcrumbsService } from '../shared/services/breadcrumbs.service';
   standalone: true
 })
 export class HeaderComponent {
-  public alias = 'AR';
-  public username = 'Arthur';
-  public taskCount = 12;
-  public searchQuery = '';
+  @Input() alias = 'AR';
+  @Input() username = 'Arthur';
+  @Input() taskCount = 12;
+  @Input() searchQuery = '';
 
   constructor(public breadcrumbsService: BreadcrumbsService) {}
 
   get greeting(): string {
-    return `Hi ${this.username}, welcome! You have ${this.taskCount} open tasks.`;
+    return `Hi ${this.username}, welcome! You have ${this.taskCount} open tasks`;
   }
 }
