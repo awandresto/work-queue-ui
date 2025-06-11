@@ -1,59 +1,40 @@
 # WorkQueueUi
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.13.
+## Description
 
-## Development server
+This test assignment was implemented using the Angular framework and is structured into standalone reusable components.
 
-To start a local development server, run:
+Most data is retrieved from mock JSON files via dedicated services. All data is strictly typed using TypeScript interfaces. Since only mock JSON files are used, there is no actual API request with account IDs as parameters, as would be required in a production environment.
 
-```bash
-ng serve
-```
+## Technologies Used
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Frontend:** Angular 19
+- **UI Framework:** [PrimeNG](https://primeng.org/) (chosen for its close resemblance to the provided design and its flexible customization compared to alternatives like Angular Material)
+- **Charts:** ng2-charts (Chart.js)
+- **State Management:** RxJS
+- **Styling:** SCSS
+- **Icons:** PrimeIcons
 
-## Code scaffolding
+## Features
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **Responsive design:** Ensure responsiveness up to small screens. The main menu becomes scrollable with navigation buttons on smaller screens.
+- **Component-based architecture:** All main blocks are organized as Angular components; the table could be further abstracted into a shared component.
+- **Strong TypeScript typing:** All data models are strictly typed.
+- **Dashboard and Account loading:** Different preloader strategies are demonstrated.
+- **Table filtering:** Tables (e.g., Policies) include search functionality and a dropdown action menu via a "three dots" icon.
+- **Table calculations:** The Policies table features a "Total" row with calculated columns. Custom pipes handle calculations and formatting.
+- **Policies scroll:** The Policies section supports horizontal scrolling via drag-and-drop. This functionality can be extracted into a directive for reuse.
+- **Account Details:** Navigation menu works as expected. The "Historical trend" block uses Chart.js for graph rendering.
+- **Auto-resizing Community block:** A custom directive automatically adjusts the height of the Community block to handle dynamic "floating" content. This can be reused in similar scenarios.
 
-```bash
-ng generate component component-name
-```
+## Additional Notes
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- Some parts, such as API integration, are simulated using mock data.
+- GPT-4 (ChatGPT) was used for code snippets, mock-data preparation, and UI logic.
 
-```bash
-ng generate --help
-```
+## Setup
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/awandresto/work-queue-ui.git
+   cd work-queue-ui
