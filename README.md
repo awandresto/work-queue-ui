@@ -20,6 +20,7 @@ Most data is retrieved from mock JSON files via dedicated services. All data is 
 - **Responsive design:** Ensure responsiveness up to small screens. The main menu becomes scrollable with navigation buttons on smaller screens.
 - **Component-based architecture:** All main blocks are organized as Angular components; the table could be further abstracted into a shared component.
 - **Strong TypeScript typing:** All data models are strictly typed.
+- **Routing:** Implemented client-side routing for navigation between multiple pages (Dashboard, Accounts, redirect to main).
 - **Dashboard and Account loading:** Different preloader strategies are demonstrated.
 - **Table filtering:** Tables (e.g., Policies) include search functionality and a dropdown action menu via a "three dots" icon.
 - **Table calculations:** The Policies table features a "Total" row with calculated columns. Custom pipes handle calculations and formatting.
